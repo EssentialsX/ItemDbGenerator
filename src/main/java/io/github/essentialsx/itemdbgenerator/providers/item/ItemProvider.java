@@ -11,9 +11,11 @@ public interface ItemProvider {
 
     abstract class Item {
         private final Material material;
+        private final String[] fallbacks;
 
         public Item(Material material) {
             this.material = material;
+            this.fallbacks = MaterialFallbacks.get(material);
         }
 
         public String getName() {
@@ -22,6 +24,10 @@ public interface ItemProvider {
 
         public Material getMaterial() {
             return material;
+        }
+
+        public String[] getFallbacks() {
+            return fallbacks;
         }
 
         @Override

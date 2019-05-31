@@ -2,7 +2,6 @@ package io.github.essentialsx.itemdbgenerator.providers.item;
 
 import org.bukkit.Material;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
