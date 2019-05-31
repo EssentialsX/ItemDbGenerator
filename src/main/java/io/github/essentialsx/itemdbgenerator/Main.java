@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import io.github.essentialsx.itemdbgenerator.providers.alias.AliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.SimpleAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.WoodAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
@@ -30,7 +31,8 @@ public class Main {
     );
 
     private static final List<AliasProvider> aliasProviders = Arrays.asList(
-        new SimpleAliasProvider()
+        new SimpleAliasProvider(),
+        new WoodAliasProvider()
     );
 
     public static void main( String[] args ) {
