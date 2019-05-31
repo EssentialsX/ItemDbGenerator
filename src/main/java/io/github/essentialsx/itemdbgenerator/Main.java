@@ -44,14 +44,20 @@ public class Main {
             getAliases(item).forEach(alias -> itemMap.addProperty(alias, item.getName()));
         });
 
+        save(itemMap);
+
+        System.err.println("Finished generating items.json");
+    }
+
+    private static void save(JsonObject itemMap) {
         String output = "#version: ${full.version}\n" + gson.toJson(itemMap);
 
         try {
             Files.deleteIfExists(outputPath);
             Files.write(outputPath, output.getBytes());
         } catch (IOException e) {
-            e.printStackTrace();
             System.err.println("Failed to save items.json!");
+            e.printStackTrace();
         }
 
         System.out.println(output);
