@@ -1,5 +1,6 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
+import org.bukkit.entity.EntityType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -27,6 +28,7 @@ class SpawnerProviderTest {
         assertTrue(names.contains("pig_spawner"), "missing pig");
         assertFalse(names.contains("_spawner"), "spawner without entity");
         assertFalse(names.contains("firework_spawner"), "non-spawnable entity");
+        assertFalse(names.contains("area_effect_cloud_spawner"), "non-spawnable entity");
     }
 
 }
