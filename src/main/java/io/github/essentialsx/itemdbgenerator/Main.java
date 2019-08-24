@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import io.github.essentialsx.itemdbgenerator.providers.alias.AliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.ColourAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.SimpleAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.WoodAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
@@ -32,7 +33,8 @@ public class Main {
 
     private static final List<AliasProvider> aliasProviders = Arrays.asList(
         new SimpleAliasProvider(),
-        new WoodAliasProvider()
+        new WoodAliasProvider(),
+        new ColourAliasProvider()
     );
 
     public static void main( String[] args ) {
@@ -72,8 +74,12 @@ public class Main {
     }
 
     private static Set<String> getAliases(ItemProvider.Item item) {
-        return aliasProviders.parallelStream()
+        System.err.print("ALIASES FOR " + item.getName() + ": ");
+        Set<String> aliases = aliasProviders.stream()
             .flatMap(provider -> provider.get(item))
+            .peek(s -> System.err.print(s + " "))
             .collect(Collectors.toSet());
+        System.err.println();
+        return aliases;
     }
 }

@@ -9,6 +9,8 @@ public class MaterialFallbacks {
     private static final Map<Material, String[]> MAP = new HashMap<>();
 
     static {
+        /* New "smooth stone" added in 1.14 */
+        add(Material.SMOOTH_STONE, Material.STONE);
         /* Dyes added in 1.14 */
         add(Material.BLACK_DYE, Material.INK_SAC, "INK_SACK");
         add(Material.BROWN_DYE, Material.COCOA_BEANS);

@@ -8,11 +8,13 @@ import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class WoodAliasProvider implements AliasProvider {
+public class WoodAliasProvider extends CompoundAliasProvider {
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         WoodType woodType = WoodType.of(item.getMaterial());
         WoodItemType itemType = WoodItemType.of(item.getMaterial());
+
+        System.err.print("WOOD-" + woodType + "-" + itemType + " ");
 
         if (woodType == null || itemType == null) return null;
 
@@ -61,29 +63,29 @@ public class WoodAliasProvider implements AliasProvider {
     private enum WoodItemType {
         BOAT(null, "boat%s", "%sboat"),
         BUTTON(null, "button%s", "%sbutton"),
-        DOOR("[A-Z]+_DOOR"),
-        FENCE("[A-Z]+_FENCE$"),
+        DOOR("[A-Z_]+_DOOR"),
+        FENCE("[A-Z_]+_FENCE$"),
         FENCE_GATE(null, "%sgate", "%sfencegate", "gate%s"),
         LEAVES(null, "%sleaves", "%sleaf", "leaves%s", "leaf%s"),
-        LOG("^[A-Z]+_LOG", "log%s", "%slog"),
+        LOG("^[A-Z_]+_LOG", "log%s", "%slog"),
         PLANKS(null),
         PRESSURE_PLATE(null, "%spplate", "%spressureplate", "%splate", "plate%s"),
-        SAPLING("^[A-Z]+_SAPLING"),
-        SLAB(null),
+        SAPLING("^[A-Z_]+_SAPLING"),
+        SLAB(null, "%sslab", "$shalfblock"),
         STAIRS(null, "%sstairs", "%sstair"),
         TRAPDOOR(null, "%strapdoor", "%stdoor"),
-        WOOD("^[A-Z]_WOOD", "%swood", "wood%s"),
-        POTTED_SAPLING("POTTED_[A-Z]+_SAPLING", "%spot", "potted%s", "potted%ssapling"),
-        STRIPPED_LOG("STRIPPED_[A-Z]+_LOG", "stripped%slog", "log%sstripped", "str%slog"),
-        STRIPPED_WOOD("STRIPPED_[A-Z]+_WOOD", "stripped%swood", "wood%sstripped", "str%swood"),
+        WOOD("^[A-Z_]+_WOOD", "%swood", "wood%s"),
+        POTTED_SAPLING("POTTED_[A-Z_]+_SAPLING", "%spot", "potted%s", "potted%ssapling"),
+        STRIPPED_LOG("STRIPPED_[A-Z_]+_LOG", "stripped%slog", "log%sstripped", "str%slog"),
+        STRIPPED_WOOD("STRIPPED_[A-Z_]+_WOOD", "stripped%swood", "wood%sstripped", "str%swood"),
         ;
 
         private final Pattern regex;
         private final String[] formats;
 
         WoodItemType(String regex, String... formats) {
-            this.regex = regex == null ? Pattern.compile(name()) : Pattern.compile(regex);
-            this.formats = formats == null ? new String[] {"%s" + name().toLowerCase()} : formats;
+            this.regex = getTypePattern(name(), regex);
+            this.formats = getTypeFormats(name(), formats);
         }
 
         public static WoodItemType of(Material material) {
