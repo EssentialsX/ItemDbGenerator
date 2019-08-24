@@ -1,5 +1,6 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
+import io.github.essentialsx.itemdbgenerator.providers.alias.MobAliasProvider;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
@@ -11,7 +12,7 @@ public class SpawnerProvider implements ItemProvider {
     @Override
     public Stream<Item> get() {
         return Arrays.stream(EntityType.values())
-            .filter(EntityType::isSpawnable)
+            .filter(MobAliasProvider::isSpawnable)
             .map(type -> new SpawnerItem(Material.SPAWNER, type));
     }
 

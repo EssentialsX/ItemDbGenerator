@@ -3,10 +3,7 @@ package io.github.essentialsx.itemdbgenerator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import io.github.essentialsx.itemdbgenerator.providers.alias.AliasProvider;
-import io.github.essentialsx.itemdbgenerator.providers.alias.ColourAliasProvider;
-import io.github.essentialsx.itemdbgenerator.providers.alias.SimpleAliasProvider;
-import io.github.essentialsx.itemdbgenerator.providers.alias.WoodAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.*;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
@@ -34,7 +31,8 @@ public class Main {
     private static final List<AliasProvider> aliasProviders = Arrays.asList(
         new SimpleAliasProvider(),
         new WoodAliasProvider(),
-        new ColourAliasProvider()
+        new ColourAliasProvider(),
+        new MobAliasProvider()
     );
 
     public static void main( String[] args ) {

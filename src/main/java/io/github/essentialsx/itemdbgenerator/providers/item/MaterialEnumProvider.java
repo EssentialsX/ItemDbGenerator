@@ -18,7 +18,7 @@ public class MaterialEnumProvider implements ItemProvider {
     }
 
     public static class MaterialEnumItem extends Item {
-        public MaterialEnumItem(Material material) {
+        private MaterialEnumItem(Material material) {
             super(material);
         }
     }
