@@ -19,7 +19,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
 
         if (item instanceof SpawnerProvider.SpawnerItem) {
             try {
-                mobType = MobType.entityMap.get(((SpawnerProvider.SpawnerItem) item).getEntity());
+                mobType = MobType.valueOf(((SpawnerProvider.SpawnerItem) item).getEntity().name());
             } catch (Exception ignored) {}
         }
 
@@ -40,7 +40,12 @@ public class MobAliasProvider extends CompoundAliasProvider {
     }
 
     public static boolean isSpawnable(final EntityType type) {
-        return MobType.entityMap.containsKey(type);
+        try {
+            MobType.valueOf(type.name());
+            return type.isSpawnable();
+        } catch (Exception ignored) {
+            return false;
+        }
     }
 
     /**
@@ -117,24 +122,14 @@ public class MobAliasProvider extends CompoundAliasProvider {
         PLAYER
         ;
 
-        private static final Map<EntityType, MobType> entityMap = new HashMap<>();
-
         private final String[] names;
 
         MobType(String... names) {
             this.names = ObjectArrays.concat(name().toLowerCase(), names);
-            addEntityType();
         }
 
         MobType(MobType otherType) {
             this.names = otherType.names;
-        }
-
-        private void addEntityType() {
-            try {
-                EntityType entityType = EntityType.valueOf(name());
-                entityMap.put(entityType, this);
-            } catch (Exception ignored) {}
         }
 
         public static MobType of(Material material) {
