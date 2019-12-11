@@ -32,7 +32,8 @@ public class Main {
         new SimpleAliasProvider(),
         new WoodAliasProvider(),
         new ColourAliasProvider(),
-        new MobAliasProvider()
+        new MobAliasProvider(),
+        new MeatFishAliasProvider()
     );
 
     public static void main( String[] args ) {
