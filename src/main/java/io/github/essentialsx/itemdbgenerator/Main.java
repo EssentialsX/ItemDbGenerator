@@ -44,7 +44,16 @@ public class Main {
 
         items.forEach(item -> {
             itemMap.add(item.getName(), gson.toJsonTree(item));
-            getAliases(item).forEach(alias -> itemMap.addProperty(alias, item.getName()));
+            getAliases(item).forEach(alias -> {
+                if (itemMap.has(alias)) {
+                    if (itemMap.get(alias).isJsonObject()) {
+                        System.err.println("Not overwriting " + alias + ": " + itemMap.get(alias) + " with " + item.getName());
+                        return;
+                    }
+                    System.err.println("Found conflicting alias " + alias + " for " + itemMap.get(alias) + " - overwriting with " + item.getName());
+                }
+                itemMap.addProperty(alias, item.getName());
+            });
         });
 
         save(itemMap);

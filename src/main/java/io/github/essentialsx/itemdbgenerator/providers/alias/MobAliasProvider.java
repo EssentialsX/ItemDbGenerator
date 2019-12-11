@@ -54,7 +54,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
     @SuppressWarnings("unused")
     private enum MobType {
         ELDER_GUARDIAN("eguardian"),
-        WITHER_SKELETON("wskeleton", "withersk", "wsk", "wither"),
+        WITHER_SKELETON("wskeleton", "withersk", "wsk", "withers"),
+        TRADER_LLAMA("tllama"),
         STRAY,
         HUSK,
         ZOMBIE_VILLAGER("zvillager", "deadvillager", "dvillager", "zvill", "dvill"),
@@ -116,7 +117,6 @@ public class MobAliasProvider extends CompoundAliasProvider {
         PANDA,
         PILLAGER,
         RAVAGER,
-        TRADER_LLAMA("tllama"),
         WANDERING_TRADER("trader"),
         FOX,
         PLAYER

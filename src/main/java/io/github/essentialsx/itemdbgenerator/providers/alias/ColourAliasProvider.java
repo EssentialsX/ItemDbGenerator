@@ -20,8 +20,8 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         return getAliases(colour, itemType);
     }
 
-    private Stream<String> getAliases(Colour woodType, ColourableItemType itemType) {
-        return Arrays.stream(woodType.names)
+    private Stream<String> getAliases(Colour colour, ColourableItemType itemType) {
+        return Arrays.stream(colour.names)
             .flatMap(itemType::format);
     }
 
