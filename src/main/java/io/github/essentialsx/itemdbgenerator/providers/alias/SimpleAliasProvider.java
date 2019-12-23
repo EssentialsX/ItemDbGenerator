@@ -9,13 +9,13 @@ public class SimpleAliasProvider implements AliasProvider {
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
-        Stream.Builder<String> builder = Stream.<String>builder()
-            .add(item.getName().replaceAll("_", ""));
+        Stream.Builder<String> builder = Stream.<String>builder();
 
-        // Only add "minecraft:"-prefixed aliases if the item is direct from the Material enum,
-        // as these are the only vanilla items
+        // Only add these aliases if the item is direct from the Material enum,
+        // as others have extended data
         if (item instanceof MaterialEnumProvider.MaterialEnumItem) {
-            builder.add("minecraft:" + item.getName());
+            builder.add("minecraft:" + item.getName())
+                .add(item.getName().replaceAll("_", ""));
         }
 
         return builder.build();

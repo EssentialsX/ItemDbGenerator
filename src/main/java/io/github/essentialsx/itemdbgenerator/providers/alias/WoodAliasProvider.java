@@ -14,7 +14,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         WoodType woodType = WoodType.of(item.getMaterial());
         WoodItemType itemType = WoodItemType.of(item.getMaterial());
 
-        System.err.print("WOOD-" + woodType + "-" + itemType + " ");
+//        System.err.print("WOOD-" + woodType + "-" + itemType + " ");
 
         if (woodType == null || itemType == null) return null;
 

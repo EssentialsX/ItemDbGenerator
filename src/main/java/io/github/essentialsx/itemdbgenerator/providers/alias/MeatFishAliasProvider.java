@@ -14,7 +14,7 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         Food food = Food.of(item.getMaterial());
         FoodModifier itemType = FoodModifier.of(item.getMaterial());
 
-        System.err.print("ANIMAL-" + food + "-" + itemType + " ");
+//        System.err.print("ANIMAL-" + food + "-" + itemType + " ");
 
         if (food == null || itemType == null) {
             return null;

@@ -27,7 +27,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
             mobType = MobType.of(item.getMaterial());
         }
 
-        System.err.print("MOB-" + mobType + "-" + itemType + " ");
+//        System.err.print("MOB-" + mobType + "-" + itemType + " ");
 
         if (mobType == null || itemType == null) return null;
 

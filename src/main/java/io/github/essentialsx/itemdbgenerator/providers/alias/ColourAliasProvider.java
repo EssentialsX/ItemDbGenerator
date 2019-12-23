@@ -13,7 +13,7 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         Colour colour = Colour.of(item.getMaterial());
         ColourableItemType itemType = ColourableItemType.of(item.getMaterial());
 
-        System.err.print("COLOUR-" + colour + "-" + itemType + " ");
+//        System.err.print("COLOUR-" + colour + "-" + itemType + " ");
 
         if (colour == null || itemType == null) return null;
 

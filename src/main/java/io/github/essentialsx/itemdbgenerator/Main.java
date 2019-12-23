@@ -33,7 +33,8 @@ public class Main {
         new WoodAliasProvider(),
         new ColourAliasProvider(),
         new MobAliasProvider(),
-        new MeatFishAliasProvider()
+        new MeatFishAliasProvider(),
+        new MineableAliasProvider()
     );
 
     public static void main( String[] args ) {
@@ -82,10 +83,10 @@ public class Main {
     }
 
     private static Set<String> getAliases(ItemProvider.Item item) {
-        System.err.print("ALIASES FOR " + item.getName() + ": ");
+//        System.err.print("ALIASES FOR " + item.getName() + ": ");
         Set<String> aliases = aliasProviders.stream()
             .flatMap(provider -> provider.get(item))
-            .peek(s -> System.err.print(s + " "))
+//            .peek(s -> System.err.print(s + " "))
             .collect(Collectors.toSet());
         System.err.println();
         return aliases;
