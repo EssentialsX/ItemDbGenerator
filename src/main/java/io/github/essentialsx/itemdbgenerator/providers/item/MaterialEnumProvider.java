@@ -21,5 +21,9 @@ public class MaterialEnumProvider implements ItemProvider {
         private MaterialEnumItem(Material material) {
             super(material);
         }
+
+        public String getName() {
+            return getMaterial().name().toLowerCase();
+        }
     }
 }

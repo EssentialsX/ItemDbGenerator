@@ -12,16 +12,14 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main {
 
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
     private static final Path outputPath = Paths.get(".", "items.json");
+    private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
     private static final List<ItemProvider> itemProviders = Arrays.asList(
         new MaterialEnumProvider(),
@@ -40,7 +38,7 @@ public class Main {
     public static void main( String[] args ) {
         System.err.println("Generating items.json...");
 
-        Set<ItemProvider.Item> items = getItems();
+        SortedSet<ItemProvider.Item> items = getItems();
         JsonObject itemMap = new JsonObject();
 
         items.forEach(item -> {
@@ -63,7 +61,7 @@ public class Main {
     }
 
     private static void save(JsonObject itemMap) {
-        String output = "#version: ${full.version}\n" + gson.toJson(itemMap);
+        String output = HEADER + gson.toJson(itemMap);
 
         try {
             Files.deleteIfExists(outputPath);
@@ -76,19 +74,18 @@ public class Main {
         System.out.println(output);
     }
 
-    private static Set<ItemProvider.Item> getItems() {
+    private static SortedSet<ItemProvider.Item> getItems() {
         return itemProviders.parallelStream()
             .flatMap(ItemProvider::get)
-            .collect(Collectors.toSet());
+            .collect(Collectors.toCollection(TreeSet::new));
     }
 
-    private static Set<String> getAliases(ItemProvider.Item item) {
+    private static SortedSet<String> getAliases(ItemProvider.Item item) {
 //        System.err.print("ALIASES FOR " + item.getName() + ": ");
-        Set<String> aliases = aliasProviders.stream()
+        return aliasProviders.stream()
             .flatMap(provider -> provider.get(item))
 //            .peek(s -> System.err.print(s + " "))
-            .collect(Collectors.toSet());
-        System.err.println();
-        return aliases;
+            .collect(Collectors.toCollection(TreeSet::new));
+//        System.err.println();
     }
 }

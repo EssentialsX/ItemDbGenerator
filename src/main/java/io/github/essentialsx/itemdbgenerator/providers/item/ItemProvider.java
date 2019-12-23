@@ -9,7 +9,7 @@ public interface ItemProvider {
 
     Stream<Item> get();
 
-    abstract class Item {
+    abstract class Item implements Comparable {
         private final Material material;
         private final String[] fallbacks;
 
@@ -18,9 +18,7 @@ public interface ItemProvider {
             this.fallbacks = MaterialFallbacks.get(material);
         }
 
-        public String getName() {
-            return material.name().toLowerCase();
-        }
+        public abstract String getName();
 
         public Material getMaterial() {
             return material;
@@ -37,7 +35,14 @@ public interface ItemProvider {
 
         @Override
         public boolean equals(Object obj) {
+            if (!(obj instanceof Item)) return false;
             return hashCode() == obj.hashCode();
+        }
+
+        @Override
+        public int compareTo(Object obj) {
+            Item item = (Item) obj;
+            return getName().compareToIgnoreCase(item.getName());
         }
     }
 }
