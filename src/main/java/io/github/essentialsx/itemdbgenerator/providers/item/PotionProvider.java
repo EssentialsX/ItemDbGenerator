@@ -45,12 +45,25 @@ public class PotionProvider implements ItemProvider {
     }
 
     public static class PotionItem extends Item {
+        private final PotionData potionData;
+
+        public PotionItem(Material material, PotionType type, boolean upgraded, boolean extended) {
+            super(material);
+            potionData = new PotionData(type, upgraded, extended);
+        }
+
+        @Override
+        public String getName() {
+            return potionData.getMojangName() + "_" + getMaterial().name().toLowerCase();
+        }
+    }
+
+    public static class PotionData {
         private final PotionType type;
         private final boolean upgraded;
         private final boolean extended;
 
-        public PotionItem(Material material, PotionType type, boolean upgraded, boolean extended) {
-            super(material);
+        PotionData(PotionType type, boolean upgraded, boolean extended) {
             this.type = type;
             this.upgraded = upgraded;
             this.extended = extended;
@@ -84,11 +97,6 @@ public class PotionProvider implements ItemProvider {
             }
 
             return baseName;
-        }
-
-        @Override
-        public String getName() {
-            return getMojangName() + "_" + getMaterial();
         }
     }
 }

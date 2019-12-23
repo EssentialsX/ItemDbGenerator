@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import io.github.essentialsx.itemdbgenerator.providers.alias.*;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
+import io.github.essentialsx.itemdbgenerator.providers.item.PotionProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
 
 import java.io.IOException;
@@ -23,7 +24,8 @@ public class Main {
 
     private static final List<ItemProvider> itemProviders = Arrays.asList(
         new MaterialEnumProvider(),
-        new SpawnerProvider()
+        new SpawnerProvider(),
+        new PotionProvider()
     );
 
     private static final List<AliasProvider> aliasProviders = Arrays.asList(
