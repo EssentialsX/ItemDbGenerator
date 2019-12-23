@@ -56,6 +56,10 @@ public class PotionProvider implements ItemProvider {
         public String getName() {
             return potionData.getMojangName() + "_" + getMaterial().name().toLowerCase();
         }
+
+        public PotionData getPotionData() {
+            return potionData;
+        }
     }
 
     public static class PotionData {

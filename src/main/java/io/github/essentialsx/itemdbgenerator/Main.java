@@ -34,7 +34,8 @@ public class Main {
         new ColourAliasProvider(),
         new MobAliasProvider(),
         new MeatFishAliasProvider(),
-        new MineableAliasProvider()
+        new MineableAliasProvider(),
+        new PotionAliasProvider()
     );
 
     public static void main( String[] args ) {
@@ -48,10 +49,10 @@ public class Main {
             getAliases(item).forEach(alias -> {
                 if (itemMap.has(alias)) {
                     if (itemMap.get(alias).isJsonObject()) {
-                        System.err.println("Not overwriting " + alias + ": " + itemMap.get(alias) + " with " + item.getName());
+                        System.err.printf("Not overwriting %s: %s with %s%n", alias, itemMap.get(alias), item.getName());
                         return;
                     }
-                    System.err.println("Found conflicting alias " + alias + " for " + itemMap.get(alias) + " - overwriting with " + item.getName());
+                    System.err.printf("Found conflicting alias %s for %s - overwriting with %s%n", alias, itemMap.get(alias), item.getName());
                 }
                 itemMap.addProperty(alias, item.getName());
             });
@@ -59,7 +60,7 @@ public class Main {
 
         save(itemMap);
 
-        System.err.println("Finished generating items.json");
+        System.err.printf("Finished generating items.json with %d entries%n", itemMap.entrySet().size());
     }
 
     private static void save(JsonObject itemMap) {
