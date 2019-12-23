@@ -119,7 +119,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
         RAVAGER,
         WANDERING_TRADER("trader"),
         FOX,
-        PLAYER
+        BEE,
+        PLAYER("steve"),
         ;
 
         private final String[] names;
