@@ -35,7 +35,8 @@ public class Main {
         new MobAliasProvider(),
         new MeatFishAliasProvider(),
         new MineableAliasProvider(),
-        new PotionAliasProvider()
+        new PotionAliasProvider(),
+        new RecordAliasProvider()
     );
 
     public static void main( String[] args ) {

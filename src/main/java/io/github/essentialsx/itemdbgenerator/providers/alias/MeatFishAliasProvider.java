@@ -29,6 +29,15 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
     }
 
     private enum Food {
+        BEEF("steak", "cowmeat"),
+        CHICKEN,
+        COD("fish"),
+        MUTTON("sheepmeat"),
+        PORKCHOP("pork"),
+        PUFFERFISH("pufffish", "fishpuff", "pfish", "fishp"),
+        RABBIT("hare", "hasenpfeffer"),
+        SALMON("salmonfish", "sfish", "fishs"),
+        TROPICAL_FISH("clownfish", "nemo", "clfish", "fishcl", "nfish", "fishn", "tfish", "fisht")
         ;
         private final String[] names;
 
@@ -51,7 +60,7 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
 
     private enum FoodModifier {
         COOKED("COOKED_[A-Z_]+", "%scooked", "%scook", "%sc", "%sgrilled", "%sgrill", "%sg", "%sroasted", "%sroast", "%sro", "%sbbq", "%stoasted", "cooked%s", "cook%s", "c%s", "grilled%s", "grill%s", "g%s", "roasted%s", "roast%s", "ro%s", "bbq%s", "toasted%s"),
-        RAW(null, "raw%s", "ra%s", "uncooked%s", "plain%s", "%s");
+        RAW("^(?!COOKED_)[A-Z_]+", "raw%s", "ra%s", "uncooked%s", "plain%s", "%s");
 
         private final Pattern regex;
         private final String[] formats;
