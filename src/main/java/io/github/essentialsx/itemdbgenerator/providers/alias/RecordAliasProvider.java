@@ -24,17 +24,17 @@ public class RecordAliasProvider extends CompoundAliasProvider {
 
     private enum Track {
         THIRTEEN("MUSIC_DISK_13", "13%s", "gold%s", "go%s", "%s1", "1%s"),
-        CAT(null, "cat%s", "green%s", "gr%s", "%s2", "2%s"),
-        BLOCKS(null, "blocks%s", "orange%s", "or%s", "%s3", "3%s"),
-        CHIRP(null, "chirp%s", "red%s", "re%s", "%s4", "4%s"),
-        FAR(null, "far%s", "lightgreen%s", "lgreen%s", "lightgr%s", "lgr%s", "%s5", "5%s"),
-        MALL(null, "mall%s", "purple%s", "pu%s", "%s6", "6%s"),
-        MELLOHI(null, "mellohi%s", "pink%s", "pi%s", "%s7", "7%s"),
-        STAL(null, "stal%s", "black%s", "bl%s", "%s8", "8%s"),
-        STRAD(null, "strad%s", "white%s", "wh%s", "%s9", "9%s"),
-        WARD(null, "ward%s", "darkgreen%s", "dgreen%s", "darkgr%s", "dgr%s", "%s10", "10%s"),
+        CAT("MUSIC_DISK_CAT", "cat%s", "green%s", "gr%s", "%s2", "2%s"),
+        BLOCKS("MUSIC_DISK_BLOCKS", "blocks%s", "orange%s", "or%s", "%s3", "3%s"),
+        CHIRP("MUSIC_DISK_CHIRP", "chirp%s", "red%s", "re%s", "%s4", "4%s"),
+        FAR("MUSIC_DISK_FAR", "far%s", "lightgreen%s", "lgreen%s", "lightgr%s", "lgr%s", "%s5", "5%s"),
+        MALL("MUSIC_DISK_MALL", "mall%s", "purple%s", "pu%s", "%s6", "6%s"),
+        MELLOHI("MUSIC_DISK_MELLOHI", "mellohi%s", "pink%s", "pi%s", "%s7", "7%s"),
+        STAL("MUSIC_DISK_STAL", "stal%s", "black%s", "bl%s", "%s8", "8%s"),
+        STRAD("MUSIC_DISK_STRAD", "strad%s", "white%s", "wh%s", "%s9", "9%s"),
+        WARD("MUSIC_DISK_WARD", "ward%s", "darkgreen%s", "dgreen%s", "darkgr%s", "dgr%s", "%s10", "10%s"),
         ELEVEN("MUSIC_DISK_11", "11%s", "cracked%s", "crack%s", "c%s", "%s11"),
-        WAIT(null, "wait%s", "blue%s", "cyan%s", "bl%s", "cy%s", "%s12", "12%s"),
+        WAIT("MUSIC_DISK_WAIT", "wait%s", "blue%s", "cyan%s", "bl%s", "cy%s", "%s12", "12%s"),
         ;
 
         private final Pattern regex;

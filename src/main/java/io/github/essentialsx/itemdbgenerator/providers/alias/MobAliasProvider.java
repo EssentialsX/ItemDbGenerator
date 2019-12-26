@@ -53,6 +53,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum MobType {
+        CAVE_SPIDER("cspider", "cspid"),
         ELDER_GUARDIAN("eguardian"),
         WITHER_SKELETON("wskeleton", "withersk", "wsk", "withers"),
         TRADER_LLAMA("tllama"),
@@ -77,7 +78,6 @@ public class MobAliasProvider extends CompoundAliasProvider {
         SLIME,
         GHAST,
         ENDERMAN,
-        CAVE_SPIDER("cspider", "cspid"),
         SILVERFISH("sfish"),
         BLAZE,
         MAGMA_CUBE("lavaslime", "lavacube", "magmaslime"),
@@ -151,7 +151,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
     @SuppressWarnings("unused")
     private enum MobItemType {
         SPAWNER(null, "%smobspawner", "%smobcage", "%smonsterspawner", "%smonstercage", "%smspawner", "%smcage", "%sspawner", "%scage"),
-        SPAWN_EGG(null, "%segg", "egg%s", "%sspawnegg", "spawnegg%s", "%sspawn", "spawn%s"),
+        SPAWN_EGG(null, "%ssegg", "egg%s", "%sspawnegg", "spawnegg%s", "%sspawn", "spawn%s"),
         SKULL(null, "%shead", "%sskull", "head%s", "%smask", "%sheadmask"),
         BUCKET(null, "%sbucket", "%sbukkit", "bucketo%s", "%spail"),
         ;

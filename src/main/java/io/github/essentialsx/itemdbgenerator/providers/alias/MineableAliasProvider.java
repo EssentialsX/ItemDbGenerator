@@ -69,9 +69,9 @@ public class MineableAliasProvider extends CompoundAliasProvider {
     @SuppressWarnings("unused")
     private enum MineableItemType {
         // Blocks
-        ORE(null, "%sore", "%so", "!ore%s", "!o%s"),
+        ORE(null, "%sore", "%so", "ore%s", "o%s"),
         BLOCK(null, "%sblock", "block%s"),
-        INGOT(null, "%singot", "%sbar", "%si", "!ingot%s", "!bar%s", "!i%s"),
+        INGOT(null, "%singot", "%sbar", "%si", "ingot%s", "bar%s", "i%s"),
         // Tools
         SWORD(null, "%ssword"),
         SHOVEL(null, "%sshovel", "%sspade"),
