@@ -30,13 +30,14 @@ public class Main {
 
     private static final List<AliasProvider> aliasProviders = Arrays.asList(
         new SimpleAliasProvider(),
-        new WoodAliasProvider(),
+        new PotionAliasProvider(),
         new ColourAliasProvider(),
+        new WoodAliasProvider(),
+        new MineableAliasProvider(),
+        new RecordAliasProvider(),
         new MobAliasProvider(),
         new MeatFishAliasProvider(),
-        new MineableAliasProvider(),
-        new PotionAliasProvider(),
-        new RecordAliasProvider()
+        new PrismarineAliasProvider()
     );
 
     public static void main( String[] args ) {
