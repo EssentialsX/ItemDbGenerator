@@ -22,13 +22,13 @@ public class Main {
     private static final Path outputPath = Paths.get(".", "items.json");
     private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
-    private static final List<ItemProvider> itemProviders = Arrays.asList(
+    public static final List<ItemProvider> itemProviders = Arrays.asList(
         new MaterialEnumProvider(),
         new SpawnerProvider(),
         new PotionProvider()
     );
 
-    private static final List<AliasProvider> aliasProviders = Arrays.asList(
+    public static final List<AliasProvider> aliasProviders = Arrays.asList(
         new SimpleAliasProvider(),
         new PotionAliasProvider(),
         new ColourAliasProvider(),
@@ -40,9 +40,16 @@ public class Main {
         new PrismarineAliasProvider()
     );
 
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         System.err.println("Generating items.json...");
 
+        JsonObject itemMap = generateItemMap();
+        save(itemMap);
+
+        System.err.printf("Finished generating items.json with %d entries%n", itemMap.entrySet().size());
+    }
+
+    static JsonObject generateItemMap() {
         SortedSet<ItemProvider.Item> items = getItems();
         JsonObject itemMap = new JsonObject();
 
@@ -60,12 +67,10 @@ public class Main {
             });
         });
 
-        save(itemMap);
-
-        System.err.printf("Finished generating items.json with %d entries%n", itemMap.entrySet().size());
+        return itemMap;
     }
 
-    private static void save(JsonObject itemMap) {
+    static void save(JsonObject itemMap) {
         String output = HEADER + gson.toJson(itemMap);
 
         try {
@@ -79,18 +84,15 @@ public class Main {
         System.out.println(output);
     }
 
-    private static SortedSet<ItemProvider.Item> getItems() {
+    static SortedSet<ItemProvider.Item> getItems() {
         return itemProviders.parallelStream()
             .flatMap(ItemProvider::get)
             .collect(Collectors.toCollection(TreeSet::new));
     }
 
-    private static SortedSet<String> getAliases(ItemProvider.Item item) {
-//        System.err.print("ALIASES FOR " + item.getName() + ": ");
+    static SortedSet<String> getAliases(ItemProvider.Item item) {
         return aliasProviders.stream()
             .flatMap(provider -> provider.get(item))
-//            .peek(s -> System.err.print(s + " "))
             .collect(Collectors.toCollection(TreeSet::new));
-//        System.err.println();
     }
 }
