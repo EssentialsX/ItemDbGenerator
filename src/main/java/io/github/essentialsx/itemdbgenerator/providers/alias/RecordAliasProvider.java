@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import org.bukkit.Material;
 
 public class RecordAliasProvider extends CompoundAliasProvider {
-    private static List<String> MUSIC_DISC_NAMES = Arrays.asList("musicrecord", "musicdisk", "musicdisc", "musiccd", "mrecord", "mdisk", "mdisc", "mcd", "record", "disk", "disc", "cd");
+    private static final List<String> MUSIC_DISC_NAMES = Arrays.asList("musicrecord", "musicdisk", "musicdisc", "musiccd", "mrecord", "mdisk", "mdisc", "mcd", "record", "disk", "disc", "cd");
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
@@ -22,7 +22,7 @@ public class RecordAliasProvider extends CompoundAliasProvider {
             .flatMap(track::format);
     }
 
-    private enum Track {
+    private enum Track implements CompoundType {
         THIRTEEN("MUSIC_DISK_13", "13%s", "gold%s", "go%s", "%s1", "1%s"),
         CAT("MUSIC_DISK_CAT", "cat%s", "green%s", "gr%s", "%s2", "2%s"),
         BLOCKS("MUSIC_DISK_BLOCKS", "blocks%s", "orange%s", "or%s", "%s3", "3%s"),
@@ -41,8 +41,8 @@ public class RecordAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         Track(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static Track of(Material material) {
@@ -57,9 +57,9 @@ public class RecordAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String record) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, record));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 

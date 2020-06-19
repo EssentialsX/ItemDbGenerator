@@ -13,23 +13,16 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         Colour colour = Colour.of(item.getMaterial());
         ColourableItemType itemType = ColourableItemType.of(item.getMaterial());
 
-//        System.err.print("COLOUR-" + colour + "-" + itemType + " ");
-
         if (colour == null || itemType == null) return null;
 
         return getAliases(colour, itemType);
-    }
-
-    private Stream<String> getAliases(Colour colour, ColourableItemType itemType) {
-        return Arrays.stream(colour.names)
-            .flatMap(itemType::format);
     }
 
     /**
      * Represents available varieties of wood in the game.
      */
     @SuppressWarnings("unused")
-    private enum Colour {
+    private enum Colour implements CompoundModifier {
         WHITE("w", "white"),
         ORANGE("o", "orange"),
         MAGENTA("m", "magenta"),
@@ -76,13 +69,18 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         public static Colour[] lightValues() {
             return lightValues;
         }
+
+        @Override
+        public String[] getNames() {
+            return names;
+        }
     }
 
     /**
      * Represents the types of materials with coloured variants.
      */
     @SuppressWarnings("unused")
-    private enum ColourableItemType {
+    private enum ColourableItemType implements CompoundType {
         BANNER("[A-Z_]+_(?<!WALL_)BANNER", "%sbanner"),
         BED(null, "%sbed"),
         CARPET(null, "%scarpet", "%sfloor"),
@@ -101,8 +99,8 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         ColourableItemType(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static ColourableItemType of(Material material) {
@@ -117,9 +115,9 @@ public class ColourAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String colour) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, colour));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 }

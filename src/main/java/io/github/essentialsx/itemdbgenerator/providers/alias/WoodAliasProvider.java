@@ -11,26 +11,19 @@ import java.util.stream.Stream;
 public class WoodAliasProvider extends CompoundAliasProvider {
     @Override
     public Stream<String> get(ItemProvider.Item item) {
-        WoodType woodType = WoodType.of(item.getMaterial());
+        WoodSpecies woodSpecies = WoodSpecies.of(item.getMaterial());
         WoodItemType itemType = WoodItemType.of(item.getMaterial());
 
-//        System.err.print("WOOD-" + woodType + "-" + itemType + " ");
+        if (woodSpecies == null || itemType == null) return null;
 
-        if (woodType == null || itemType == null) return null;
-
-        return getAliases(woodType, itemType);
-    }
-
-    private Stream<String> getAliases(WoodType woodType, WoodItemType itemType) {
-        return Arrays.stream(woodType.names)
-            .flatMap(itemType::format);
+        return getAliases(woodSpecies, itemType);
     }
 
     /**
      * Represents available varieties of wood in the game.
      */
     @SuppressWarnings("unused")
-    private enum WoodType {
+    private enum WoodSpecies implements CompoundModifier {
         ACACIA("ac", "a"),
         BIRCH("b", "light", "l", "white", "w"),
         DARK_OAK("darkoak", "do"),
@@ -40,13 +33,13 @@ public class WoodAliasProvider extends CompoundAliasProvider {
 
         private final String[] names;
 
-        WoodType(String... names) {
+        WoodSpecies(String... names) {
             this.names = ObjectArrays.concat(name().toLowerCase(), names);
         }
 
-        public static WoodType of(Material material) {
+        public static WoodSpecies of(Material material) {
             String matName = material.name();
-            for (WoodType type : values()) {
+            for (WoodSpecies type : values()) {
                 if (matName.contains(type.name())) {
                     return type;
                 }
@@ -54,13 +47,18 @@ public class WoodAliasProvider extends CompoundAliasProvider {
 
             return null;
         }
+
+        @Override
+        public String[] getNames() {
+            return names;
+        }
     }
 
     /**
      * Represents the types of items that can have multiple different wood types.
      */
     @SuppressWarnings("unused")
-    private enum WoodItemType {
+    private enum WoodItemType implements CompoundType {
         BOAT(null, "boat%s", "%sboat", "%sraft"),
         BUTTON(null, "button%s", "%sbutton"),
         DOOR("[A-Z_]+_DOOR"),
@@ -84,8 +82,8 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         WoodItemType(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static WoodItemType of(Material material) {
@@ -100,9 +98,9 @@ public class WoodAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String wood) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, wood));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 }

@@ -18,18 +18,11 @@ public class PrismarineAliasProvider extends CompoundAliasProvider {
         return getAliases(prismarineType, itemType);
     }
 
-    private Stream<String> getAliases(PrismarineType prismarineType, PrismarineItemType itemType) {
-        return Arrays.stream(prismarineType.names)
-            .flatMap(itemType::format);
-    }
-
-
-
     /**
      * Represents the different varieties of prismarine.
      */
     @SuppressWarnings("unused")
-    private enum PrismarineType {
+    private enum PrismarineType implements CompoundModifier {
         PRISMARINE_BRICK("prismarinebricks", "prismarinebrick", "prismarinebr", "prisbricks", "prisbrick", "prisbr", "seabricks", "seabrick", "seabr"),
         DARK_PRISMARINE("darkprismarine", "dprismarine", "darkpris", "dpris", "darksea", "dsea"),
         PRISMARINE("prismarine", "pris", "sea")
@@ -52,13 +45,18 @@ public class PrismarineAliasProvider extends CompoundAliasProvider {
 
             return null;
         }
+
+        @Override
+        public String[] getNames() {
+            return names;
+        }
     }
 
     /**
      * Represents the types of materials with coloured variants.
      */
     @SuppressWarnings("unused")
-    private enum PrismarineItemType {
+    private enum PrismarineItemType implements CompoundType {
         BRICKS(null, "%s"),
         SLAB(null, "%sslab", "%ssl"),
         STAIRS(null, "%sstairs", "%sstair", "%sst"),
@@ -71,8 +69,8 @@ public class PrismarineAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         PrismarineItemType(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static PrismarineItemType of(Material material) {
@@ -87,9 +85,9 @@ public class PrismarineAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String colour) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, colour));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 

@@ -4,8 +4,6 @@ import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import org.bukkit.Material;
@@ -34,11 +32,6 @@ public class MobAliasProvider extends CompoundAliasProvider {
         return getAliases(mobType, itemType);
     }
 
-    private Stream<String> getAliases(MobType mobType, MobItemType itemType) {
-        return Arrays.stream(mobType.names)
-            .flatMap(itemType::format);
-    }
-
     public static boolean isSpawnable(final EntityType type) {
         try {
             MobType.valueOf(type.name());
@@ -52,7 +45,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
      * Represents mobs that can be spawned in the game.
      */
     @SuppressWarnings("unused")
-    private enum MobType {
+    private enum MobType implements CompoundModifier {
         CAVE_SPIDER("cspider", "cspid"),
         ELDER_GUARDIAN("eguardian"),
         WITHER_SKELETON("wskeleton", "withersk", "wsk", "withers"),
@@ -143,13 +136,18 @@ public class MobAliasProvider extends CompoundAliasProvider {
 
             return null;
         }
+
+        @Override
+        public String[] getNames() {
+            return names;
+        }
     }
 
     /**
      * Represents the types of items that can have multiple different wood types.
      */
     @SuppressWarnings("unused")
-    private enum MobItemType {
+    private enum MobItemType implements CompoundType {
         SPAWNER(null, "%smobspawner", "%smobcage", "%smonsterspawner", "%smonstercage", "%smspawner", "%smcage", "%sspawner", "%scage"),
         SPAWN_EGG(null, "%ssegg", "egg%s", "%sspawnegg", "spawnegg%s", "%sspawn", "spawn%s"),
         SKULL(null, "%shead", "%sskull", "head%s", "%smask", "%sheadmask"),
@@ -160,8 +158,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         MobItemType(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static MobItemType of(Material material) {
@@ -176,9 +174,9 @@ public class MobAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String wood) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, wood));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 }

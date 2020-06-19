@@ -19,8 +19,6 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         Food food = Food.of(item.getMaterial());
         FoodModifier itemType = FoodModifier.of(item.getMaterial());
 
-//        System.err.print("ANIMAL-" + food + "-" + itemType + " ");
-
         if (food == null || itemType == null) {
             return null;
         }
@@ -35,12 +33,7 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         return false;
     }
 
-    private Stream<String> getAliases(Food food, FoodModifier modifier) {
-        return Arrays.stream(food.names)
-            .flatMap(modifier::format);
-    }
-
-    private enum Food {
+    private enum Food implements CompoundModifier {
         BEEF("steak", "cowmeat"),
         CHICKEN,
         COD("fish"),
@@ -57,6 +50,11 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
             this.names = ObjectArrays.concat(name().toLowerCase(), names);
         }
 
+        @Override
+        public String[] getNames() {
+            return names;
+        }
+
         public static Food of(Material material) {
             String matName = material.name();
 
@@ -70,7 +68,8 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         }
     }
 
-    private enum FoodModifier {
+    // ...trust me this makes sense I promise
+    private enum FoodModifier implements CompoundType {
         COOKED("COOKED_[A-Z_]+", "%scooked", "%scook", "%sc", "%sgrilled", "%sgrill", "%sg", "%sroasted", "%sroast", "%sro", "%sbbq", "%stoasted", "cooked%s", "cook%s", "c%s", "grilled%s", "grill%s", "g%s", "roasted%s", "roast%s", "ro%s", "bbq%s", "toasted%s"),
         HIDE("[A-Z_]+_HIDE", "%shide", "%sskin", "%scoat", "%sfur"),
         RAW("^(?!COOKED_)[A-Z_]+", "raw%s", "ra%s", "uncooked%s", "plain%s", "%s"),
@@ -80,8 +79,13 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         FoodModifier(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
+        }
+
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
 
         public static FoodModifier of(Material material) {
@@ -94,11 +98,6 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
-        }
-
-        public Stream<String> format(String food) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, food));
         }
     }
 }

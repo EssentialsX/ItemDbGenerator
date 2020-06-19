@@ -13,23 +13,16 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         Mineable mineable = Mineable.of(item.getMaterial());
         MineableItemType itemType = MineableItemType.of(item.getMaterial());
 
-//        System.err.print("ORETOOLS-" + mineable + "-" + itemType + " ");
-
         if (mineable == null || itemType == null) return null;
 
         return getAliases(mineable, itemType);
-    }
-
-    private Stream<String> getAliases(Mineable mineable, MineableItemType itemType) {
-        return Arrays.stream(mineable.names)
-            .flatMap(itemType::format);
     }
 
     /**
      * Represents available varieties of wood in the game.
      */
     @SuppressWarnings("unused")
-    private enum Mineable {
+    private enum Mineable implements CompoundModifier {
         GOLD("g"),
         IRON("i", "steel", "s", "st"),
         COAL("c"),
@@ -61,13 +54,18 @@ public class MineableAliasProvider extends CompoundAliasProvider {
 
             return null;
         }
+
+        @Override
+        public String[] getNames() {
+            return names;
+        }
     }
 
     /**
      * Represents the types of materials with coloured variants.
      */
     @SuppressWarnings("unused")
-    private enum MineableItemType {
+    private enum MineableItemType implements CompoundType {
         // Blocks
         ORE(null, "%sore", "%so", "ore%s", "o%s"),
         BLOCK(null, "%sblock", "block%s"),
@@ -93,8 +91,8 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         private final String[] formats;
 
         MineableItemType(String regex, String... formats) {
-            this.regex = getTypePattern(name(), regex);
-            this.formats = getTypeFormats(name(), formats);
+            this.regex = CompoundType.generatePattern(name(), regex);
+            this.formats = CompoundType.generateFormats(name(), formats);
         }
 
         public static MineableItemType of(Material material) {
@@ -109,9 +107,9 @@ public class MineableAliasProvider extends CompoundAliasProvider {
             return null;
         }
 
-        public Stream<String> format(String colour) {
-            return Arrays.stream(formats)
-                .map(format -> String.format(format, colour));
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 }
