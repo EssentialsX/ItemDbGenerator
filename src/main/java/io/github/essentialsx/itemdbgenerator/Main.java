@@ -23,21 +23,23 @@ public class Main {
     private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
     public static final List<ItemProvider> itemProviders = Arrays.asList(
-        new MaterialEnumProvider(),
-        new SpawnerProvider(),
-        new PotionProvider()
+            new MaterialEnumProvider(),
+            new SpawnerProvider(),
+            new PotionProvider()
     );
 
     public static final List<AliasProvider> aliasProviders = Arrays.asList(
-        new SimpleAliasProvider(),
-        new PotionAliasProvider(),
-        new ColourAliasProvider(),
-        new WoodAliasProvider(),
-        new MineableAliasProvider(),
-        new RecordAliasProvider(),
-        new MobAliasProvider(),
-        new MeatFishAliasProvider(),
-        new PrismarineAliasProvider()
+            new SimpleAliasProvider(),
+            new PotionAliasProvider(),
+            new ColourAliasProvider(),
+            new WoodAliasProvider(),
+            new MineableAliasProvider(),
+            new RecordAliasProvider(),
+            new MobAliasProvider(),
+            new MeatFishAliasProvider(),
+            new PrismarineAliasProvider(),
+            new RailAliasProvider(),
+            new MinecartAliasProvider()
     );
 
     public static void main(String[] args) {
@@ -86,13 +88,13 @@ public class Main {
 
     static SortedSet<ItemProvider.Item> getItems() {
         return itemProviders.parallelStream()
-            .flatMap(ItemProvider::get)
-            .collect(Collectors.toCollection(TreeSet::new));
+                .flatMap(ItemProvider::get)
+                .collect(Collectors.toCollection(TreeSet::new));
     }
 
     static SortedSet<String> getAliases(ItemProvider.Item item) {
         return aliasProviders.stream()
-            .flatMap(provider -> provider.get(item))
-            .collect(Collectors.toCollection(TreeSet::new));
+                .flatMap(provider -> provider.get(item))
+                .collect(Collectors.toCollection(TreeSet::new));
     }
 }
