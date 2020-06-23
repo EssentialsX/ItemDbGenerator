@@ -2,11 +2,12 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
+import org.bukkit.Material;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.bukkit.Material;
 
 public class MeatFishAliasProvider extends CompoundAliasProvider {
 
@@ -42,17 +43,11 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         PUFFERFISH("pufffish", "fishpuff", "pfish", "fishp"),
         RABBIT("hare", "hasenpfeffer"),
         SALMON("salmonfish", "sfish", "fishs"),
-        TROPICAL_FISH("clownfish", "nemo", "clfish", "fishcl", "nfish", "fishn", "tfish", "fisht")
-        ;
+        TROPICAL_FISH("clownfish", "nemo", "clfish", "fishcl", "nfish", "fishn", "tfish", "fisht");
         private final String[] names;
 
         Food(String... names) {
             this.names = ObjectArrays.concat(name().toLowerCase(), names);
-        }
-
-        @Override
-        public String[] getNames() {
-            return names;
         }
 
         public static Food of(Material material) {
@@ -65,6 +60,11 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
+        }
+
+        @Override
+        public String[] getNames() {
+            return names;
         }
     }
 
@@ -83,11 +83,6 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
             this.formats = CompoundType.generateFormats(name(), formats);
         }
 
-        @Override
-        public String[] getFormats() {
-            return formats;
-        }
-
         public static FoodType of(Material material) {
             String matName = material.name();
 
@@ -98,6 +93,11 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
+        }
+
+        @Override
+        public String[] getFormats() {
+            return formats;
         }
     }
 }

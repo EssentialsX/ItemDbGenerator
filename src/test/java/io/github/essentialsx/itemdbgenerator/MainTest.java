@@ -1,13 +1,14 @@
 package io.github.essentialsx.itemdbgenerator;
 
-import static org.junit.jupiter.api.Assumptions.assumeTrue;
-
 import com.google.gson.JsonObject;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class MainTest {
 

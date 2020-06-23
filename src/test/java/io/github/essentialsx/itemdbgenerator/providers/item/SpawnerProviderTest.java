@@ -1,10 +1,11 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -21,8 +22,8 @@ class SpawnerProviderTest {
     @Test
     void testNames() {
         Set<String> names = stream
-            .map(ItemProvider.Item::getName)
-            .collect(Collectors.toSet());
+                .map(ItemProvider.Item::getName)
+                .collect(Collectors.toSet());
 
         assertTrue(names.contains("pig_spawner"), "missing pig spawner");
         assertFalse(names.contains("_spawner"), "spawner without entity");

@@ -12,8 +12,8 @@ public class SpawnerProvider implements ItemProvider {
     @Override
     public Stream<Item> get() {
         return Arrays.stream(EntityType.values())
-            .filter(MobAliasProvider::isSpawnable)
-            .map(type -> new SpawnerItem(Material.SPAWNER, type));
+                .filter(MobAliasProvider::isSpawnable)
+                .map(type -> new SpawnerItem(Material.SPAWNER, type));
     }
 
     public static class SpawnerItem extends Item {

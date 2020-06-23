@@ -4,7 +4,6 @@ import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
-import java.util.Arrays;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 

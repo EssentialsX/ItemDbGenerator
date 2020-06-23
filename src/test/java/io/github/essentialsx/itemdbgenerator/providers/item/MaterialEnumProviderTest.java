@@ -21,8 +21,8 @@ class MaterialEnumProviderTest {
     @Test
     void testNames() {
         Set<String> names = stream
-            .map(ItemProvider.Item::getName)
-            .collect(Collectors.toSet());
+                .map(ItemProvider.Item::getName)
+                .collect(Collectors.toSet());
 
         Assertions.assertTrue(names.contains("cobblestone"), "missing cobblestone");
         Assertions.assertTrue(names.contains("coarse_dirt"), "missing underscore names");
@@ -34,10 +34,11 @@ class MaterialEnumProviderTest {
     @Test
     void testMaterials() {
         Set<Material> materials = stream
-            .map(ItemProvider.Item::getMaterial)
-            .collect(Collectors.toSet());
+                .map(ItemProvider.Item::getMaterial)
+                .collect(Collectors.toSet());
 
         Assertions.assertTrue(materials.contains(Material.DIRT), "missing dirt");
+        //noinspection deprecation
         Assertions.assertFalse(materials.contains(Material.LEGACY_DIRT), "legacy items");
         Assertions.assertFalse(materials.contains(Material.WALL_TORCH), "non-item materials");
     }

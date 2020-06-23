@@ -2,10 +2,10 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
-import java.util.Arrays;
+import org.bukkit.Material;
+
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.bukkit.Material;
 
 public class MineableAliasProvider extends CompoundAliasProvider {
     @Override
@@ -19,7 +19,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
     }
 
     /**
-     * Represents available varieties of wood in the game.
+     * Represents available mineable materials in the game (and also leather, chainmail and wood for convenience)
      */
     @SuppressWarnings("unused")
     private enum Mineable implements CompoundModifier {
@@ -62,7 +62,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
     }
 
     /**
-     * Represents the types of materials with coloured variants.
+     * Represents the types of materials with ore variants.
      */
     @SuppressWarnings("unused")
     private enum MineableItemType implements CompoundType {
@@ -84,8 +84,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         HORSE_ARMOR(null, "%shorsearmor", "%sharmor", "%sarmor"),
         // Doors
         DOOR("[A-Z_]+_(?<!TRAP)DOOR", "%sdoor", "door%s"),
-        TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap")
-        ;
+        TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap");
 
         private final Pattern regex;
         private final String[] formats;

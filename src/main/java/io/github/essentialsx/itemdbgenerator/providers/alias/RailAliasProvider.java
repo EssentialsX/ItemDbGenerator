@@ -29,11 +29,6 @@ public class RailAliasProvider extends CompoundAliasProvider {
             this.names = names;
         }
 
-        @Override
-        public String[] getNames() {
-            return names;
-        }
-
         public static RailModifier of(Material material) {
             String matName = material.name();
 
@@ -44,6 +39,11 @@ public class RailAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
+        }
+
+        @Override
+        public String[] getNames() {
+            return names;
         }
     }
 }

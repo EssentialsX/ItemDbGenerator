@@ -28,7 +28,7 @@ public abstract class CompoundAliasProvider implements AliasProvider {
 
         static String[] generateFormats(final String typeName, final String... formats) {
             if (formats == null || formats.length == 0) {
-                return new String[] {"%s" + typeName.toLowerCase().replaceAll("_", "")};
+                return new String[]{"%s" + typeName.toLowerCase().replaceAll("_", "")};
             }
 
             return formats;

@@ -2,10 +2,10 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
-import java.util.Arrays;
+import org.bukkit.Material;
+
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.bukkit.Material;
 
 public class PrismarineAliasProvider extends CompoundAliasProvider {
     @Override
@@ -25,8 +25,7 @@ public class PrismarineAliasProvider extends CompoundAliasProvider {
     private enum PrismarineType implements CompoundModifier {
         PRISMARINE_BRICK("prismarinebricks", "prismarinebrick", "prismarinebr", "prisbricks", "prisbrick", "prisbr", "seabricks", "seabrick", "seabr"),
         DARK_PRISMARINE("darkprismarine", "dprismarine", "darkpris", "dpris", "darksea", "dsea"),
-        PRISMARINE("prismarine", "pris", "sea")
-        ;
+        PRISMARINE("prismarine", "pris", "sea");
 
         private final String[] names;
 

@@ -12,9 +12,9 @@ public class MaterialEnumProvider implements ItemProvider {
     @Override
     public Stream<Item> get() {
         return Arrays.stream(Material.values())
-            .filter(mat -> !mat.name().contains("LEGACY"))
-            .filter(Material::isItem)
-            .map(MaterialEnumItem::new);
+                .filter(mat -> !mat.name().contains("LEGACY"))
+                .filter(Material::isItem)
+                .map(MaterialEnumItem::new);
     }
 
     public static class MaterialEnumItem extends Item {

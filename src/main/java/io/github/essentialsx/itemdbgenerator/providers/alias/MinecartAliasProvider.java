@@ -22,18 +22,12 @@ public class MinecartAliasProvider extends CompoundAliasProvider {
         CHEST("storage", "chest", "s", "c"),
         COMMAND_BLOCK("commandblock", "cmdblock", "cblock", "command", "cmd", "cb"),
         FURNACE("engine", "powered", "power", "furnace", "e", "p", "f"),
-        MINECART("")
-        ;
+        MINECART("");
 
         private final String[] names;
 
         MinecartModifier(String... names) {
             this.names = names;
-        }
-
-        @Override
-        public String[] getNames() {
-            return names;
         }
 
         public static MinecartModifier of(Material material) {
@@ -46,6 +40,11 @@ public class MinecartAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
+        }
+
+        @Override
+        public String[] getNames() {
+            return names;
         }
     }
 }

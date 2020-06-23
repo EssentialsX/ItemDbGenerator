@@ -1,19 +1,21 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
-import java.util.*;
-import java.util.stream.Stream;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionType;
 
+import java.util.*;
+import java.util.stream.Stream;
+
 public class PotionProvider implements ItemProvider {
     private static final Material[] MATERIALS = {
-        Material.POTION,
-        Material.SPLASH_POTION,
-        Material.LINGERING_POTION,
-        Material.TIPPED_ARROW
+            Material.POTION,
+            Material.SPLASH_POTION,
+            Material.LINGERING_POTION,
+            Material.TIPPED_ARROW
     };
 
     private static final Map<PotionType, String> MOJANG_NAMES = new HashMap<>();
+
     static {
         MOJANG_NAMES.put(PotionType.UNCRAFTABLE, "empty");
         MOJANG_NAMES.put(PotionType.JUMP, "leaping");
@@ -23,25 +25,25 @@ public class PotionProvider implements ItemProvider {
         MOJANG_NAMES.put(PotionType.REGEN, "regeneration");
     }
 
+    public static Stream<Item> getPotionsForType(PotionType type) {
+        return Arrays.stream(MATERIALS)
+                .flatMap(material -> {
+                    Set<PotionItem> items = new HashSet<>();
+                    items.add(new PotionItem(material, type, false, false));
+                    if (type.isUpgradeable()) {
+                        items.add(new PotionItem(material, type, true, false));
+                    }
+                    if (type.isExtendable()) {
+                        items.add(new PotionItem(material, type, false, true));
+                    }
+                    return items.stream();
+                });
+    }
+
     @Override
     public Stream<Item> get() {
         return Arrays.stream(PotionType.values())
-            .flatMap(PotionProvider::getPotionsForType);
-    }
-
-    public static Stream<Item> getPotionsForType(PotionType type) {
-        return Arrays.stream(MATERIALS)
-            .flatMap(material -> {
-                Set<PotionItem> items = new HashSet<>();
-                items.add(new PotionItem(material, type, false, false));
-                if (type.isUpgradeable()) {
-                    items.add(new PotionItem(material, type, true, false));
-                }
-                if (type.isExtendable()) {
-                    items.add(new PotionItem(material, type, false, true));
-                }
-                return items.stream();
-            });
+                .flatMap(PotionProvider::getPotionsForType);
     }
 
     public static class PotionItem extends Item {

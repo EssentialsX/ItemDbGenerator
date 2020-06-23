@@ -13,21 +13,19 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 public class Main {
-
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path outputPath = Paths.get(".", "items.json");
-    private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
     public static final List<ItemProvider> itemProviders = Arrays.asList(
             new MaterialEnumProvider(),
             new SpawnerProvider(),
             new PotionProvider()
     );
-
     public static final List<AliasProvider> aliasProviders = Arrays.asList(
             new SimpleAliasProvider(),
             new PotionAliasProvider(),
@@ -41,6 +39,9 @@ public class Main {
             new RailAliasProvider(),
             new MinecartAliasProvider()
     );
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Path outputPath = Paths.get(".", "items.json");
+    private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
     public static void main(String[] args) {
         System.err.println("Generating items.json...");

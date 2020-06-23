@@ -2,11 +2,12 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
+import org.bukkit.Material;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.bukkit.Material;
 
 public class RecordAliasProvider extends CompoundAliasProvider {
     private static final List<String> MUSIC_DISC_NAMES = Arrays.asList("musicrecord", "musicdisk", "musicdisc", "musiccd", "mrecord", "mdisk", "mdisc", "mcd", "record", "disk", "disc", "cd");
@@ -19,7 +20,7 @@ public class RecordAliasProvider extends CompoundAliasProvider {
         if (track == null) return null;
 
         return MUSIC_DISC_NAMES.stream()
-            .flatMap(track::format);
+                .flatMap(track::format);
     }
 
     private enum Track implements CompoundType {

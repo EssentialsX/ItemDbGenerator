@@ -2,10 +2,10 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
-import java.util.Arrays;
+import org.bukkit.Material;
+
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
-import org.bukkit.Material;
 
 public class ColourAliasProvider extends CompoundAliasProvider {
     @Override
@@ -40,7 +40,7 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         RED("r", "red"),
         BLACK("bk", "bla", "black");
 
-        private static final Colour[] lightValues = { LIGHT_BLUE, LIGHT_GRAY };
+        private static final Colour[] lightValues = {LIGHT_BLUE, LIGHT_GRAY};
 
         private final String[] names;
 
@@ -92,8 +92,7 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         STAINED_GLASS("[A-Z_]+_STAINED_GLASS(?!_PANE)", "%sglass", "%ssglass", "%sstainedglass"),
         STAINED_GLASS_PANE(null, "%sglasspane", "%ssglasspane", "%sstainedglasspane", "%sgpane"),
         TERRACOTTA(null, "%sclay", "%ssclay", "%sstainedclay", "%sterra", "%stcota", "%sterracota", "%sterracotta"),
-        WOOL(null, "%swool", "%scloth", "%scotton")
-        ;
+        WOOL(null, "%swool", "%scloth", "%scotton");
 
         private final Pattern regex;
         private final String[] formats;

@@ -3,6 +3,7 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.PotionProvider;
+
 import java.util.Arrays;
 import java.util.stream.Stream;
 
@@ -11,16 +12,16 @@ public class PotionAliasProvider implements AliasProvider {
     public Stream<String> get(ItemProvider.Item item) {
         if (!(item instanceof PotionProvider.PotionItem)) return null;
         PotionProvider.PotionItem pItem = (PotionProvider.PotionItem) item;
-        
+
         PotionMaterial material = PotionMaterial.of(pItem);
         PotionType type = PotionType.of(pItem);
         PotionModifier modifier = PotionModifier.of(pItem);
-        
+
         return Arrays.stream(material.getFormats())
-            .flatMap(format -> Arrays.stream(type.getNames())
-                .map(name -> format.replaceAll("\\{t\\}", name)))
-            .flatMap(format -> Arrays.stream(modifier.getNames())
-                .map(name -> format.replaceAll("\\{m\\}", name)));
+                .flatMap(format -> Arrays.stream(type.getNames())
+                        .map(name -> format.replaceAll("\\{t}", name)))
+                .flatMap(format -> Arrays.stream(modifier.getNames())
+                        .map(name -> format.replaceAll("\\{m}", name)));
     }
 
     enum PotionMaterial {
@@ -36,13 +37,13 @@ public class PotionAliasProvider implements AliasProvider {
             this.formats = formats;
         }
 
-        public String[] getFormats() {
-            return formats;
-        }
-        
         static PotionMaterial of(PotionProvider.PotionItem item) {
             return valueOf(item.getMaterial().name());
 
+        }
+
+        public String[] getFormats() {
+            return formats;
         }
     }
 
@@ -76,12 +77,12 @@ public class PotionAliasProvider implements AliasProvider {
             this.names = ObjectArrays.concat(names, name().toLowerCase().replaceAll("_", ""));
         }
 
-        public String[] getNames() {
-            return names;
-        }
-        
         static PotionType of(PotionProvider.PotionItem item) {
             return valueOf(item.getPotionData().getType().name());
+        }
+
+        public String[] getNames() {
+            return names;
         }
     }
 
@@ -97,10 +98,6 @@ public class PotionAliasProvider implements AliasProvider {
             this.names = names;
         }
 
-        public String[] getNames() {
-            return names;
-        }
-
         static PotionModifier of(PotionProvider.PotionItem item) {
             if (item.getPotionData().isExtended()) {
                 return LONG;
@@ -109,6 +106,10 @@ public class PotionAliasProvider implements AliasProvider {
             } else {
                 return NONE;
             }
+        }
+
+        public String[] getNames() {
+            return names;
         }
     }
 }

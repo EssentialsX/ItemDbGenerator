@@ -3,13 +3,22 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
-import java.util.Arrays;
-import java.util.regex.Pattern;
-import java.util.stream.Stream;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
 public class MobAliasProvider extends CompoundAliasProvider {
+    public static boolean isSpawnable(final EntityType type) {
+        try {
+            MobType.valueOf(type.name());
+            return type.isSpawnable();
+        } catch (Exception ignored) {
+            return false;
+        }
+    }
+
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         MobType mobType = null;
@@ -18,7 +27,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
         if (item instanceof SpawnerProvider.SpawnerItem) {
             try {
                 mobType = MobType.valueOf(((SpawnerProvider.SpawnerItem) item).getEntity().name());
-            } catch (Exception ignored) {}
+            } catch (Exception ignored) {
+            }
         }
 
         if (mobType == null) {
@@ -30,15 +40,6 @@ public class MobAliasProvider extends CompoundAliasProvider {
         if (mobType == null || itemType == null) return null;
 
         return getAliases(mobType, itemType);
-    }
-
-    public static boolean isSpawnable(final EntityType type) {
-        try {
-            MobType.valueOf(type.name());
-            return type.isSpawnable();
-        } catch (Exception ignored) {
-            return false;
-        }
     }
 
     /**
