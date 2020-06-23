@@ -69,6 +69,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         PLANKS(null, "%swoodenplank", "%swoodplank", "%swplank", "%splankwooden", "%splankwood", "%splankw", "%splank"),
         PRESSURE_PLATE(null, "%spplate", "%spressureplate", "%splate", "plate%s", "%spressplate"),
         SAPLING("^(?!POTTED_)[A-Z_]+_SAPLING", "%ssapling", "%streesapling", "%slogsapling", "%strunksapling", "%swoodsapling"),
+        SIGN("^(?!WALL_)[A-Z_]+_SIGN", "%ssign"),
         SLAB("^(?!PETRIFIED_)[A-Z_]+_SLAB", "%swoodenstep", "%swoodstep", "%swstep", "%sstep", "%swoodenslab", "%swoodslab", "%swslab", "%swoodenhalfblock", "%swoodhalfblock", "%swhalfblock", "%shalfblock"),
         STAIRS(null, "%swoodenstairs", "%swoodstairs", "%swstairs", "%swoodenstair", "%swoodstair", "%swstair", "%sstair"),
         TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap"),
