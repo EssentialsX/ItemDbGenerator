@@ -11,7 +11,7 @@ public class MinecartAliasProvider extends CompoundAliasProvider {
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         MinecartModifier modifier = MinecartModifier.of(item.getMaterial());
-        if (modifier == null || MINECART_TYPE.matches(item.getMaterial())) return null;
+        if (modifier == null || !MINECART_TYPE.matches(item.getMaterial())) return null;
 
         return getAliases(modifier, MINECART_TYPE);
     }

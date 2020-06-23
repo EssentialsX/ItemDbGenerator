@@ -11,7 +11,7 @@ public class RailAliasProvider extends CompoundAliasProvider {
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         RailModifier modifier = RailModifier.of(item.getMaterial());
-        if (modifier == null || RAIL_TYPE.matches(item.getMaterial())) return null;
+        if (modifier == null || !RAIL_TYPE.matches(item.getMaterial())) return null;
 
         return getAliases(modifier, RAIL_TYPE);
     }
