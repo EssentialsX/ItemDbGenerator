@@ -1,47 +1,67 @@
 package io.github.essentialsx.itemdbgenerator;
 
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.bukkit.Material;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 class MainTest {
 
-    private JsonObject itemMap;
+    private static JsonObject itemMap;
 
-    @BeforeEach
-    void getItemMap() {
+    @BeforeAll
+    static void getItemMap() {
         itemMap = Main.generateItemMap();
     }
 
-    /**
-     * Tests whether all items have aliases that are short enough to fit on an Essentials sign.
-     */
-    @Test
-    void testSignSpawnable() {
-        Set<String> names = new HashSet<>();
+    @ParameterizedTest
+    @MethodSource("spawnableItems")
+    void testSignSpawnable(Material type) {
+        boolean spawnable = fitsOnSign(type.name());
+        String itemKey = "";
 
-        itemMap.entrySet().forEach(entry -> {
-            if (entry.getValue().isJsonObject() && !fitsOnSign(entry.getKey())) {
-                names.add(entry.getKey());
+        System.out.println(type + ", " + spawnable);
+        if (spawnable) return;
+
+        for (Map.Entry<String, JsonElement> entry : itemMap.entrySet()) {
+            if (entry.getValue().isJsonObject()
+                    && entry.getValue().getAsJsonObject().getAsJsonPrimitive("material").getAsString().equals(type.name())) {
+                itemKey = entry.getKey();
+                spawnable = fitsOnSign(entry.getKey());
             }
-        });
+        }
 
-        itemMap.entrySet().forEach(entry -> {
-            if (!entry.getValue().isJsonObject() && fitsOnSign(entry.getKey())) {
-                names.remove(entry.getValue().getAsString());
+        if (!spawnable) {
+            for (Map.Entry<String, JsonElement> entry : itemMap.entrySet()) {
+                if (!entry.getValue().isJsonObject()
+                        && entry.getValue().getAsString().equals(itemKey)
+                        && fitsOnSign(entry.getKey())) {
+                    spawnable = true;
+                    System.out.println(type.name() + " spawnable as " + entry.getKey());
+                    break;
+                }
             }
-        });
+        }
 
-        assumeTrue(names.isEmpty(), () -> "There are " + names.size() + " items that don't have aliases short enough to fit on signs:\n" + Arrays.toString(names.toArray()));
+        assumeTrue(spawnable, type.name() + " is not spawnable on signs");
     }
 
-    private boolean fitsOnSign(String itemName) {
+
+    private static boolean fitsOnSign(String itemName) {
         return itemName.length() <= 14;
     }
+
+    static Stream<Material> spawnableItems() {
+        //noinspection deprecation
+        return Arrays.stream(Material.values()).filter(material -> !material.isLegacy()).filter(Material::isItem);
+    }
+
 }
