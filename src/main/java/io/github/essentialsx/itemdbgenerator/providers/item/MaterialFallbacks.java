@@ -27,6 +27,8 @@ public class MaterialFallbacks {
         add(Material.JUNGLE_SIGN, "SIGN");
         add(Material.OAK_SIGN, "SIGN");
         add(Material.SPRUCE_SIGN, "SIGN");
+        /* 1.16: zombie pigmen -> zombified piglins */
+        //add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG, "ZOMBIE_PIGMAN_SPAWN_EGG"); TODO: uncomment when 1.16 API
     }
 
     private static void add(Material material, Object... fallbacks) {

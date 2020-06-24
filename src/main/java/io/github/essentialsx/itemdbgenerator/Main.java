@@ -37,7 +37,9 @@ public class Main {
             new MeatFishAliasProvider(),
             new PrismarineAliasProvider(),
             new RailAliasProvider(),
-            new MinecartAliasProvider()
+            new MinecartAliasProvider(),
+            new PistonAliasProvider(),
+            new FixedAliasProvider()
     );
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static final Path outputPath = Paths.get(".", "items.json");
