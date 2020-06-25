@@ -23,6 +23,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum Mineable implements CompoundModifier {
+        NETHER_GOLD("ng", "nethgold"),
         GOLD("g"),
         IRON("i", "steel", "s", "st"),
         COAL("c"),
