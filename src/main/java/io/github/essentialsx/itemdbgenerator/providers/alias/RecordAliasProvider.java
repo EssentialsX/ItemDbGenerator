@@ -36,6 +36,7 @@ public class RecordAliasProvider extends CompoundAliasProvider {
         WARD("MUSIC_DISK_WARD", "ward%s", "darkgreen%s", "dgreen%s", "darkgr%s", "dgr%s", "%s10", "10%s"),
         ELEVEN("MUSIC_DISK_11", "11%s", "cracked%s", "crack%s", "c%s", "%s11"),
         WAIT("MUSIC_DISK_WAIT", "wait%s", "blue%s", "cyan%s", "bl%s", "cy%s", "%s12", "12%s"),
+        PIGSTEP("MUSIC_DISK_PIGSTEP", "pigstep%s", "nether%s", "dark%s", "neth%s", "pig%s", "%s14", "14%s"),
         ;
 
         private final Pattern regex;
