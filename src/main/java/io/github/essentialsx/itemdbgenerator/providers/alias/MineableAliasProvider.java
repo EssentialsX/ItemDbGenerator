@@ -23,7 +23,8 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum Mineable implements CompoundModifier {
-        NETHER_GOLD("ng", "nethgold"),
+        NETHER_GOLD("ng", "nethgold", "hellgold"),
+        NETHERITE("nether", "hell", "neth"),
         GOLD("g"),
         IRON("i", "steel", "s", "st"),
         COAL("c"),
@@ -67,10 +68,10 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum MineableItemType implements CompoundType {
-        // Blocks
         ORE(null, "%sore", "%so", "ore%s", "o%s"),
         BLOCK(null, "%sblock", "block%s"),
         INGOT(null, "%singot", "%sbar", "%si", "ingot%s", "bar%s", "i%s"),
+        SCRAP(null, "%sscrap"),
         // Tools
         SWORD(null, "%ssword"),
         SHOVEL(null, "%sshovel", "%sspade"),
