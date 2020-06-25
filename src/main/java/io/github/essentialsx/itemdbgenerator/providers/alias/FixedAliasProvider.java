@@ -25,7 +25,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BEDROCK, "oprock", "opblock", "adminblock", "adminrock", "adminium");
         add(Material.OBSIDIAN, "obsi", "obby");
         // == Interactive ==
-        add(Material.CHEST, "container");
+        add(Material.CHEST, "container", "drawer");
         add(Material.CRAFTING_TABLE, "workbench", "craftingbench", "crafterbench", "craftbench", "worktable", "craftertable", "crafttable", "wbench", "cbench");
         add(Material.ENCHANTING_TABLE, "enchantmenttable", "enchanttable", "etable", "magicaltable", "magictable", "mtable", "enchantmentdesk", "enchantingdesk", "enchantdesk", "edesk", "magicaldesk", "magicdesk", "mdesk", "booktable", "bookdesk", "btable", "bdesk");
         add(Material.ENDER_CHEST, "endchest", "echest", "chestender", "chestend", "cheste", "endercontainer", "endcontainer", "econtainer");
@@ -53,6 +53,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.COMMAND_BLOCK, "cmdblock");
         add(Material.CHAIN_COMMAND_BLOCK, "chaincmdblock", "chcmdblock");
         add(Material.REPEATING_COMMAND_BLOCK, "repcmdblock", "loopcmdblock");
+        add(Material.DAYLIGHT_DETECTOR, "lightdetector", "photoresistor", "daydetector", "lightdetect", "solarpanel", "daydetect");
         // == Decorative ==
         add(Material.RED_SAND, "rsand");
         add(Material.GLASS, "blockglass", "glassblock");
@@ -112,6 +113,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.ELYTRA, "hangglider", "glider", "wings", "wing", "playerwings", "playerwing", "pwings", "pwing");
         add(Material.CHORUS_FRUIT, "chorus", "unpoppedchorus", "unpopchorus");
         add(Material.POPPED_CHORUS_FRUIT, "pchorus", "poppedchorus", "popchorus");
+        add(Material.PHANTOM_MEMBRANE, "membrane", "superduperelytrarepairkit", "phmembrane", "pmembrane");
     }
 
     @Override
