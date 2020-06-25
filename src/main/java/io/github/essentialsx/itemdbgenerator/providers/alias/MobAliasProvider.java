@@ -53,6 +53,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         TRADER_LLAMA("tllama"),
         ZOMBIFIED_PIGLIN("zombiepigman", "zpigman", "zombiepman", "zpman", "zombiepigm", "zpigm", "zombiepm",
                 "zombiepigmen", "zpigmen", "zombiepiglin", "zpiglin", "zombifiedpiglin"),
+        PIGLIN_BRUTE("pigbrute", "pigbr", "meaniepiglin", "piglinbr"),
         PIGLIN("pigman", "pigmen", "pman", "pigm", "piglin"),
         STRAY,
         HUSK,
