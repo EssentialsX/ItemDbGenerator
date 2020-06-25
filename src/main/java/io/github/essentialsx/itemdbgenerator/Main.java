@@ -39,6 +39,7 @@ public class Main {
             new RailAliasProvider(),
             new MinecartAliasProvider(),
             new PistonAliasProvider(),
+            new NetherFungiAliasProvider(),
             new FixedAliasProvider()
     );
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
