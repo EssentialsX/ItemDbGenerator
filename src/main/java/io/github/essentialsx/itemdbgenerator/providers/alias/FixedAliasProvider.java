@@ -64,6 +64,11 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.TORCH, "burningstick", "burnstick");
         add(Material.GLOWSTONE, "glowingstoneblock", "lightstoneblock", "glowstoneblock", "blockglowingstone", "blocklightstone", "blockglowstone", "glowingstone", "lightstone", "glowingblock", "lightblock", "glowblock", "lstone");
         add(Material.LILY_PAD, "waterlily", "lily", "swamppad", "lpad", "wlily");
+        add(Material.ANCIENT_DEBRIS, "debris");
+        add(Material.CRYING_OBSIDIAN, "cryobsidian", "sadrock");
+        add(Material.RESPAWN_ANCHOR, "respawnpoint", "spawnanchor", "respawnanc", "spawnanc", "netherbed");
+        add(Material.LODESTONE, "lode");
+        add(Material.SHROOMLIGHT, "shroomlamp", "netherlamp", "shlight");
         // "CUT_SANDSTONE" used to be called "SMOOTH_SANDSTONE"
         // "SMOOTH_SANDSTONE" is now a double slab
         add(Material.CUT_SANDSTONE, "smstone", "smoothsastone", "ssandstone", "smsastone", "ssastone");
@@ -92,6 +97,9 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.CACTUS, "cactuses", "cacti");
         add(Material.VINE, "vines", "greenvines", "greenvine", "gardenvines", "gardenvine", "vinesgreen", "vinegreen", "vinesgarden", "vinegarden", "vinesg", "vineg", "gvines", "gvine");
         add(Material.COCOA_BEANS, "cocoaplant", "cocoplant", "cplant", "cocoafruit", "cocofruit", "cfruit", "cocoapod", "cocopod", "cpod");
+        add(Material.NETHER_SPROUTS, "nsprouts", "nethsprouts", "nsprout", "nethsprout", "nethersprout", "netherweed");
+        add(Material.TWISTING_VINES, "twistvines", "twistvine");
+        add(Material.WEEPING_VINES, "weepvines", "weepvine");
         // == Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
