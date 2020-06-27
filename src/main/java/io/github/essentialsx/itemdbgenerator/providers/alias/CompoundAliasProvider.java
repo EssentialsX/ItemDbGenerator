@@ -18,9 +18,9 @@ public abstract class CompoundAliasProvider implements AliasProvider {
     }
 
     interface CompoundType {
-        static Pattern generatePattern(final String pattern, final String regex) {
+        static Pattern generatePattern(final String typeName, final String regex) {
             if (regex == null) {
-                return Pattern.compile("[A-Z_]*" + pattern + "[A-Z_]*");
+                return Pattern.compile("[A-Z_]*" + typeName + "[A-Z_]*");
             } else {
                 return Pattern.compile(regex);
             }

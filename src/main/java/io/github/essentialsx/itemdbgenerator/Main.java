@@ -30,6 +30,7 @@ public class Main {
             new SimpleAliasProvider(),
             new PotionAliasProvider(),
             new ColourAliasProvider(),
+            new MineralAliasProvider(),
             new WoodAliasProvider(),
             new MineableAliasProvider(),
             new RecordAliasProvider(),
