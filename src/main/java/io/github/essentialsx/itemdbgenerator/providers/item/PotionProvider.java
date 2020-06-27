@@ -62,6 +62,20 @@ public class PotionProvider implements ItemProvider {
         public PotionData getPotionData() {
             return potionData;
         }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            if (!super.equals(o)) return false;
+            PotionItem that = (PotionItem) o;
+            return potionData.equals(that.potionData);
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(super.hashCode(), potionData);
+        }
     }
 
     public static class PotionData {
@@ -103,6 +117,21 @@ public class PotionProvider implements ItemProvider {
             }
 
             return baseName;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) return true;
+            if (o == null || getClass() != o.getClass()) return false;
+            PotionData that = (PotionData) o;
+            return upgraded == that.upgraded &&
+                    extended == that.extended &&
+                    type == that.type;
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(type, upgraded, extended);
         }
     }
 }
