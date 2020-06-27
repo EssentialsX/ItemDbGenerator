@@ -88,7 +88,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         SHULKER("shulk"),
         PIG,
         SHEEP,
-        MUSHROOM_COW("mooshroom", "mushroom"),
+        MUSHROOM_COW("mushroomcow", "mooshroom", "mushroom"),
         MOOSHROOM(MUSHROOM_COW),
         COW,
         CHICKEN,
@@ -157,7 +157,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
     @SuppressWarnings("unused")
     private enum MobItemType implements CompoundType {
         SPAWNER(null, "%smobspawner", "%smobcage", "%smonsterspawner", "%smonstercage", "%smspawner", "%smcage", "%sspawner", "%scage"),
-        SPAWN_EGG(null, "%ssegg", "egg%s", "%sspawnegg", "spawnegg%s", "%sspawn", "spawn%s"),
+        SPAWN_EGG(null, "%ssegg", "segg%s", "%segg", "egg%s", "%sspawnegg", "spawnegg%s", "%sspawn", "spawn%s"),
         SKULL(null, "%shead", "%sskull", "head%s", "%smask", "%sheadmask"),
         BUCKET(null, "%sbucket", "%sbukkit", "bucketo%s", "%spail"),
         ;

@@ -25,7 +25,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
     private enum WoodSpecies implements CompoundModifier {
         ACACIA("ac", "a"),
         BIRCH("b", "light", "l", "white", "w"),
-        DARK_OAK("darkoak", "do"),
+        DARK_OAK("darkoak", "do", "doak"),
         JUNGLE("j", "forest", "f"),
         OAK("o"),
         SPRUCE("pine", "p", "dark", "d", "s");

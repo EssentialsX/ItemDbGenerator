@@ -84,7 +84,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         END_STONE(null, "endst", "whst"),
         GRANITE(null, "gr", "gstone"),
         QUARTZ_BRICK(null, "quartzbr", "quarbr", "qbr", "quartzbrick", "quarbrick", "qbrick", "quartzbricks", "quarbricks", "qbricks"),
-        QUARTZ(null, "quar", "q"),
+        QUARTZ(null, "quar", "q", "netherquartz", "nq"),
         RED_SANDSTONE(null, "redsandst", "redsndst"),
         SANDSTONE(null, "sandst", "sndst"),
         STONE_BRICK(null, "stbrick", "stbr", "stonebr"),
