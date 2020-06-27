@@ -1,11 +1,9 @@
 package io.github.essentialsx.itemdbgenerator.providers.alias;
 
-import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -18,7 +16,6 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         MineralItemType itemType = MineralItemType.of(item.getMaterial());
 
         if (mineral == null || itemType == null) return null;
-        System.out.println(item.getMaterial() + ": MINERAL " + mineral.name() + ", ITEM " + itemType.name());
 
         return getAliases(mineral, itemType);
     }
