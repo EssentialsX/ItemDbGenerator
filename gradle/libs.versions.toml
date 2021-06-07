@@ -1,0 +1,9 @@
+[versions]
+adventure = "4.7.0"
+cloud = "1.4.0"
+jackson = "2.12.3"
+
+[libraries]
+adventure-key = { module = "net.kyori:adventure-key", version.ref = "adventure"}
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+rorledning = { module = "cloud.commandframework:cloud-services", version.ref = "cloud" }
