@@ -48,6 +48,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.RED_SAND, "rsand");
         add(Material.GLASS, "blockglass", "glassblock");
         add(Material.GLASS_PANE, "glassp", "paneglass", "pglass", "flatglass", "fglass", "skinnyglass", "glassflat", "glassf", "glassskinny", "glasss");
+        add(Material.TINTED_GLASS, "glasstinted", "tintglass", "glasstint", "tglass", "glasst", "lightblockingglass");
         add(Material.BOOKSHELF, "bshelf", "bookcase", "casebook", "shelfbook", "bookblock", "blockbook");
         add(Material.TORCH, "burningstick", "burnstick");
         add(Material.GLOWSTONE, "glowingstoneblock", "lightstoneblock", "glowstoneblock", "blockglowingstone", "blocklightstone", "blockglowstone", "glowingstone", "lightstone", "glowingblock", "lightblock", "glowblock", "lstone");
@@ -57,6 +58,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.RESPAWN_ANCHOR, "respawnpoint", "spawnanchor", "respawnanc", "spawnanc", "netherbed");
         add(Material.LODESTONE, "lode");
         add(Material.SHROOMLIGHT, "shroomlamp", "netherlamp", "shlight");
+        add(Material.LIGHT, "lightblock");
         // "CUT_SANDSTONE" used to be called "SMOOTH_SANDSTONE"
         // "SMOOTH_SANDSTONE" is now a double slab
         add(Material.COBWEB, "spiderweb", "sweb", "cweb", "web");
