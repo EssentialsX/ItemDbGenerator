@@ -83,6 +83,7 @@ public class ColourAliasProvider extends CompoundAliasProvider {
     private enum ColourableItemType implements CompoundType {
         BANNER("[A-Z_]+_(?<!WALL_)BANNER", "%sbanner"),
         BED(null, "%sbed"),
+        CANDLE(null, "%scandle"),
         CARPET(null, "%scarpet", "%sfloor"),
         CONCRETE("[A-Z_]+_CONCRETE(?!_POWDER)", "%sconcrete"),
         CONCRETE_POWDER(null, "%sconcretepowder", "%sconcretesand", "%scpowder", "%scdust", "%scp"),
