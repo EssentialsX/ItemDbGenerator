@@ -36,7 +36,7 @@ public class Main {
             new RecordAliasProvider(),
             new MobAliasProvider(),
             new MeatFishAliasProvider(),
-            new PrismarineAliasProvider(),
+            new CrystalAliasProvider(),
             new RailAliasProvider(),
             new MinecartAliasProvider(),
             new PistonAliasProvider(),
