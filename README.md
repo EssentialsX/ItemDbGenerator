@@ -2,7 +2,7 @@
 
 Generates an `items.json` file suitable for use with EssentialsX.
 
-Includes potions, spawners and all spawnable items in Minecraft 1.15.1.
+Includes potions, spawners and all spawnable items in Minecraft 1.17.
 
 ---
 
@@ -17,4 +17,6 @@ java -jar ItemDbGenerator-*.jar
 ```
 
 <!-- And viola, a musical instrument will appear! -->
+<!-- haha, comedy -->
+<!-- I'll find the exit -->
 And voila, an `items.json` file will appear.

@@ -21,12 +21,12 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static final List<ItemProvider> itemProviders = Arrays.asList(
+    protected static final List<ItemProvider> itemProviders = Arrays.asList(
             new MaterialEnumProvider(),
             new SpawnerProvider(),
             new PotionProvider()
     );
-    public static final List<AliasProvider> aliasProviders = Arrays.asList(
+    protected static final List<AliasProvider> aliasProviders = Arrays.asList(
             new SimpleAliasProvider(),
             new PotionAliasProvider(),
             new ColourAliasProvider(),
@@ -83,12 +83,12 @@ public class Main {
         try {
             Files.deleteIfExists(outputPath);
             Files.write(outputPath, output.getBytes());
+            System.err.println("Saved items.json successfully.");
         } catch (IOException e) {
-            System.err.println("Failed to save items.json!");
+            System.err.println("Failed to save items.json! Dumping items.json:");
+            System.out.println(output);
             e.printStackTrace();
         }
-
-        System.out.println(output);
     }
 
     static SortedSet<ItemProvider.Item> getItems() {
