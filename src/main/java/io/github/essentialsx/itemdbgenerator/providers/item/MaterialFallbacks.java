@@ -2,11 +2,11 @@ package io.github.essentialsx.itemdbgenerator.providers.item;
 
 import org.bukkit.Material;
 
-import java.util.HashMap;
+import java.util.EnumMap;
 import java.util.Map;
 
 public class MaterialFallbacks {
-    private static final Map<Material, String[]> MAP = new HashMap<>();
+    private static final Map<Material, String[]> MAP = new EnumMap<>(Material.class);
 
     static {
         /* New "smooth stone" added in 1.14 */
@@ -28,7 +28,13 @@ public class MaterialFallbacks {
         add(Material.OAK_SIGN, "SIGN");
         add(Material.SPRUCE_SIGN, "SIGN");
         /* 1.16: zombie pigmen -> zombified piglins */
-        //add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG, "ZOMBIE_PIGMAN_SPAWN_EGG"); TODO: uncomment when 1.16 API
+        add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG, "ZOMBIE_PIGMAN_SPAWN_EGG");
+        /* 1.17: grass path -> dirt path */
+        add(Material.DIRT_PATH, "GRASS_PATH");
+    }
+
+    private MaterialFallbacks() {
+        throw new UnsupportedOperationException("No");
     }
 
     private static void add(Material material, Object... fallbacks) {
