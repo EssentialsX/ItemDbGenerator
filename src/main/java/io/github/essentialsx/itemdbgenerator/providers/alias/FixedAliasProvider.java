@@ -26,8 +26,10 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.DAMAGED_ANVIL, "verydamagedanvil");
         // == Dirt ==
         add(Material.GRASS_BLOCK, "greendirt", "greenearth", "greenland");
+        add(Material.DIRT_PATH, "path", "gpath", "grasspath", "grass_path", "minecraft:grass_path", "dpath");
         add(Material.DIRT, "earth", "land");
         add(Material.COARSE_DIRT, "cdirt", "grasslessdirt", "grasslessearth", "grasslessland", "coarseland", "coarseearth");
+        add(Material.ROOTED_DIRT, "rsoil", "rland", "rearth", "rootedsoil", "rootedland", "rootedearth");
         add(Material.MYCELIUM, "mycel", "swampgrass", "sgrass", "mushroomgrass", "mushgrass");
         // == Redstone ==
         add(Material.REDSTONE_TORCH, "rstonetorch", "redstorch", "redtorch", "rstorch");
