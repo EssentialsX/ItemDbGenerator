@@ -2,8 +2,10 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import org.bukkit.Material;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
@@ -32,6 +34,34 @@ public abstract class CompoundAliasProvider implements AliasProvider {
 
     interface CompoundModifier {
         String[] getNames();
+
+        String name();
+    }
+
+    interface MultipleCompoundModifier extends CompoundModifier {
+        default String[] generateNames(String modifier, CompoundModifier[] innerModifiers, String... names) {
+            List<String> newNames = new ArrayList<>();
+            newNames.add(modifier.toLowerCase().replace("_", ""));
+
+            for (String name : names) {
+                List<String> workingNames = new ArrayList<>();
+                workingNames.add(name);
+                for (CompoundModifier innerModifier : innerModifiers) {
+                    String placeholder = "{" + innerModifier.name() + "}";
+
+                    for (String workingName : new ArrayList<>(workingNames)) {
+                        if (workingName.contains(placeholder)) {
+                            workingNames.remove(workingName);
+                            for (String replacement : innerModifier.getNames()) {
+                                workingNames.add(workingName.replace(placeholder, replacement));
+                            }
+                        }
+                    }
+                }
+                newNames.addAll(workingNames);
+            }
+            return newNames.toArray(new String[0]);
+        }
     }
 
     interface CompoundType {

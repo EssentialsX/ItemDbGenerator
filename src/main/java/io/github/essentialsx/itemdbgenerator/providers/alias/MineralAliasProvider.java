@@ -22,6 +22,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
 
     private enum MineralModifier implements CompoundModifier {
         CHISELED("chiseled", "circle", "ci"),
+        COBBLED("cobbled", "cobble", "cb", "cob"),
         CRACKED("cracked", "crack", "cr"),
         CUT("cut"),
         INFESTED("infested", "infest", "silverfish", "sfish", "fish", "infested", "monsteregg", "megg", "trap", "sf", "me"),
@@ -42,11 +43,12 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         }
     }
 
-    private enum Mineral implements CompoundModifier {
+    private enum Mineral implements MultipleCompoundModifier {
         INFESTED_CHISELED_STONE(null, "{INFESTED}{CHISELED}st", "{INFESTED}{CHISELED}stone", "{CHISELED}{INFESTED}st", "{CHISELED}{INFESTED}stone"),
         INFESTED_CRACKED_STONE(null, "{INFESTED}{CRACKED}st", "{INFESTED}{CRACKED}stone", "{CRACKED}{INFESTED}st", "{CRACKED}{INFESTED}stone"),
         INFESTED_MOSSY_STONE(null, "{INFESTED}{MOSSY}st", "{INFESTED}{MOSSY}stone", "{MOSSY}{INFESTED}st", "{MOSSY}{INFESTED}stone"),
         INFESTED_COBBLESTONE(null, "{INFESTED}cobble", "{INFESTED}cstone", "{INFESTED}cs", "{INFESTED}cst", "{INFESTED}cobblestone"),
+        INFESTED_DEEPSLATE(null, "{INFESTED}deepslate", "{INFESTED}dslate", "{INFESTED}slate"),
         INFESTED_STONE_BRICKS(null, "{INFESTED}stbrick", "{INFESTED}stbr", "{INFESTED}stonebr", "{INFESTED}stonebrick", "{INFESTED}stonebricks"),
         INFESTED_STONE(null, "{INFESTED}st", "{INFESTED}stone"),
         CHISELED_NETHER_BRICK(null, "{CHISELED}nbr", "{CHISELED}nbrick", "{CHISELED}nethbr", "{CHISELED}nethbrick", "{CHISELED}netherbr", "{CHISELED}netherbrick"),
@@ -54,10 +56,14 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         CHISELED_QUARTZ(null, "{CHISELED}quartz", "{CHISELED}quar", "{CHISELED}q"),
         CHISELED_RED_SANDSTONE(null, "{CHISELED}redsandst", "{CHISELED}redsndst", "{CHISELED}redsandstone"),
         CHISELED_SANDSTONE(null, "{CHISELED}sandst", "{CHISELED}sndst", "{CHISELED}sandstone"),
+        CHISELED_DEEPSLATE(null, "{CHISELED}deepslate", "{CHISELED}dslate", "{CHISELED}slate"),
         CHISELED_STONE(null, "{CHISELED}st", "{CHISELED}stone"),
         CRACKED_NETHER_BRICK(null, "{CRACKED}nbr", "{CRACKED}nbrick", "{CRACKED}nethbr", "{CRACKED}nethbrick", "{CRACKED}netherbr", "{CRACKED}netherbrick"),
         CRACKED_POLISHED_BLACKSTONE(null, "{CRACKED}{POLISHED}blstone", "{CRACKED}{POLISHED}blst", "{CRACKED}{POLISHED}blackstone", "{POLISHED}{CRACKED}blstone", "{POLISHED}{CRACKED}blst", "{POLISHED}{CRACKED}blackstone"),
+        CRACKED_DEEPSLATE_BRICKS(null, "{CRACKED}deepslatebricks", "{CRACKED}dslatebricks", "{CRACKED}slatebricks", "{CRACKED}deepslatebr", "{CRACKED}dslatebr", "{CRACKED}slatebr"),
+        CRACKED_DEEPSLATE(null, "{CRACKED}deepslate", "{CRACKED}dslate", "{CRACKED}slate"),
         CRACKED_STONE(null, "{CRACKED}st", "{CRACKED}stone"),
+        COBBLED_DEEPSLATE(null, "{COBBLED}deepslate", "{COBBLED}dslate", "{COBBLED}slate"),
         CUT_RED_SANDSTONE(null, "{CUT}redsandst", "{CUT}redsndst", "{CUT}redsandstone"),
         CUT_SANDSTONE(null, "{CUT}sandst", "{CUT}sndst", "{CUT}sandstone"),
         MOSSY_COBBLESTONE(null, "{MOSSY}cobble", "{MOSSY}cstone", "{MOSSY}cs", "{MOSSY}cst", "{MOSSY}cobblestone"),
@@ -73,6 +79,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         POLISHED_BLACKSTONE(null, "{POLISHED}blstone", "{POLISHED}blst", "{POLISHED}blackstone"),
         POLISHED_DIORITE(null, "{POLISHED}di", "{POLISHED}dstone", "{POLISHED}diorite"),
         POLISHED_GRANITE(null, "{POLISHED}gr", "{POLISHED}gstone", "{POLISHED}granite"),
+        POLISHED_DEEPSLATE(null, "{POLISHED}deepslate", "{POLISHED}dslate", "{POLISHED}slate"),
         COBBLESTONE(null, "cobble", "cstone", "cs", "cst"),
         ANDESITE(null, "astone", "andstone", "and"),
         BASALT(null, "bast", "basaltst", "bas"),
@@ -88,6 +95,9 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         QUARTZ(null, "quar", "q", "netherquartz", "nq"),
         RED_SANDSTONE(null, "redsandst", "redsndst"),
         SANDSTONE(null, "sandst", "sndst"),
+        DEEPSLATE_TILE(null, "deepslatetile", "dslatetile", "slatetile", "deepslatetiles", "dslatetiles", "slatetiles"),
+        DEEPSLATE_BRICK(null, "deepslatebricks", "dslatebricks", "slatebricks", "deepslatebr", "dslatebr", "slatebr"),
+        DEEPSLATE(null, "deepslate", "dslate", "slate"),
         STONE_BRICK(null, "stbrick", "stbr", "stonebr"),
         STONE("^(?!LODE|GRIND|END)", "st"),
         ;
@@ -97,7 +107,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
 
         Mineral(String regex, String... names) {
             this.regex = CompoundType.generatePattern(name(), regex);
-            this.names = generateNames(name(), names);
+            this.names = generateNames(name(), MineralModifier.values(), names);
         }
 
         public static Mineral of(Material material) {
@@ -110,31 +120,6 @@ public class MineralAliasProvider extends CompoundAliasProvider {
             }
 
             return null;
-        }
-
-        private static String[] generateNames(String mineral, String... names) {
-            List<String> newNames = new ArrayList<>();
-            newNames.add(mineral.toLowerCase().replace("_", ""));
-
-            for (String name : names) {
-                List<String> workingNames = new ArrayList<>();
-                workingNames.add(name);
-                for (MineralModifier modifier : MineralModifier.values()) {
-                    String placeholder = "{" + modifier.name() + "}";
-
-                    for (String workingName : new ArrayList<>(workingNames)) {
-                        if (workingName.contains(placeholder)) {
-                            workingNames.remove(workingName);
-                            for (String replacement : modifier.getNames()) {
-                                workingNames.add(workingName.replace(placeholder, replacement));
-                            }
-                        }
-                    }
-                }
-                newNames.addAll(workingNames);
-            }
-
-            return newNames.toArray(new String[0]);
         }
 
         @Override
@@ -151,9 +136,10 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         PRESSURE_PLATE(null, "%spplate", "%spressureplate", "%splate", "plate%s", "%spressplate"),
         SLAB("^[A-Z_]+_SLAB", "%sstep", "%shalfblock"),
         STAIRS(null, "%sstairs", "%sstair"),
+        TILES(null, "%stiles", "%stile", "tile%s", "tiles%s"),
         WALL(null, "%swall", "wall%s"),
         ITEM("^(NETHER_BRICK|QUARTZ)$", "%s"),
-        BLOCK("(AXE|SHOVEL|SWORD|HOE|ORE|BUTTON|BRICKS|PRESSURE_PLATE|SLAB|STAIRS|WALL)", true, "%s", "%sb", "%sbl", "%sblock"),
+        BLOCK("^[A-Z_]+_(AXE|SHOVEL|SWORD|HOE|ORE|BUTTON|BRICKS|PRESSURE_PLATE|SLAB|STAIRS|WALL)", true, "%s", "%sb", "%sbl", "%sblock"),
         ;
 
         private final Pattern regex;
