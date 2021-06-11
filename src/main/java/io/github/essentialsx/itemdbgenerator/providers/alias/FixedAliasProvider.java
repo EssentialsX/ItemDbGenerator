@@ -62,6 +62,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SHROOMLIGHT, "shroomlamp", "netherlamp", "shlight");
         add(Material.LIGHT, "lightblock");
         add(Material.ITEM_FRAME, "iframe", "frame");
+        add(Material.GLOW_BERRIES, "glowfruit");
         add(Material.GLOW_INK_SAC, "glowink", "glowsac");
         add(Material.GLOW_ITEM_FRAME, "glowiframe", "glowframe", "glframe");
         add(Material.GLOW_LICHEN, "glowmoss");
@@ -96,6 +97,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.WEEPING_VINES, "weepvines", "weepvine");
         add(Material.AZALEA, "azasmall", "azsmall", "babyazalea", "babyaza", "babyaz");
         add(Material.FLOWERING_AZALEA, "flowerazasmall", "flowerazsmall", "flowerbabyazalea", "flowerbabyaza", "flowerbabyaz", "flazasmall", "flazsmall", "flbabyazalea", "flbabyaza", "flbabyaz");
+        add(Material.MOSS_BLOCK, "moss", "minecraftopensourcesoftware");
+        add(Material.MOSS_CARPET, "mossfloor");
         // == Tools and Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
