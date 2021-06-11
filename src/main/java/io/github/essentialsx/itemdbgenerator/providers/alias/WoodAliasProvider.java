@@ -24,6 +24,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
     @SuppressWarnings("unused")
     private enum WoodSpecies implements CompoundModifier {
         ACACIA("ac", "a"),
+        AZALEA("az", "aza"),
         BIRCH("b", "light", "l", "white", "w"),
         DARK_OAK("darkoak", "do", "doak"),
         JUNGLE("j", "forest", "f"),
@@ -63,6 +64,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         DOOR("[A-Z_]+_DOOR"),
         FENCE("[A-Z_]+_FENCE$"),
         FENCE_GATE(null, "%sgate", "%sfencegate", "gate%s"),
+        FLOWERING_LEAVES("FLOWERING_[A-Z_]+_LEAVES", "flower%sleaves", "flower%sleaf", "flowerleaves%s", "flowerleaf%s", "flower%streeleaves", "flower%slogleaves", "flower%strunkleaves", "flower%swoodleaves", "flower%streeleaf", "flower%slogleaf", "flower%strunkleaf", "flower%swoodleaf", "flower%sleaf", "flower%streeleave", "flower%slogleave", "flower%strunkleave", "flower%swoodleave", "flower%sleave"),
         LEAVES(null, "%sleaves", "%sleaf", "leaves%s", "leaf%s", "%streeleaves", "%slogleaves", "%strunkleaves", "%swoodleaves", "%streeleaf", "%slogleaf", "%strunkleaf", "%swoodleaf", "%sleaf", "%streeleave", "%slogleave", "%strunkleave", "%swoodleave", "%sleave"),
         LOG("^(?!STRIPPED_)[A-Z_]+_LOG", "log%s", "%slog", "%strunk", "%stree"),
         PLANKS(null, "%swoodenplank", "%swoodplank", "%swplank", "%splankwooden", "%splankwood", "%splankw", "%splank"),
@@ -73,6 +75,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         STAIRS(null, "%swoodenstairs", "%swoodstairs", "%swstairs", "%swoodenstair", "%swoodstair", "%swstair", "%sstair"),
         TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap"),
         WOOD("^(?!STRIPPED_)[A-Z_]+_WOOD", "%swood", "%slogall", "%strunkall", "%streeall", "wood%s"),
+        POTTED_BUSH("POTTED_[A-Z_]+_BUSH", "%spot", "potted%s", "potted%sbush"),
         POTTED_SAPLING("POTTED_[A-Z_]+_SAPLING", "%spot", "potted%s", "potted%ssapling"),
         STRIPPED_LOG("STRIPPED_[A-Z_]+_LOG", "stripped%slog", "log%sstripped", "str%slog", "%sstrippedlog", "%sbarelog", "stripped%stree", "bare%stree", "stripped%strunk", "bare%strunk"),
         STRIPPED_WOOD("STRIPPED_[A-Z_]+_WOOD", "stripped%swood", "wood%sstripped", "str%swood", "%sstrippedwood", "%sbarewood", "stripped%slogall", "bare%slogall", "stripped%strunkall", "bare%strunkall", "stripped%streeall", "bare%streeall"),
