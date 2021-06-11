@@ -7,7 +7,7 @@ import org.bukkit.Material;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class NetherFungiAliasProvider extends CompoundAliasProvider {
+public class DeepFungiAliasProvider extends CompoundAliasProvider {
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         FungiSpecies fungiSpecies = FungiSpecies.of(item.getMaterial());
@@ -18,13 +18,11 @@ public class NetherFungiAliasProvider extends CompoundAliasProvider {
         return getAliases(fungiSpecies, itemType);
     }
 
-    /**
-     * Represents available varieties of wood in the game.
-     */
     @SuppressWarnings("unused")
     private enum FungiSpecies implements CompoundModifier {
         CRIMSON("crim", "cr"),
         WARPED("warp"),
+        HANGING("hang", "cave")
         ;
 
         private final String[] names;
