@@ -3,14 +3,31 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 import org.bukkit.Material;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public abstract class CompoundAliasProvider implements AliasProvider {
 
+    private final Set<String> skippedAliases;
+
+    protected CompoundAliasProvider() {
+        this(Collections.emptySet());
+    }
+
+    protected CompoundAliasProvider(Set<String> skippedAliases) {
+        this.skippedAliases = skippedAliases;
+    }
+
     protected Stream<String> getAliases(CompoundModifier type, CompoundType modifier) {
         return Arrays.stream(type.getNames())
-                .flatMap(modifier::format);
+                .flatMap(modifier::format)
+                .filter(alias -> !isAliasSkipped(alias));
+    }
+
+    private boolean isAliasSkipped(String alias) {
+        return this.skippedAliases.contains(alias);
     }
 
     interface CompoundModifier {
@@ -28,7 +45,7 @@ public abstract class CompoundAliasProvider implements AliasProvider {
 
         static String[] generateFormats(final String typeName, final String... formats) {
             if (formats == null || formats.length == 0) {
-                return new String[]{"%s" + typeName.toLowerCase().replaceAll("_", "")};
+                return new String[]{"%s" + typeName.toLowerCase().replace("_", "")};
             }
 
             return formats;

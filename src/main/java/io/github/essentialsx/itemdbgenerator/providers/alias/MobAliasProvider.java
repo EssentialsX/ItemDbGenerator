@@ -1,15 +1,24 @@
 package io.github.essentialsx.itemdbgenerator.providers.alias;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class MobAliasProvider extends CompoundAliasProvider {
+
+    private static final Set<String> SKIPPED_ALIASES = ImmutableSet.<String>builder().add("turtleegg").build();
+
+    public MobAliasProvider() {
+        super(SKIPPED_ALIASES);
+    }
+
     public static boolean isSpawnable(final EntityType type) {
         try {
             MobType.valueOf(type.name());
@@ -27,15 +36,13 @@ public class MobAliasProvider extends CompoundAliasProvider {
         if (item instanceof SpawnerProvider.SpawnerItem) {
             try {
                 mobType = MobType.valueOf(((SpawnerProvider.SpawnerItem) item).getEntity().name());
-            } catch (Exception ignored) {
+            } catch (IllegalArgumentException ignored) {
             }
         }
 
         if (mobType == null) {
             mobType = MobType.of(item.getMaterial());
         }
-
-//        System.err.print("MOB-" + mobType + "-" + itemType + " ");
 
         if (mobType == null || itemType == null) return null;
 
@@ -92,6 +99,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         MOOSHROOM(MUSHROOM_COW),
         COW,
         CHICKEN,
+        GLOW_SQUID("glowsquid", "glowsq", "glsquid", "glsq"),
         SQUID,
         WOLF("dog"),
         SNOWMAN("snowgolem", "sgolem"),
@@ -121,6 +129,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
         HOGLIN("angrypig"),
         STRIDER("swimmypig"),
         ZOGLIN("rottypig", "zombiepig", "zpig", "zombiep"),
+        AXOLOTL("walkingfish"),
+        GOAT("thegoat"),
         PLAYER("steve"),
         ;
 
