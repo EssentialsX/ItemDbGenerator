@@ -86,6 +86,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.NETHER_SPROUTS, "nsprouts", "nethsprouts", "nsprout", "nethsprout", "nethersprout", "netherweed");
         add(Material.TWISTING_VINES, "twistvines", "twistvine");
         add(Material.WEEPING_VINES, "weepvines", "weepvine");
+        add(Material.AZALEA, "azasmall", "azsmall", "babyazalea", "babyaza", "babyaz");
+        add(Material.FLOWERING_AZALEA, "flowerazasmall", "flowerazsmall", "flowerbabyazalea", "flowerbabyaza", "flowerbabyaz");
         // == Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
