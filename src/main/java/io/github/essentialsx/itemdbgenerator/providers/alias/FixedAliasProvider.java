@@ -61,6 +61,14 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.LODESTONE, "lode");
         add(Material.SHROOMLIGHT, "shroomlamp", "netherlamp", "shlight");
         add(Material.LIGHT, "lightblock");
+        add(Material.ITEM_FRAME, "iframe", "frame");
+        add(Material.GLOW_INK_SAC, "glowink", "glowsac");
+        add(Material.GLOW_ITEM_FRAME, "glowiframe", "glowframe", "glframe");
+        add(Material.GLOW_LICHEN, "glowmoss");
+        add(Material.SPORE_BLOSSOM, "sporeflower", "spblossom", "spflower", "lushflower");
+        add(Material.BIG_DRIPLEAF, "bigdrip", "talldripleaf", "talldrip", "dripleafbig", "dripleaftall", "yoooooooominecraftsgotbigdrip");
+        add(Material.SMALL_DRIPLEAF, "smalldrip", "dripleafsmall", "yoooooooominecraftsgotdrip");
+        add(Material.POWDER_SNOW_BUCKET, "snowbucket", "snowpail");
         // "CUT_SANDSTONE" used to be called "SMOOTH_SANDSTONE"
         // "SMOOTH_SANDSTONE" is now a double slab
         add(Material.COBWEB, "spiderweb", "sweb", "cweb", "web");
@@ -87,10 +95,11 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.TWISTING_VINES, "twistvines", "twistvine");
         add(Material.WEEPING_VINES, "weepvines", "weepvine");
         add(Material.AZALEA, "azasmall", "azsmall", "babyazalea", "babyaza", "babyaz");
-        add(Material.FLOWERING_AZALEA, "flowerazasmall", "flowerazsmall", "flowerbabyazalea", "flowerbabyaza", "flowerbabyaz");
-        // == Combat ==
+        add(Material.FLOWERING_AZALEA, "flowerazasmall", "flowerazsmall", "flowerbabyazalea", "flowerbabyaza", "flowerbabyaz", "flazasmall", "flazsmall", "flbabyazalea", "flbabyaza", "flbabyaz");
+        // == Tools and Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
+        add(Material.SPYGLASS, "magnifyingglass", "lens", "eyesgozoom");
         // == Crops ==
         add(Material.CARVED_PUMPKIN, "hollowpumpkin", "cutpumpkin", "oldpumpkin", "legacypumpkin");
         add(Material.JACK_O_LANTERN, "pumpkinlantern", "glowingpumpkin", "lightpumpkin", "jpumpkin", "plantren", "glowpumpkin", "gpumpkin", "lpumpkin");
