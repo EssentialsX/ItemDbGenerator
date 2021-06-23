@@ -41,6 +41,7 @@ public class Main {
             new MinecartAliasProvider(),
             new PistonAliasProvider(),
             new DeepFungiAliasProvider(),
+            new CopperBuildingBlockAliasProvider(),
             new FixedAliasProvider()
     );
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
