@@ -66,7 +66,10 @@ public class Main {
             getAliases(item).forEach(alias -> {
                 if (itemMap.has(alias)) {
                     if (itemMap.get(alias).isJsonObject()) {
-                        System.err.printf("Not overwriting %s: %s with %s%n", alias, itemMap.get(alias), item.getName());
+                        // Don't log aliases if they match the item name
+                        if (!item.getName().equalsIgnoreCase(alias)) {
+                            System.err.printf("Not overwriting %s: %s with %s%n", alias, itemMap.get(alias), item.getName());
+                        }
                         return;
                     }
                     System.err.printf("Found conflicting alias %s for %s - overwriting with %s%n", alias, itemMap.get(alias), item.getName());
