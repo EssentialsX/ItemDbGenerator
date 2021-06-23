@@ -15,6 +15,7 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
 
         if (copperVariant == null || buildingBlock == null) return null;
 
+        // System.out.printf("%s -> %s, %s%n", item.getMaterial(), copperVariant, buildingBlock);
         return getAliases(copperVariant, buildingBlock);
     }
 
@@ -58,7 +59,7 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
         EXPOSED(null, "{EXPOSED}"),
         WEATHERED(null, "{WEATHERED}"),
         OXIDIZED(null, "{OXIDIZED}"),
-        CUT(null, "{CUT}"),
+        CUT("^CUT_COPPER(?:_SLAB|_STAIRS)?", "{CUT}"),
         WAXED(null, "{WAXED}"),
         PLAIN("COPPER_BLOCK", "{PLAIN}"),
         ;
