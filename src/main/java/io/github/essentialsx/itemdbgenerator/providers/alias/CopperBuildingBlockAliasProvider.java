@@ -93,7 +93,7 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
     private enum CopperBuildingBlock implements CompoundType {
         SLAB(null, "%scopperslab", "%scopslab", "%scoslab", "%scoppersl", "%scopsl", "%scosl", "%scopperstep", "%scopstep", "%scostep", "%scopperhalfblock", "%scophalfblock", "%scohalfblock"),
         STAIRS(null, "%scopperstairs", "%scopstairs", "%scostairs", "%scopperstair", "%scopstair", "%scostair"),
-        BLOCK("^[A-Z]+_(SLAB|STAIRS)", true, "%sblock", "%sbl", "%s"),
+        BLOCK("^[A-Z]+_(SLAB|STAIRS)", true, "%scopperblock", "%scopblock", "%scoblock"),
         ;
 
         private final Pattern regex;
