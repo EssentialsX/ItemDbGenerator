@@ -1,15 +1,25 @@
 package io.github.essentialsx.itemdbgenerator.providers.alias;
 
+import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.ObjectArrays;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class MineableAliasProvider extends CompoundAliasProvider {
+
+    private final Set<Material> skipped = ImmutableSet.of(
+            Material.COPPER_BLOCK,
+            Material.WAXED_COPPER_BLOCK
+    );
+
     @Override
     public Stream<String> get(ItemProvider.Item item) {
+        if (skipped.contains(item.getMaterial())) return null;
+
         Mineable mineable = Mineable.of(item.getMaterial());
         MineableItemType itemType = MineableItemType.of(item.getMaterial());
 
@@ -27,6 +37,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         NETHERITE("nether", "hell", "neth"),
         GOLD("g"),
         IRON("i", "steel", "s", "st"),
+        COPPER("cop", "copp"),
         COAL("c"),
         LAPIS("lapislazuli", "l"),
         DIAMOND("crystal", "d"),
@@ -68,7 +79,14 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum MineableItemType implements CompoundType {
-        ORE(null, "%sore", "%so", "ore%s", "o%s"),
+        // Caves and Cliffs
+        RAW_ORE_BLOCK("RAW_[A-Z]+_BLOCK", "raw%soreblock", "%sorechunkblock", "r%soreblock", "raw%sorebl", "%sorechunkbl", "r%sorebl"),
+        RAW_ORE("RAW_[A-Z]+_ORE", "raw%sore", "%sorechunk", "r%sore"),
+        DEEPSLATE_ORE("DEEPSLATE_[A-Z]+_ORE", "deepslate%sore", "deep%sore", "slate%sore", "deepore%s", "dore%s"),
+        // Nether Update
+        NETHER_ORE("NETHER_[A-Z]+_ORE", "%sore", "%so", "ore%s", "o%s"),
+        // Older ore
+        ORE(null, "%sore", "%so", "ore%s", "o%s", "stone%sore"),
         BLOCK(null, "%sblock", "block%s"),
         INGOT(null, "%singot", "%sbar", "%si", "ingot%s", "bar%s", "i%s"),
         SCRAP(null, "%sscrap"),
