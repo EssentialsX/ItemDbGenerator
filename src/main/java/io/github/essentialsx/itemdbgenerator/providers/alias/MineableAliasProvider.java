@@ -13,7 +13,8 @@ public class MineableAliasProvider extends CompoundAliasProvider {
 
     private final Set<Material> skipped = ImmutableSet.of(
             Material.COPPER_BLOCK,
-            Material.WAXED_COPPER_BLOCK
+            Material.WAXED_COPPER_BLOCK,
+            Material.DRIPSTONE_BLOCK
     );
 
     @Override
