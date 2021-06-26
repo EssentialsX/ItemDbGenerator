@@ -62,9 +62,9 @@ public class CrystalAliasProvider extends CompoundAliasProvider {
         STAIRS(null, "%sstairs", "%sstair", "%sst"),
         CRYSTALS(null, "%scrystals", "%scrystal"),
         SHARD(null, "%sshard", "%sfragment"),
-        SMALL_BUD("SMALL_[A-Z]+_BUD", "small%sbud", "little%sbud", "s%sbud", "&sbuds"),
-        MEDIUM_BUD("MEDIUM_[A-Z]+_BUD", "medium%sbud", "mid%sbud", "m%sbud", "&sbudm"),
-        LARGE_BUD("LARGE_[A-Z]+_BUD", "large%sbud", "big%sbud", "l%sbud", "&sbudl"),
+        SMALL_BUD("SMALL_[A-Z]+_BUD", "small%sbud", "little%sbud", "s%sbud", "%sbuds"),
+        MEDIUM_BUD("MEDIUM_[A-Z]+_BUD", "medium%sbud", "mid%sbud", "m%sbud", "%sbudm"),
+        LARGE_BUD("LARGE_[A-Z]+_BUD", "large%sbud", "big%sbud", "l%sbud", "%sbudl"),
         CLUSTER(null, "%scluster", "%sclump", "cluster%s", "clump%s"),
         BLOCK("^((DARK_)?PRISMARINE|[A-Z]+_BLOCK)$", "%s", "%sblock"),
         ;
