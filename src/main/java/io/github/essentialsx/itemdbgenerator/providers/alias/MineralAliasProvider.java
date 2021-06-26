@@ -80,6 +80,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         POLISHED_DIORITE(null, "{POLISHED}di", "{POLISHED}dstone", "{POLISHED}diorite"),
         POLISHED_GRANITE(null, "{POLISHED}gr", "{POLISHED}gstone", "{POLISHED}granite"),
         POLISHED_DEEPSLATE(null, "{POLISHED}deepslate", "{POLISHED}dslate", "{POLISHED}slate"),
+        DRIPSTONE(null, "dripstone", "drip"),
         COBBLESTONE(null, "cobble", "cstone", "cs", "cst"),
         ANDESITE(null, "astone", "andstone", "and"),
         BASALT(null, "bast", "basaltst", "bas"),
@@ -99,7 +100,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         DEEPSLATE_BRICK(null, "deepslatebricks", "dslatebricks", "slatebricks", "deepslatebr", "dslatebr", "slatebr"),
         DEEPSLATE(null, "deepslate", "dslate", "slate"),
         STONE_BRICK(null, "stbrick", "stbr", "stonebr"),
-        STONE("^(?!LODE|GRIND|END)", "st"),
+        STONE("^(?!LODE|GRIND|END|DRIP)", "st"),
         ;
 
         private final Pattern regex;
@@ -139,6 +140,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         TILES(null, "%stiles", "%stile", "tile%s", "tiles%s"),
         WALL(null, "%swall", "wall%s"),
         ITEM("^(NETHER_BRICK|QUARTZ)$", "%s"),
+        POINTED("^POINTED_DRIPSTONE", "pointed%s", "point%s", "p%s", "hanging%s", "spiky%s"),
         BLOCK("^[A-Z_]+_(AXE|SHOVEL|SWORD|HOE|ORE|BUTTON|BRICKS|PRESSURE_PLATE|SLAB|STAIRS|WALL)", true, "%s", "%sb", "%sbl", "%sblock"),
         ;
 
