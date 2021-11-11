@@ -3,7 +3,23 @@ package io.github.essentialsx.itemdbgenerator;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import io.github.essentialsx.itemdbgenerator.providers.alias.*;
+import io.github.essentialsx.itemdbgenerator.providers.alias.AliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.ColourAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.CopperBuildingBlockAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.CrystalAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.DeepFungiAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.FixedAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MeatFishAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MineableAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MinecartAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MineralAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MobAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.MusicDiscAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.PistonAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.PotionAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.RailAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.SimpleAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.WoodAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.PotionProvider;
@@ -33,7 +49,7 @@ public class Main {
             new MineralAliasProvider(),
             new WoodAliasProvider(),
             new MineableAliasProvider(),
-            new RecordAliasProvider(),
+            new MusicDiscAliasProvider(),
             new MobAliasProvider(),
             new MeatFishAliasProvider(),
             new CrystalAliasProvider(),
@@ -44,8 +60,8 @@ public class Main {
             new CopperBuildingBlockAliasProvider(),
             new FixedAliasProvider()
     );
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static final Path outputPath = Paths.get(".", "items.json");
+    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Path OUTPUT_PATH = Paths.get(".", "items.json");
     private static final String HEADER = "#version: ${full.version}\n# This file is for internal EssentialsX usage.\n# We recommend using custom_items.yml to add custom aliases.\n";
 
     public static void main(String[] args) {
@@ -62,7 +78,7 @@ public class Main {
         JsonObject itemMap = new JsonObject();
 
         items.forEach(item -> {
-            itemMap.add(item.getName(), gson.toJsonTree(item));
+            itemMap.add(item.getName(), GSON.toJsonTree(item));
             getAliases(item).forEach(alias -> {
                 if (itemMap.has(alias)) {
                     if (itemMap.get(alias).isJsonObject()) {
@@ -82,11 +98,11 @@ public class Main {
     }
 
     static void save(JsonObject itemMap) {
-        String output = HEADER + gson.toJson(itemMap);
+        String output = HEADER + GSON.toJson(itemMap);
 
         try {
-            Files.deleteIfExists(outputPath);
-            Files.write(outputPath, output.getBytes());
+            Files.deleteIfExists(OUTPUT_PATH);
+            Files.write(OUTPUT_PATH, output.getBytes());
             System.err.println("Saved items.json successfully.");
         } catch (IOException e) {
             System.err.println("Failed to save items.json! Dumping items.json:");
