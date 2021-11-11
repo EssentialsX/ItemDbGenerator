@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
-public class RecordAliasProvider extends CompoundAliasProvider {
+public class MusicDiscAliasProvider extends CompoundAliasProvider {
     private static final List<String> MUSIC_DISC_NAMES = Arrays.asList("musicrecord", "musicdisk", "musicdisc", "musiccd", "mrecord", "mdisk", "mdisc", "mcd", "record", "disk", "disc", "cd");
 
     @Override
@@ -18,10 +18,6 @@ public class RecordAliasProvider extends CompoundAliasProvider {
 
         Track track = Track.of(item.getMaterial());
         if (track == null) return null;
-
-        if (item.getMaterial().name().contains("MUSIC_DISK")) {
-            System.out.println(track);
-        }
 
         return MUSIC_DISC_NAMES.stream()
                 .flatMap(track::format);
@@ -40,7 +36,8 @@ public class RecordAliasProvider extends CompoundAliasProvider {
         WARD("MUSIC_DISC_WARD", "ward%s", "darkgreen%s", "dgreen%s", "darkgr%s", "dgr%s", "%s10", "10%s"),
         ELEVEN("MUSIC_DISC_11", "11%s", "cracked%s", "crack%s", "c%s", "%s11"),
         WAIT("MUSIC_DISC_WAIT", "wait%s", "blue%s", "cyan%s", "bl%s", "cy%s", "%s12", "12%s"),
-        PIGSTEP("MUSIC_DISC_PIGSTEP", "pigstep%s", "nether%s", "dark%s", "neth%s", "pig%s", "%s14", "14%s"),
+        PIGSTEP("MUSIC_DISC_PIGSTEP", "pigstep%s", "nether%s", "dark%s", "neth%s", "pig%s", "%s14", "14%s", "lenaraineisawesome"),
+        OTHERSIDE("MUSIC_DISC_OTHERSIDE", "otherside%s", "cave%s", "under%s", "deep%s2", "other%s", "%s15", "15%s", "lenaraineisstillawesome"),
         ;
 
         private final Pattern regex;
