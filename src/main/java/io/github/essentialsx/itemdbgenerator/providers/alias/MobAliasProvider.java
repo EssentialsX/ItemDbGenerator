@@ -131,6 +131,10 @@ public class MobAliasProvider extends CompoundAliasProvider {
         ZOGLIN("rottypig", "zombiepig", "zpig", "zombiep"),
         AXOLOTL("walkingfish"),
         GOAT("thegoat"),
+        ALLAY("allay"),
+        FROG("frog"),
+        TADPOLE("tadpole"),
+        WARDEN("warden"),
         PLAYER("steve"),
         ;
 
