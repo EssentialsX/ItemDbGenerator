@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 
 public class MusicDiscAliasProvider extends CompoundAliasProvider {
     private static final List<String> MUSIC_DISC_NAMES = Arrays.asList("musicrecord", "musicdisk", "musicdisc", "musiccd", "mrecord", "mdisk", "mdisc", "mcd", "record", "disk", "disc", "cd");
+    // TODO: fragment
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
@@ -28,7 +29,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         CAT("MUSIC_DISC_CAT", "cat%s", "green%s", "gr%s", "%s2", "2%s"),
         BLOCKS("MUSIC_DISC_BLOCKS", "blocks%s", "orange%s", "or%s", "%s3", "3%s"),
         CHIRP("MUSIC_DISC_CHIRP", "chirp%s", "red%s", "re%s", "%s4", "4%s"),
-        FAR("MUSIC_DISC_FAR", "far%s", "lightgreen%s", "lgreen%s", "lightgr%s", "lgr%s", "%s5", "5%s"),
+        FAR("MUSIC_DISC_FAR", "far%s", "lightgreen%s", "lgreen%s", "lightgr%s", "lgr%s"), // previously 5, replaced by Music Disc 5 in 1.19
         MALL("MUSIC_DISC_MALL", "mall%s", "purple%s", "pu%s", "%s6", "6%s"),
         MELLOHI("MUSIC_DISC_MELLOHI", "mellohi%s", "pink%s", "pi%s", "%s7", "7%s"),
         STAL("MUSIC_DISC_STAL", "stal%s", "black%s", "bl%s", "%s8", "8%s"),
@@ -38,6 +39,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         WAIT("MUSIC_DISC_WAIT", "wait%s", "blue%s", "cyan%s", "bl%s", "cy%s", "%s12", "12%s"),
         PIGSTEP("MUSIC_DISC_PIGSTEP", "pigstep%s", "nether%s", "dark%s", "neth%s", "pig%s", "%s14", "14%s", "lenaraineisawesome"),
         OTHERSIDE("MUSIC_DISC_OTHERSIDE", "otherside%s", "cave%s", "under%s", "deep%s2", "other%s", "%s15", "15%s", "lenaraineisstillawesome"),
+        FIVE("DISC_(FRAGMENT_)?5", "five%s", "%sfive", "deepdark%s", "%sdeepdark", "deep%s", "%sdeep", "%s5", "5%s", "%s16", "16%s")
         ;
 
         private final Pattern regex;
