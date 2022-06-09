@@ -6,7 +6,7 @@
 
   <groupId>io.github.essentialsx</groupId>
   <artifactId>ItemDbGenerator</artifactId>
-  <version>0.0.3-SNAPSHOT</version>
+  <version>0.0.4-SNAPSHOT</version>
 
   <name>ItemDbGenerator</name>
   <description>An items.json generator for the EssentialsX FlatItemDb.</description>
@@ -21,7 +21,7 @@
     <dependency>
       <groupId>org.spigotmc</groupId>
       <artifactId>spigot-api</artifactId>
-      <version>1.18-pre5-R0.1-SNAPSHOT</version>
+      <version>1.19-R0.1-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
