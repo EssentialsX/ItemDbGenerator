@@ -29,7 +29,9 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         DARK_OAK("darkoak", "do", "doak"),
         JUNGLE("j", "forest", "f"),
         OAK("o"),
-        SPRUCE("pine", "p", "dark", "d", "s");
+        SPRUCE("pine", "p", "dark", "d", "s"),
+        MANGROVE("man", "m"),
+        ;
 
         private final String[] names;
 
@@ -59,6 +61,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum WoodItemType implements CompoundType {
+        CHEST_BOAT(null, "%scboat"),
         BOAT(null, "boat%s", "%sboat", "%sraft"),
         BUTTON(null, "button%s", "%sbutton"),
         DOOR("[A-Z_]+_DOOR"),
@@ -79,6 +82,9 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         POTTED_SAPLING("POTTED_[A-Z_]+_SAPLING", "%spot", "potted%s", "potted%ssapling"),
         STRIPPED_LOG("STRIPPED_[A-Z_]+_LOG", "stripped%slog", "log%sstripped", "str%slog", "%sstrippedlog", "%sbarelog", "stripped%stree", "bare%stree", "stripped%strunk", "bare%strunk"),
         STRIPPED_WOOD("STRIPPED_[A-Z_]+_WOOD", "stripped%swood", "wood%sstripped", "str%swood", "%sstrippedwood", "%sbarewood", "stripped%slogall", "bare%slogall", "stripped%strunkall", "bare%strunkall", "stripped%streeall", "bare%streeall"),
+        PROPAGULE(null, "propagule%s", "%sprop", "%ssapling", "%streesapling", "%slogsapling", "%strunksapling", "%swoodsapling"),
+        MUDDY_ROOTS("^MUDDY_[A-Z_]+_ROOTS", "mud%sroots", "mud%sroot"),
+        ROOTS("^(?!MUDDY_)[A-Z_]+_ROOTS", "%sroots", "%sroot"),
         ;
 
         private final Pattern regex;
