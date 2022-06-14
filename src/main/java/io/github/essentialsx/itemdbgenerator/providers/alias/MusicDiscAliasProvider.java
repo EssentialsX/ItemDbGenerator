@@ -6,6 +6,7 @@ import org.bukkit.Material;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -16,6 +17,10 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
     public Stream<String> get(ItemProvider.Item item) {
         if (!(item instanceof MaterialEnumProvider.MaterialEnumItem)) return null;
 
+        if (item.getMaterial().name().contains("DISC") && item.getMaterial().name().contains("5")) {
+            Logger.getLogger("MusicDisc").info("wooyeah");
+        }
+
         Track track = Track.of(item.getMaterial());
         DiscType type = DiscType.of(item.getMaterial());
         if (track == null || type == null) return null;
@@ -24,8 +29,9 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
     }
 
     private enum DiscType implements CompoundType {
-        DISC_FRAGMENT(null, "discfrag", "fragment"),
-        MUSIC_DISC(null, MUSIC_DISC_NAMES)
+        // this is scuffed beyond belief
+        DISC_FRAGMENT("^DISC_FRAGMENT_5", "discfrag", "fragment"),
+        MUSIC_DISC("^MUSIC_DISC_[A-Z0-9]+", generateFormatsFromNames(MUSIC_DISC_NAMES))
         ;
 
         private final Pattern regex;
@@ -34,10 +40,6 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         DiscType(String regex, String... formats) {
             this.regex = CompoundType.generatePattern(name(), regex);
             this.formats = CompoundType.generateFormats(name(), formats);
-        }
-
-        DiscType(String regex, List<String> names) {
-            this(regex, generateFormatsFromNames(names));
         }
 
         private static String[] generateFormatsFromNames(List<String> names) {
@@ -79,7 +81,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         WAIT("MUSIC_DISC_WAIT", "wait", "blue", "cyan", "bl", "cy", "12"),
         PIGSTEP("MUSIC_DISC_PIGSTEP", "pigstep", "nether", "dark", "neth", "pig", "14", "lenaraineisawesome"),
         OTHERSIDE("MUSIC_DISC_OTHERSIDE", "otherside", "cave", "under", "deep", "other", "15", "lenaraineisstillawesome"),
-        FIVE("DISC_(FRAGMENT_)?5", "five", "wild", "5", "16")
+        FIVE("(MUSIC_DISC|DISC_FRAGMENT)_5", "five", "wild", "5", "16")
         ;
 
         private final Pattern regex;
