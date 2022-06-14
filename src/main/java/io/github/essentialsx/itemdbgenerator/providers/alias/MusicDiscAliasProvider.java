@@ -17,10 +17,6 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
     public Stream<String> get(ItemProvider.Item item) {
         if (!(item instanceof MaterialEnumProvider.MaterialEnumItem)) return null;
 
-        if (item.getMaterial().name().contains("DISC") && item.getMaterial().name().contains("5")) {
-            Logger.getLogger("MusicDisc").info("wooyeah");
-        }
-
         Track track = Track.of(item.getMaterial());
         DiscType type = DiscType.of(item.getMaterial());
         if (track == null || type == null) return null;
