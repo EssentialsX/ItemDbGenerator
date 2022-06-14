@@ -27,7 +27,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         MOSSY("mossy", "moss", "m"),
         SMOOTH("smooth", "sm"),
         POLISHED("polished", "p"),
-        PACKED("packed", "pack")
+        PACKED("packed", "pack"),
+        REINFORCED("reinforced", "reinf", "r"),
         ;
 
         private final String[] names;
@@ -63,6 +64,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         CRACKED_DEEPSLATE(null, "{CRACKED}deepslate", "{CRACKED}dslate", "{CRACKED}slate"),
         CRACKED_STONE(null, "{CRACKED}st", "{CRACKED}stone"),
         COBBLED_DEEPSLATE(null, "{COBBLED}deepslate", "{COBBLED}dslate", "{COBBLED}slate"),
+        REINFORCED_DEEPSLATE(null, "{REINFORCED}deepslate", "{REINFORCED}dslate", "{REINFORCED}slate"),
         CUT_RED_SANDSTONE(null, "{CUT}redsandst", "{CUT}redsndst", "{CUT}redsandstone"),
         CUT_SANDSTONE(null, "{CUT}sandst", "{CUT}sndst", "{CUT}sandstone"),
         MOSSY_COBBLESTONE(null, "{MOSSY}cobble", "{MOSSY}cstone", "{MOSSY}cs", "{MOSSY}cst", "{MOSSY}cobblestone"),
