@@ -128,6 +128,10 @@ public class FixedAliasProvider implements AliasProvider {
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
-        return Arrays.stream(FIXED_ALIASES.get(item.getMaterial()));
+        String[] names = FIXED_ALIASES.get(item.getMaterial());
+        if (names != null) {
+            return Arrays.stream(names);
+        }
+        return null;
     }
 }
