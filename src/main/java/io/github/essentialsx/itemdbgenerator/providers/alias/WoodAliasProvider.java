@@ -61,7 +61,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum WoodItemType implements CompoundType {
-        CHEST_BOAT(null, "%scboat"),
+        CHEST_BOAT(null, "%schboat"),
         BOAT(null, "boat%s", "%sboat", "%sraft"),
         BUTTON(null, "button%s", "%sbutton"),
         DOOR("[A-Z_]+_DOOR"),

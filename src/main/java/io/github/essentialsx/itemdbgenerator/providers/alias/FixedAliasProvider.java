@@ -3,6 +3,7 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
+import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.stream.Stream;
 
@@ -103,6 +104,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
         add(Material.SPYGLASS, "magnifyingglass", "lens", "eyesgozoom");
+        add(Material.RECOVERY_COMPASS, "recompass");
         // == Crops ==
         add(Material.CARVED_PUMPKIN, "hollowpumpkin", "cutpumpkin", "oldpumpkin", "legacypumpkin");
         add(Material.JACK_O_LANTERN, "pumpkinlantern", "glowingpumpkin", "lightpumpkin", "jpumpkin", "plantren", "glowpumpkin", "gpumpkin", "lpumpkin");
@@ -126,6 +128,6 @@ public class FixedAliasProvider implements AliasProvider {
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
-        return null;
+        return Arrays.stream(FIXED_ALIASES.get(item.getMaterial()));
     }
 }

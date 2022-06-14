@@ -3,8 +3,6 @@ package io.github.essentialsx.itemdbgenerator.providers.alias;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -29,6 +27,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         MOSSY("mossy", "moss", "m"),
         SMOOTH("smooth", "sm"),
         POLISHED("polished", "p"),
+        PACKED("packed", "pack")
         ;
 
         private final String[] names;
@@ -80,6 +79,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         POLISHED_DIORITE(null, "{POLISHED}di", "{POLISHED}dstone", "{POLISHED}diorite"),
         POLISHED_GRANITE(null, "{POLISHED}gr", "{POLISHED}gstone", "{POLISHED}granite"),
         POLISHED_DEEPSLATE(null, "{POLISHED}deepslate", "{POLISHED}dslate", "{POLISHED}slate"),
+        PACKED_MUD(null, "{PACKED}mud"),
         DRIPSTONE(null, "dripstone", "drip"),
         COBBLESTONE(null, "cobble", "cstone", "cs", "cst"),
         ANDESITE(null, "astone", "andstone", "and"),
@@ -101,6 +101,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         DEEPSLATE(null, "deepslate", "dslate", "slate"),
         STONE_BRICK(null, "stbrick", "stbr", "stonebr"),
         STONE("^(?!LODE|GRIND|END|DRIP)", "st"),
+        MUD_BRICK(null, "mudbrick", "mudbr"),
+        MUD("^MUD(?!DY)", "mud")
         ;
 
         private final Pattern regex;
