@@ -47,6 +47,10 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.CHAIN_COMMAND_BLOCK, "chaincmdblock", "chcmdblock", "chainmacroblock", "chblockcmd");
         add(Material.REPEATING_COMMAND_BLOCK, "repcmdblock", "loopcmdblock", "loopmacroblock", "loopblockcmd");
         add(Material.DAYLIGHT_DETECTOR, "lightdetector", "photoresistor", "daydetector", "lightdetect", "solarpanel", "daydetect");
+        add(Material.SCULK_CATALYST, "sccatalyst", "sculkcat", "sccat");
+        add(Material.SCULK_SENSOR, "scsensor");
+        add(Material.SCULK_SHRIEKER, "scshrieker", "sculkshriek", "scshriek");
+        add(Material.SCULK_VEIN, "scvein");
         // == Decorative ==
         add(Material.RED_SAND, "rsand");
         add(Material.GLASS, "blockglass", "glassblock");
@@ -115,6 +119,10 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BEETROOT_SOUP, "brootsoup", "beetsoup", "beetssoup", "beetplantsoup", "beetcropsoup", "redsoup");
         add(Material.GOLDEN_APPLE, "goldapple", "newgoldapple", "notnotchapple");
         add(Material.ENCHANTED_GOLDEN_APPLE, "notchapple", "godapple", "enchgoldapple");
+        // == Froglights ==
+        add(Material.OCHRE_FROGLIGHT, "ocfroglight", "ochrelight", "ofroglight", "olight");
+        add(Material.PEARLESCENT_FROGLIGHT, "pearlfroglight", "pearllight", "pfroglight", "plight");
+        add(Material.VERDANT_FROGLIGHT, "verdfroglight", "verdlight", "vfroglight", "vlight");
         // == End Materials ==
         add(Material.END_PORTAL, "endergoo", "enderportal", "endgoo", "eportal", "egoo");
         add(Material.END_PORTAL_FRAME, "endergooframe", "enderportalframe", "endgooframe", "eportalframe", "egooframe", "enderframe", "endframe");
