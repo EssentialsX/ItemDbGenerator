@@ -1,4 +1,5 @@
 # Output
+work/
 items.json
 
 # Created by https://www.gitignore.io/api/git,java,maven,intellij+all
@@ -144,3 +145,9 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 # End of https://www.gitignore.io/api/git,java,maven,intellij+all
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build

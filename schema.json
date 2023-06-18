@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/EssentialsX/ContentGenerator/blob/master/schema.json",
+  "title": "EssentialsX Game Content Data",
+  "description": "Data to augment Minecraft game content at runtime",
+
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "description": "Schema version",
+      "type": "integer",
+      "minimum": 1
+    },
+    "data_version": {
+      "description": "Data version identifier",
+      "type": "string"
+    },
+    "generator_info": {
+      "description": "Misc info output from generator",
+      "type": "string"
+    },
+
+    "items": {
+      "description": "Game item data",
+      "type": "array",
+      "items": { "$ref": "#/$defs/item" }
+    }
+  },
+  "required": [ // TODO
+    "checked",
+    "dimensions",
+    "id",
+    "name",
+    "price",
+    "tags"
+  ],
+  "examples": [],
+
+  "$defs": {
+    "item": {
+      "name": "Item type",
+      "type": "object",
+      "properties": {
+        "key": { "type": "string" },
+        "fallback_keys": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "aliases": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "extras": {
+          "name": "Extra data",
+          "description": "Additional ItemStack metadata to apply after construction",
+          "type": "object",
+          "properties": {
+            "bukkit_potion": {
+              "type": "object",
+              "properties": {
+                "type": { "type": "string" },
+                "extended": { "type": "boolean" },
+                "upgraded": { "type": "boolean" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "item_extra": {
+      "name": "Additional data to construct this item",
+      "type": "object",
+      "anyOf": [
+        {
+          "type": "string"
+        }
+      ]
+    }
+  }
+}
