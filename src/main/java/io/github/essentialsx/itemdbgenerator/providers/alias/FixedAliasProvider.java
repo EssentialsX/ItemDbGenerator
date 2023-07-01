@@ -32,6 +32,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.COARSE_DIRT, "cdirt", "grasslessdirt", "grasslessearth", "grasslessland", "coarseland", "coarseearth");
         add(Material.ROOTED_DIRT, "rsoil", "rland", "rearth", "rootedsoil", "rootedland", "rootedearth");
         add(Material.MYCELIUM, "mycel", "swampgrass", "sgrass", "mushroomgrass", "mushgrass");
+        add(Material.SUSPICIOUS_GRAVEL, "susgravel", "amongusgravel");
+        add(Material.SUSPICIOUS_SAND, "sussand", "amongussand");
         // == Redstone ==
         add(Material.REDSTONE_TORCH, "rstonetorch", "redstorch", "redtorch", "rstorch");
         add(Material.DISPENSER, "dispense");
@@ -51,12 +53,14 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SCULK_SENSOR, "scsensor");
         add(Material.SCULK_SHRIEKER, "scshrieker", "sculkshriek", "scshriek");
         add(Material.SCULK_VEIN, "scvein");
+        add(Material.CALIBRATED_SCULK_SENSOR, "cscsensor");
         // == Decorative ==
         add(Material.RED_SAND, "rsand");
         add(Material.GLASS, "blockglass", "glassblock");
         add(Material.GLASS_PANE, "glassp", "paneglass", "pglass", "flatglass", "fglass", "skinnyglass", "glassflat", "glassf", "glassskinny", "glasss");
         add(Material.TINTED_GLASS, "glasstinted", "tintglass", "glasstint", "tglass", "glasst", "lightblockingglass");
         add(Material.BOOKSHELF, "bshelf", "bookcase", "casebook", "shelfbook", "bookblock", "blockbook");
+        add(Material.CHISELED_BOOKSHELF, "cbshelf", "cbookcase", "cshelfbook", "cbookblock", "cblockbook", "chiseledshelf", "chiseledb");
         add(Material.TORCH, "burningstick", "burnstick");
         add(Material.GLOWSTONE, "glowingstoneblock", "lightstoneblock", "glowstoneblock", "blockglowingstone", "blocklightstone", "blockglowstone", "glowingstone", "lightstone", "glowingblock", "lightblock", "glowblock", "lstone");
         add(Material.LILY_PAD, "waterlily", "lily", "swamppad", "lpad", "wlily");
@@ -104,6 +108,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.FLOWERING_AZALEA, "flowerazasmall", "flowerazsmall", "flowerbabyazalea", "flowerbabyaza", "flowerbabyaz", "flazasmall", "flazsmall", "flbabyazalea", "flbabyaza", "flbabyaz");
         add(Material.MOSS_BLOCK, "moss", "minecraftopensourcesoftware");
         add(Material.MOSS_CARPET, "mossfloor");
+        add(Material.DECORATED_POT, "decorpot", "dflowerpot");
+        add(Material.BAMBOO_BLOCK, "bamblock", "bbblock");
         // == Tools and Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
@@ -115,6 +121,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BEETROOT, "broot", "beet", "beets", "beetplant", "beetcrop");
         add(Material.BEETROOT_SEEDS, "beetrootseed", "brootseed", "brootseeds", "beetseed", "beetseeds", "beetsseeds", "beetplantseeds", "beetcropseeds");
         add(Material.MELON, "watermelon", "greenmelon", "melongreen", "melonblock", "watermelonblock", "greenmelonblock");
+        add(Material.TORCHFLOWER, "tflower");
+        add(Material.TORCHFLOWER_SEEDS, "torchseeds", "tflowerseeds", "tseeds");
         // == Food ==
         add(Material.BEETROOT_SOUP, "brootsoup", "beetsoup", "beetssoup", "beetplantsoup", "beetcropsoup", "redsoup");
         add(Material.GOLDEN_APPLE, "goldapple", "newgoldapple", "notnotchapple");
@@ -132,6 +140,44 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.CHORUS_FRUIT, "chorus", "unpoppedchorus", "unpopchorus");
         add(Material.POPPED_CHORUS_FRUIT, "pchorus", "poppedchorus", "popchorus");
         add(Material.PHANTOM_MEMBRANE, "membrane", "superduperelytrarepairkit", "phmembrane", "pmembrane");
+        // == Armor Trims ==
+        add(Material.COAST_ARMOR_TRIM_SMITHING_TEMPLATE, "coasttrim");
+        add(Material.DUNE_ARMOR_TRIM_SMITHING_TEMPLATE, "dunetrim");
+        add(Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE, "eyetrim");
+        add(Material.HOST_ARMOR_TRIM_SMITHING_TEMPLATE, "hosttrim");
+        add(Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE, "raisertrim");
+        add(Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE, "ribtrim");
+        add(Material.SENTRY_ARMOR_TRIM_SMITHING_TEMPLATE, "sentrytrim");
+        add(Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE, "shapertrim");
+        add(Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE, "silencetrim");
+        add(Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE, "snouttrim");
+        add(Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE, "spiretrim");
+        add(Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE, "tidetrim");
+        add(Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE, "vextrim");
+        add(Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE, "wardtrim");
+        add(Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE, "wayfindertrim");
+        add(Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, "wildtrim");
+        // == Pottery Sherds ==
+        add(Material.SHEAF_POTTERY_SHERD, "sheafsherd");
+        add(Material.ARCHER_POTTERY_SHERD, "archersherd");
+        add(Material.ARMS_UP_POTTERY_SHERD, "armssherd", "armsupsherd");
+        add(Material.BLADE_POTTERY_SHERD, "bladesherd");
+        add(Material.BREWER_POTTERY_SHERD, "brewersherd", "brewsherd");
+        add(Material.BURN_POTTERY_SHERD, "burnsherd");
+        add(Material.DANGER_POTTERY_SHERD, "dangersherd");
+        add(Material.EXPLORER_POTTERY_SHERD, "explorersherd");
+        add(Material.FRIEND_POTTERY_SHERD, "friendsherd");
+        add(Material.HEART_POTTERY_SHERD, "heartsherd");
+        add(Material.HEARTBREAK_POTTERY_SHERD, "hbreaksherd", "heartbreaksherd", "heartbsherd");
+        add(Material.HOWL_POTTERY_SHERD, "howlsherd");
+        add(Material.MINER_POTTERY_SHERD, "minersherd");
+        add(Material.MOURNER_POTTERY_SHERD, "mournersherd", "mournsherd");
+        add(Material.PLENTY_POTTERY_SHERD, "plentysherd");
+        add(Material.PRIZE_POTTERY_SHERD, "prizesherd");
+        add(Material.SHEAF_POTTERY_SHERD, "sheafsherd");
+        add(Material.SHELTER_POTTERY_SHERD, "sheltersherd");
+        add(Material.SKULL_POTTERY_SHERD, "skullsherd");
+        add(Material.SNORT_POTTERY_SHERD, "snortsherd");
     }
 
     @Override
