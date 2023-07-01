@@ -77,7 +77,8 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         WAIT("MUSIC_DISC_WAIT", "wait", "blue", "cyan", "bl", "cy", "12"),
         PIGSTEP("MUSIC_DISC_PIGSTEP", "pigstep", "nether", "dark", "neth", "pig", "14", "lenaraineisawesome"),
         OTHERSIDE("MUSIC_DISC_OTHERSIDE", "otherside", "cave", "under", "deep", "other", "15", "lenaraineisstillawesome"),
-        FIVE("(MUSIC_DISC|DISC_FRAGMENT)_5", "five", "wild", "5", "16")
+        FIVE("(MUSIC_DISC|DISC_FRAGMENT)_5", "five", "wild", "5", "16"),
+        RELIC("MUSIC_DISC_RELIC", "relic"),
         ;
 
         private final Pattern regex;
