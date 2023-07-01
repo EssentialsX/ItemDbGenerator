@@ -22,7 +22,6 @@ public class DeepFungiAliasProvider extends CompoundAliasProvider {
     private enum FungiSpecies implements CompoundModifier {
         CRIMSON("crim", "cr"),
         WARPED("warp"),
-        HANGING("hang", "cave")
         ;
 
         private final String[] names;
