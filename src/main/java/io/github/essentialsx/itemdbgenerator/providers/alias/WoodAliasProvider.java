@@ -31,6 +31,8 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         OAK("o"),
         SPRUCE("pine", "p", "dark", "d", "s"),
         MANGROVE("man", "m"),
+        CHERRY("cherry", "cher", "c"),
+        BAMBOO("bamboo", "bam", "bamb"),
         ;
 
         private final String[] names;
@@ -61,8 +63,8 @@ public class WoodAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum WoodItemType implements CompoundType {
-        CHEST_BOAT(null, "%schboat"),
-        BOAT(null, "boat%s", "%sboat", "%sraft"),
+        CHEST_BOAT("[A-Z_]+_CHEST_(?:BOAT|RAFT)$", "%schboat"),
+        BOAT("[A-Z_]+_(?:BOAT|RAFT)$", "boat%s", "%sboat", "%sraft"),
         BUTTON(null, "button%s", "%sbutton"),
         DOOR("[A-Z_]+_DOOR"),
         FENCE("[A-Z_]+_FENCE$"),
@@ -73,9 +75,10 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         PLANKS(null, "%swoodenplank", "%swoodplank", "%swplank", "%splankwooden", "%splankwood", "%splankw", "%splank"),
         PRESSURE_PLATE(null, "%spplate", "%spressureplate", "%splate", "plate%s", "%spressplate"),
         SAPLING("^(?!POTTED_)[A-Z_]+_SAPLING", "%ssapling", "%streesapling", "%slogsapling", "%strunksapling", "%swoodsapling"),
-        SIGN("^(?!WALL_)[A-Z_]+_SIGN", "%ssign"),
-        SLAB("^(?!PETRIFIED_)[A-Z_]+_SLAB", "%swoodenstep", "%swoodstep", "%swstep", "%sstep", "%swoodenslab", "%swoodslab", "%swslab", "%swoodenhalfblock", "%swoodhalfblock", "%swhalfblock", "%shalfblock"),
-        STAIRS(null, "%swoodenstairs", "%swoodstairs", "%swstairs", "%swoodenstair", "%swoodstair", "%swstair", "%sstair"),
+        HANGING_SIGN("^(?!WALL_)[A-Z_]+_HANGING_SIGN", "%shangsign", "%shsign"),
+        SIGN("^(?!WALL_|HANGING_)[A-Z_]+_SIGN", "%ssign"),
+        SLAB("^(?!PETRIFIED_|BAMBOO_MOSAIC_)[A-Z_]+_SLAB", "%swoodenstep", "%swoodstep", "%swstep", "%sstep", "%swoodenslab", "%swoodslab", "%swslab", "%swoodenhalfblock", "%swoodhalfblock", "%swhalfblock", "%shalfblock"),
+        STAIRS("^(?!BAMBOO_MOSAIC_)[A-Z_]+_STAIRS$", "%swoodenstairs", "%swoodstairs", "%swstairs", "%swoodenstair", "%swoodstair", "%swstair", "%sstair"),
         TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap"),
         WOOD("^(?!STRIPPED_)[A-Z_]+_WOOD", "%swood", "%slogall", "%strunkall", "%streeall", "wood%s"),
         POTTED_BUSH("POTTED_[A-Z_]+_BUSH", "%spot", "potted%s", "potted%sbush"),
