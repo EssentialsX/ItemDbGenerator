@@ -110,6 +110,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.MOSS_CARPET, "mossfloor");
         add(Material.DECORATED_POT, "decorpot", "dflowerpot");
         add(Material.BAMBOO_BLOCK, "bamblock", "bbblock");
+        add(Material.HANGING_ROOTS, "hangroot", "hangroots", "hangingroot", "hroots", "caveroot", "caveroots");
         // == Tools and Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
