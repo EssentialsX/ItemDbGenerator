@@ -1,5 +1,7 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionType;
 
@@ -14,7 +16,7 @@ public class PotionProvider implements ItemProvider {
             Material.TIPPED_ARROW
     };
 
-    private static final Map<PotionType, String> MOJANG_NAMES = new HashMap<>();
+    private static final BiMap<PotionType, String> MOJANG_NAMES = HashBiMap.create();
 
     static {
         MOJANG_NAMES.put(PotionType.UNCRAFTABLE, "empty");
@@ -27,17 +29,21 @@ public class PotionProvider implements ItemProvider {
 
     public static Stream<Item> getPotionsForType(PotionType type) {
         return Arrays.stream(MATERIALS)
-                .flatMap(material -> {
-                    Set<PotionItem> items = new HashSet<>();
-                    items.add(new PotionItem(material, type, false, false));
-                    if (type.isUpgradeable()) {
-                        items.add(new PotionItem(material, type, true, false));
+                .map(material -> {
+                    final String potionName = type.name();
+                    if (potionName.startsWith("LONG_")) {
+                        return new PotionItem(material, getNormalizedPotion(potionName.substring(5)), false, true);
+                    } else if (potionName.startsWith("STRONG_")) {
+                        return new PotionItem(material, getNormalizedPotion(potionName.substring(7)), true, false);
+                    } else {
+                        return new PotionItem(material, type, false, false);
                     }
-                    if (type.isExtendable()) {
-                        items.add(new PotionItem(material, type, false, true));
-                    }
-                    return items.stream();
                 });
+    }
+
+    public static PotionType getNormalizedPotion(final String potionName) {
+        final PotionType normalized = MOJANG_NAMES.inverse().get(potionName.toLowerCase());
+        return normalized == null ? PotionType.valueOf(potionName) : normalized;
     }
 
     @Override
