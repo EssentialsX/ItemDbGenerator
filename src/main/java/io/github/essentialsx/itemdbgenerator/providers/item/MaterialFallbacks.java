@@ -31,6 +31,8 @@ public class MaterialFallbacks {
         add(Material.ZOMBIFIED_PIGLIN_SPAWN_EGG, "ZOMBIE_PIGMAN_SPAWN_EGG");
         /* 1.17: grass path -> dirt path */
         add(Material.DIRT_PATH, "GRASS_PATH");
+        /* 1.20.3: Grass was renamed to short grass */
+        add(Material.SHORT_GRASS, "GRASS");
     }
 
     private MaterialFallbacks() {
