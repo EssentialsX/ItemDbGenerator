@@ -96,13 +96,6 @@ public class PotionProvider implements ItemProvider {
         private final boolean upgraded;
         private final boolean extended;
 
-        PotionData(PotionType type, boolean upgraded, boolean extended) {
-            this.type = type;
-            this.fallbackType = null;
-            this.upgraded = upgraded;
-            this.extended = extended;
-        }
-
         PotionData(PotionType type, String fallbackType, boolean upgraded, boolean extended) {
             this.type = type;
             this.fallbackType = fallbackType;
@@ -112,6 +105,10 @@ public class PotionProvider implements ItemProvider {
 
         public PotionType getType() {
             return type;
+        }
+
+        public String getFallbackType() {
+            return fallbackType;
         }
 
         public boolean isUpgraded() {
