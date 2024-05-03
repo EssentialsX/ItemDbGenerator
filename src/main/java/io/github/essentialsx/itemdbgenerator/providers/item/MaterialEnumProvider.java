@@ -1,15 +1,9 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
+import io.github.essentialsx.itemdbgenerator.providers.util.AnnotationUtil;
 import org.bukkit.Material;
-import org.objectweb.asm.AnnotationVisitor;
-import org.objectweb.asm.ClassReader;
-import org.objectweb.asm.ClassVisitor;
-import org.objectweb.asm.FieldVisitor;
-import org.objectweb.asm.Opcodes;
 
-import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Stream;
 
@@ -19,27 +13,7 @@ import java.util.stream.Stream;
 public class MaterialEnumProvider implements ItemProvider {
     @Override
     public Stream<Item> get() {
-      final Set<Material> experimentalMaterials = new HashSet<>();
-
-      try {
-        ClassReader cr = new ClassReader(Material.class.getName());
-        cr.accept(new ClassVisitor(Opcodes.ASM9) {
-          @Override
-          public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {
-            return new FieldVisitor(Opcodes.ASM9) {
-              @Override
-              public AnnotationVisitor visitAnnotation(String descriptor, boolean visible) {
-                if (descriptor.equals("Lorg/bukkit/MinecraftExperimental;")) {
-                  experimentalMaterials.add(Material.valueOf(name));
-                }
-                return super.visitAnnotation(descriptor, visible);
-              }
-            };
-          }
-        }, 0);
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
+        Set<Material> experimentalMaterials = AnnotationUtil.getExperimentalEnums(Material.class, Material::valueOf);
 
       return Arrays.stream(Material.values())
                 .filter(mat -> !mat.name().contains("LEGACY"))

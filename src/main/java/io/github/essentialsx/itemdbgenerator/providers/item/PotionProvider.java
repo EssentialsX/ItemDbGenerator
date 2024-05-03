@@ -51,7 +51,10 @@ public class PotionProvider implements ItemProvider {
 
     @Override
     public Stream<Item> get() {
+        final Set<PotionType> experimentalPotions = AnnotationUtil.getExperimentalEnums(PotionType.class, PotionType::valueOf);
+
         return Arrays.stream(PotionType.values())
+                .filter(potionType -> !experimentalPotions.contains(potionType))
                 .flatMap(PotionProvider::getPotionsForType);
     }
 
