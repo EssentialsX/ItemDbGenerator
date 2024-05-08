@@ -180,8 +180,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SKULL_POTTERY_SHERD, "skullsherd");
         add(Material.SNORT_POTTERY_SHERD, "snortsherd");
         // == 1.20.5 Enum Renaming Manual Fixes ==
-        add(Material.TURTLE_SCUTE, "scute");
-        add(Material.TURTLE_SCUTE, "minecraft:scute");
+        add(Material.TURTLE_SCUTE, "scute", "minecraft:scute");
     }
 
     @Override
