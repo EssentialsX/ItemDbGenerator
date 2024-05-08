@@ -1,7 +1,9 @@
 package io.github.essentialsx.itemdbgenerator.providers.alias;
 
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
+import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 
 import java.util.Arrays;
 import java.util.EnumMap;
@@ -9,9 +11,14 @@ import java.util.stream.Stream;
 
 public class FixedAliasProvider implements AliasProvider {
     private static final EnumMap<Material, String[]> FIXED_ALIASES = new EnumMap<>(Material.class);
+    private static final EnumMap<EntityType, String[]> FIXED_SPAWNER_ALIASES = new EnumMap<>(EntityType.class);
 
     private static void add(Material material, String... aliases) {
         FIXED_ALIASES.put(material, aliases);
+    }
+
+    private static void add(EntityType entity, String... aliases) {
+        FIXED_SPAWNER_ALIASES.put(entity, aliases);
     }
 
     static {
@@ -181,11 +188,20 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SNORT_POTTERY_SHERD, "snortsherd");
         // == 1.20.5 Enum Renaming Manual Fixes ==
         add(Material.TURTLE_SCUTE, "scute", "minecraft:scute");
+        add(EntityType.MOOSHROOM, "mushroom_cow_spawner");
+        add(EntityType.SNOW_GOLEM, "snowman_spawner");
     }
 
     @Override
     public Stream<String> get(ItemProvider.Item item) {
-        String[] names = FIXED_ALIASES.get(item.getMaterial());
+        String[] names;
+        if (item instanceof SpawnerProvider.SpawnerItem) {
+            EntityType entity = ((SpawnerProvider.SpawnerItem) item).getEntity();
+            names = FIXED_SPAWNER_ALIASES.get(entity);
+        } else {
+            names = FIXED_ALIASES.get(item.getMaterial());
+        }
+
         if (names != null) {
             return Arrays.stream(names);
         }
