@@ -123,6 +123,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.TOTEM_OF_UNDYING, "totem");
         add(Material.SPYGLASS, "magnifyingglass", "lens", "eyesgozoom");
         add(Material.RECOVERY_COMPASS, "recompass");
+        add(Material.OMINOUS_TRIAL_KEY, "ominouskey");
         // == Crops ==
         add(Material.CARVED_PUMPKIN, "hollowpumpkin", "cutpumpkin", "oldpumpkin", "legacypumpkin");
         add(Material.JACK_O_LANTERN, "pumpkinlantern", "glowingpumpkin", "lightpumpkin", "jpumpkin", "plantren", "glowpumpkin", "gpumpkin", "lpumpkin");
@@ -165,6 +166,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.WARD_ARMOR_TRIM_SMITHING_TEMPLATE, "wardtrim");
         add(Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE, "wayfindertrim");
         add(Material.WILD_ARMOR_TRIM_SMITHING_TEMPLATE, "wildtrim");
+        add(Material.BOLT_ARMOR_TRIM_SMITHING_TEMPLATE, "bolttrim");
+        add(Material.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE, "flowtrim");
         // == Pottery Sherds ==
         add(Material.SHEAF_POTTERY_SHERD, "sheafsherd");
         add(Material.ARCHER_POTTERY_SHERD, "archersherd");
@@ -186,6 +189,9 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.SHELTER_POTTERY_SHERD, "sheltersherd");
         add(Material.SKULL_POTTERY_SHERD, "skullsherd");
         add(Material.SNORT_POTTERY_SHERD, "snortsherd");
+        add(Material.FLOW_POTTERY_SHERD, "flowsherd");
+        add(Material.GUSTER_POTTERY_SHERD, "gustersherd", "gustsherd");
+        add(Material.SCRAPE_POTTERY_SHERD, "scrapesherd");
         // == 1.20.5 Enum Renaming Manual Fixes ==
         add(Material.TURTLE_SCUTE, "scute", "minecraft:scute");
         add(EntityType.MOOSHROOM, "mushroom_cow_spawner");

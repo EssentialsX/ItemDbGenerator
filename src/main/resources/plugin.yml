@@ -1,0 +1,6 @@
+name: ItemDbGenerator
+main: io.github.essentialsx.itemdbgenerator.Main
+version: 0.1
+softdepend: [Vault, LuckPerms]
+authors: [mdcfe, JRoy]
+api-version: "1.13"

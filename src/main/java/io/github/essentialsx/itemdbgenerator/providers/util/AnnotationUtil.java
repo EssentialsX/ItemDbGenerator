@@ -18,6 +18,10 @@ public final class AnnotationUtil {
   public static <T extends Enum<T>> Set<T> getExperimentalEnums(Class<T> enumClass, Function<String, T> valueOf) {
     final Set<T> experimentalEnums = new HashSet<>();
 
+    if (true) {
+      return experimentalEnums;
+    }
+
     try {
       ClassReader cr = new ClassReader(enumClass.getName());
       cr.accept(new ClassVisitor(Opcodes.ASM9) {
