@@ -68,6 +68,10 @@ public class PotionAliasProvider implements AliasProvider {
         LUCK("lucky", "clover"),
         TURTLE_MASTER("turtle", "tm"),
         SLOW_FALLING("slowfall", "sf"),
+        WIND_CHARGED("wind", "wc"),
+        WEAVING("weave"),
+        OOZING("ooze"),
+        INFESTED("infest"),
         ;
 
         private final String[] names;

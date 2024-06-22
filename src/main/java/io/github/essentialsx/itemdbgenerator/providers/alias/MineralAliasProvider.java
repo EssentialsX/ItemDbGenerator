@@ -1,15 +1,27 @@
 package io.github.essentialsx.itemdbgenerator.providers.alias;
 
+import com.google.common.collect.ImmutableSet;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import org.bukkit.Material;
 
+import java.util.Set;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class MineralAliasProvider extends CompoundAliasProvider {
 
+    private final Set<String> skippedPatterns = ImmutableSet.of(
+        "[A-Z_]*COPPER[A-Z_]*"
+    );
+
     @Override
     public Stream<String> get(ItemProvider.Item item) {
+        for (String pattern : skippedPatterns) {
+            if (item.getMaterial().name().matches(pattern)) {
+                return null;
+            }
+        }
+
         Mineral mineral = Mineral.of(item.getMaterial());
         MineralItemType itemType = MineralItemType.of(item.getMaterial());
 
@@ -58,6 +70,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         CHISELED_SANDSTONE(null, "{CHISELED}sandst", "{CHISELED}sndst", "{CHISELED}sandstone"),
         CHISELED_DEEPSLATE(null, "{CHISELED}deepslate", "{CHISELED}dslate", "{CHISELED}slate"),
         CHISELED_STONE(null, "{CHISELED}st", "{CHISELED}stone"),
+        CHISELED_TUFF_BRICKS(null, "{CHISELED}tuffbricks", "{CHISELED}tuffbr"),
+        CHISELED_TUFF(null, "{CHISELED}tuff", "{CHISELED}tuf"),
         CRACKED_NETHER_BRICK(null, "{CRACKED}nbr", "{CRACKED}nbrick", "{CRACKED}nethbr", "{CRACKED}nethbrick", "{CRACKED}netherbr", "{CRACKED}netherbrick"),
         CRACKED_POLISHED_BLACKSTONE(null, "{CRACKED}{POLISHED}blstone", "{CRACKED}{POLISHED}blst", "{CRACKED}{POLISHED}blackstone", "{POLISHED}{CRACKED}blstone", "{POLISHED}{CRACKED}blst", "{POLISHED}{CRACKED}blackstone"),
         CRACKED_DEEPSLATE_BRICKS(null, "{CRACKED}deepslatebricks", "{CRACKED}dslatebricks", "{CRACKED}slatebricks", "{CRACKED}deepslatebr", "{CRACKED}dslatebr", "{CRACKED}slatebr"),
@@ -82,6 +96,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         POLISHED_GRANITE(null, "{POLISHED}gr", "{POLISHED}gstone", "{POLISHED}granite"),
         POLISHED_DEEPSLATE(null, "{POLISHED}deepslate", "{POLISHED}dslate", "{POLISHED}slate"),
         PACKED_MUD(null, "{PACKED}mud"),
+        POLISHED_TUFF(null, "{POLISHED}tuff", "{POLISHED}tuf"),
         DRIPSTONE(null, "dripstone", "drip"),
         COBBLESTONE(null, "cobble", "cstone", "cs", "cst"),
         ANDESITE(null, "astone", "andstone", "and"),
@@ -104,7 +119,9 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         STONE_BRICK(null, "stbrick", "stbr", "stonebr"),
         STONE("^(?!LODE|GRIND|END|DRIP)", "st"),
         MUD_BRICK(null, "mudbrick", "mudbr"),
-        MUD("^MUD(?!DY)", "mud")
+        MUD("^MUD(?!DY)", "mud"),
+        TUFF_BRICKS(null, "tuffbricks", "tuffbr"),
+        TUFF("^TUFF(?!_BRICK)", "tuff", "tuf")
         ;
 
         private final Pattern regex;

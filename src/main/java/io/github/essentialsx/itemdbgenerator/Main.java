@@ -24,6 +24,7 @@ import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.PotionProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -35,7 +36,7 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
 
-public class Main {
+public class Main extends JavaPlugin {
 
     protected static final List<ItemProvider> itemProviders = Arrays.asList(
             new MaterialEnumProvider(),
@@ -71,6 +72,11 @@ public class Main {
         save(itemMap);
 
         System.err.printf("Finished generating items.json with %d entries%n", itemMap.entrySet().size());
+    }
+
+    @Override
+    public void onEnable() {
+        main(null);
     }
 
     static JsonObject generateItemMap() {

@@ -136,6 +136,8 @@ public class MobAliasProvider extends CompoundAliasProvider {
         WARDEN("warden"),
         CAMEL("camel"),
         SNIFFER("sniffer"),
+        BOGGED("bogged"),
+        BREEZE("breeze"),
         PLAYER("steve"),
         ;
 
