@@ -17,9 +17,20 @@ public class MineableAliasProvider extends CompoundAliasProvider {
             Material.DRIPSTONE_BLOCK
     );
 
+    private final Set<String> skippedPatterns = ImmutableSet.of(
+            "(?:WAXED_)?(?:WEATHERED_|OXIDIZED_|EXPOSED_)?COPPER_DOOR",
+            "(?:WAXED_)?(?:WEATHERED_|OXIDIZED_|EXPOSED_)?COPPER_TRAPDOOR"
+    );
+
     @Override
     public Stream<String> get(ItemProvider.Item item) {
         if (skipped.contains(item.getMaterial())) return null;
+
+        for (String pattern : skippedPatterns) {
+            if (item.getMaterial().name().matches(pattern)) {
+                return null;
+            }
+        }
 
         Mineable mineable = Mineable.of(item.getMaterial());
         MineableItemType itemType = MineableItemType.of(item.getMaterial());
