@@ -7,6 +7,7 @@ import org.objectweb.asm.FieldVisitor;
 import org.objectweb.asm.Opcodes;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
@@ -18,12 +19,14 @@ public final class AnnotationUtil {
   public static <T extends Enum<T>> Set<T> getExperimentalEnums(Class<T> enumClass, Function<String, T> valueOf) {
     final Set<T> experimentalEnums = new HashSet<>();
 
-    if (true) {
-      return experimentalEnums;
-    }
-
     try {
-      ClassReader cr = new ClassReader(enumClass.getName());
+      String classAsPath = enumClass.getName().replace('.', '/') + ".class";
+      InputStream inputStream = enumClass.getClassLoader().getResourceAsStream(classAsPath);
+      if (inputStream == null) {
+        throw new IOException("Cannot find class file for " + enumClass.getName());
+      }
+
+      ClassReader cr = new ClassReader(inputStream);
       cr.accept(new ClassVisitor(Opcodes.ASM9) {
         @Override
         public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {
@@ -39,7 +42,7 @@ public final class AnnotationUtil {
         }
       }, 0);
     } catch (IOException e) {
-      throw new RuntimeException(e);
+      throw new RuntimeException("Failed to read class file: " + enumClass.getName(), e);
     }
 
     return experimentalEnums;
