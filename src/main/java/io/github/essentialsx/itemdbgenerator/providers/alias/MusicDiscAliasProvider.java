@@ -6,7 +6,6 @@ import org.bukkit.Material;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
@@ -79,6 +78,9 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         OTHERSIDE("MUSIC_DISC_OTHERSIDE", "otherside", "cave", "under", "deep", "other", "15", "lenaraineisstillawesome"),
         FIVE("(MUSIC_DISC|DISC_FRAGMENT)_5", "five", "wild", "5", "16"),
         RELIC("MUSIC_DISC_RELIC", "relic"),
+        CREATOR("MUSIC_DISC_CREATOR", "creator"),
+        CREATOR_MUSIC_BOX("MUSIC_DISC_CREATOR_MUSIC_BOX", "creatormusicbox", "creatormusicb", "creatormbox", "creatormb"),
+        PRECIPICE("MUSIC_DISC_PRECIPICE", "precipice"),
         ;
 
         private final Pattern regex;

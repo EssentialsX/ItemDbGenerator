@@ -26,6 +26,7 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
         OXIDIZED("oxidized", "oxidised", "oxi", "oxy"),
 
         // Copper "applied" effects
+        CHISELED("chiseled", "circle", "ci"),
         CUT("cut", "c"),
         WAXED("waxed", "wax", "wa"),
         ;
@@ -48,6 +49,9 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
         WAXED_EXPOSED_CUT(null, "{WAXED}{EXPOSED}{CUT}", "{WAXED}{CUT}{EXPOSED}", "{CUT}{WAXED}{EXPOSED}", "{CUT}{EXPOSED}{WAXED}", "{EXPOSED}{CUT}{WAXED}", "{EXPOSED}{WAXED}{CUT}"),
         WAXED_WEATHERED_CUT(null, "{WAXED}{WEATHERED}{CUT}", "{WAXED}{CUT}{WEATHERED}", "{CUT}{WAXED}{WEATHERED}", "{CUT}{WEATHERED}{WAXED}", "{WEATHERED}{CUT}{WAXED}", "{WEATHERED}{WAXED}{CUT}"),
         WAXED_OXIDIZED_CUT(null, "{WAXED}{OXIDIZED}{CUT}", "{WAXED}{CUT}{OXIDIZED}", "{CUT}{WAXED}{OXIDIZED}", "{CUT}{OXIDIZED}{WAXED}", "{OXIDIZED}{CUT}{WAXED}", "{OXIDIZED}{WAXED}{CUT}"),
+        WAXED_EXPOSED_CHISELED(null, "{WAXED}{EXPOSED}{CHISELED}", "{WAXED}{CHISELED}{EXPOSED}", "{CHISELED}{WAXED}{EXPOSED}", "{CHISELED}{EXPOSED}{WAXED}", "{EXPOSED}{CHISELED}{WAXED}", "{EXPOSED}{WAXED}{CHISELED}"),
+        WAXED_WEATHERED_CHISELED(null, "{WAXED}{WEATHERED}{CHISELED}", "{WAXED}{CHISELED}{WEATHERED}", "{CHISELED}{WAXED}{WEATHERED}", "{CHISELED}{WEATHERED}{WAXED}", "{WEATHERED}{CHISELED}{WAXED}", "{WEATHERED}{WAXED}{CHISELED}"),
+        WAXED_OXIDIZED_CHISELED(null, "{WAXED}{OXIDIZED}{CHISELED}", "{WAXED}{CHISELED}{OXIDIZED}", "{CHISELED}{WAXED}{OXIDIZED}", "{CHISELED}{OXIDIZED}{WAXED}", "{OXIDIZED}{CHISELED}{WAXED}", "{OXIDIZED}{WAXED}{CHISELED}"),
         WAXED_EXPOSED(null, "{WAXED}{EXPOSED}", "{EXPOSED}{WAXED}"),
         WAXED_WEATHERED(null, "{WAXED}{WEATHERED}", "{WEATHERED}{WAXED}"),
         WAXED_OXIDIZED(null, "{WAXED}{OXIDIZED}", "{OXIDIZED}{WAXED}"),
@@ -55,12 +59,17 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
         EXPOSED_CUT(null, "{EXPOSED}{CUT}", "{CUT}{EXPOSED}"),
         WEATHERED_CUT(null, "{WEATHERED}{CUT}", "{CUT}{WEATHERED}"),
         OXIDIZED_CUT(null, "{OXIDIZED}{CUT}", "{CUT}{OXIDIZED}"),
+        WAXED_CHISELED(null, "{WAXED}{CHISELED}", "{CHISELED}{WAXED}"),
+        EXPOSED_CHISELED(null, "{EXPOSED}{CHISELED}", "{CHISELED}{EXPOSED}"),
+        WEATHERED_CHISELED(null, "{WEATHERED}{CHISELED}", "{CHISELED}{WEATHERED}"),
+        OXIDIZED_CHISELED(null, "{OXIDIZED}{CHISELED}", "{CHISELED}{OXIDIZED}"),
         EXPOSED(null, "{EXPOSED}"),
         WEATHERED(null, "{WEATHERED}"),
         OXIDIZED(null, "{OXIDIZED}"),
+        CHISELED("^CHISELED_COPPER", "{CHISELED}"),
         CUT("^CUT_COPPER(?:_SLAB|_STAIRS)?", "{CUT}"),
         WAXED(null, "{WAXED}"),
-        PLAIN("COPPER_BLOCK", "{PURE}"),
+        PLAIN("COPPER_BLOCK|CHISELED_COPPER", "{PURE}"),
         ;
 
         private final Pattern regex;
@@ -93,6 +102,10 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
     private enum CopperBuildingBlock implements CompoundType {
         SLAB(null, "%scopperslab", "%scopslab", "%scoslab", "%scoppersl", "%scopsl", "%scosl", "%scopperstep", "%scopstep", "%scostep", "%scopperhalfblock", "%scophalfblock", "%scohalfblock"),
         STAIRS(null, "%scopperstairs", "%scopstairs", "%scostairs", "%scopperstair", "%scopstair", "%scostair"),
+        DOOR("[A-Z_]+_(?<!TRAP)DOOR", "%sdoor", "door%s"),
+        TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap"),
+        BULB(null, "%sbulb"),
+        GRATE(null, "%sgrate"),
         BLOCK("^[A-Z]+_(SLAB|STAIRS)", true, "%scopperblock", "%scopblock", "%scoblock"),
         ;
 

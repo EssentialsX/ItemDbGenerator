@@ -1,6 +1,6 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
-import io.github.essentialsx.itemdbgenerator.providers.util.AnnotationUtil;
+import io.github.essentialsx.itemdbgenerator.Main;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionType;
 
@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Set;
 import java.util.stream.Stream;
 
 public class PotionProvider implements ItemProvider {
@@ -51,10 +50,8 @@ public class PotionProvider implements ItemProvider {
 
     @Override
     public Stream<Item> get() {
-        final Set<PotionType> experimentalPotions = AnnotationUtil.getExperimentalEnums(PotionType.class, PotionType::valueOf);
-
         return Arrays.stream(PotionType.values())
-                .filter(potionType -> !experimentalPotions.contains(potionType))
+                .filter(potionType -> !Main.EXPERIMENTAL_POTIONS.contains(potionType))
                 .flatMap(PotionProvider::getPotionsForType);
     }
 

@@ -1,10 +1,9 @@
 package io.github.essentialsx.itemdbgenerator.providers.item;
 
-import io.github.essentialsx.itemdbgenerator.providers.util.AnnotationUtil;
+import io.github.essentialsx.itemdbgenerator.Main;
 import org.bukkit.Material;
 
 import java.util.Arrays;
-import java.util.Set;
 import java.util.stream.Stream;
 
 /**
@@ -13,11 +12,9 @@ import java.util.stream.Stream;
 public class MaterialEnumProvider implements ItemProvider {
     @Override
     public Stream<Item> get() {
-        Set<Material> experimentalMaterials = AnnotationUtil.getExperimentalEnums(Material.class, Material::valueOf);
-
-      return Arrays.stream(Material.values())
+        return Arrays.stream(Material.values())
                 .filter(mat -> !mat.name().contains("LEGACY"))
-                .filter(mat -> !experimentalMaterials.contains(mat))
+                .filter(mat -> !Main.EXPERIMENTAL_MATERIALS.contains(mat))
                 .filter(Material::isItem)
                 .map(MaterialEnumItem::new);
     }
