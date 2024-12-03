@@ -27,6 +27,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         AZALEA("az", "aza"),
         BIRCH("b", "light", "l", "white", "w"),
         DARK_OAK("darkoak", "do", "doak"),
+        PALE_OAK("paleoak", "pale", "po", "poak"),
         JUNGLE("j", "forest", "f"),
         OAK("o"),
         SPRUCE("pine", "p", "dark", "d", "s"),
