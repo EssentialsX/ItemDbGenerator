@@ -92,6 +92,9 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.IRON_BARS, "ironbarsb", "ironbarsblock", "ironfence", "metalbars", "metalbarsb", "metalbarsblock", "metalfence", "jailbars", "jailbarsb", "jailbarsblock", "jailfence", "mbars", "mbarsb", "mbarsblock", "mfence", "jbars", "jbarsb", "jbarsblock", "ibars", "ibarsb", "ibarsblock", "ifence");
         add(Material.ICE, "frozenwater", "waterfrozen", "freezewater", "waterfreeze");
         add(Material.HAY_BLOCK, "hay", "haybale", "baleofhay", "hayofbale");
+        add(Material.RESIN_BRICK, "resbrick", "rbrick");
+        add(Material.RESIN_BRICKS, "resbricks", "rbricks");
+        add(Material.CHISELED_RESIN_BRICKS, "chiseledresbricks", "chiseledrbricks", "circleresbricks", "circlerbricks", "ciresbricks", "cirbrick");
         // == Plants (not crops) ==
         add(Material.TALL_GRASS, "longgrass", "wildgrass", "grasslong", "grasstall", "grasswild", "lgrass", "tgrass", "wgrass");
         add(Material.DEAD_BUSH, "bush", "deadshrub", "dshrub", "dbush", "deadsapling");
@@ -118,6 +121,13 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.DECORATED_POT, "decorpot", "dflowerpot");
         add(Material.BAMBOO_BLOCK, "bamblock", "bbblock");
         add(Material.HANGING_ROOTS, "hangroot", "hangroots", "hangingroot", "hroots", "caveroot", "caveroots");
+        add(Material.PALE_HANGING_MOSS, "phangmoss", "phangmos", "phangm", "phang", "phmoss", "phmos", "phm");
+        add(Material.OPEN_EYEBLOSSOM, "oeyeblossom", "openblossom", "openbloss", "oeyeflower", "oeyebloss");
+        add(Material.CLOSED_EYEBLOSSOM, "ceyeblossom", "closeblossom", "closebloss", "ceyeflower", "ceyebloss");
+        add(Material.PALE_MOSS_BLOCK, "pmossblock", "pmblock");
+        add(Material.PALE_MOSS_CARPET, "pmosscarpet", "palemossfloor", "pmossfloor");
+        // == Minerals ==
+        add(Material.RESIN_CLUMP, "resclump", "rclump");
         // == Tools and Combat ==
         add(Material.SHIELD, "handshield", "woodshield", "woodenshield");
         add(Material.TOTEM_OF_UNDYING, "totem");
