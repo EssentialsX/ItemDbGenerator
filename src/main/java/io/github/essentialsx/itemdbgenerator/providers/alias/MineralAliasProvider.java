@@ -11,7 +11,10 @@ import java.util.stream.Stream;
 public class MineralAliasProvider extends CompoundAliasProvider {
 
     private final Set<String> skippedPatterns = ImmutableSet.of(
-        "[A-Z_]*COPPER[A-Z_]*"
+        "[A-Z_]*COPPER[A-Z_]*",
+        "RESIN_BRICK",
+        "RESIN_BRICKS",
+        "CHISELED_RESIN_BRICKS"
     );
 
     @Override
@@ -121,6 +124,7 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         MUD_BRICK(null, "mudbrick", "mudbr"),
         MUD("^MUD(?!DY)", "mud"),
         TUFF_BRICKS(null, "tuffbricks", "tuffbr"),
+        RESIN_BRICK(null, "resbrick", "resbr", "resinbr"),
         TUFF("^TUFF(?!_BRICK)", "tuff", "tuf")
         ;
 
