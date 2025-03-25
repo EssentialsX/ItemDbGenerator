@@ -97,7 +97,11 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.CHISELED_RESIN_BRICKS, "chiseledresbricks", "chiseledrbricks", "circleresbricks", "circlerbricks", "ciresbricks", "cirbrick");
         // == Plants (not crops) ==
         add(Material.TALL_GRASS, "longgrass", "wildgrass", "grasslong", "grasstall", "grasswild", "lgrass", "tgrass", "wgrass");
-        add(Material.DEAD_BUSH, "bush", "deadshrub", "dshrub", "dbush", "deadsapling");
+        add(Material.SHORT_DRY_GRASS, "sdgrass", "sdrygrass", "shortdgrass");
+        add(Material.TALL_DRY_GRASS, "tdgrass", "tdrygrass", "talldgrass");
+        add(Material.BUSH, "gbush", "grassbush");
+        add(Material.FIREFLY_BUSH, "ffbush", "firebush");
+        add(Material.DEAD_BUSH, "deadshrub", "dshrub", "dbush", "deadsapling");
         add(Material.DANDELION, "yellowdandelion", "ydandelion", "yellowflower", "yflower", "flower");
         add(Material.POPPY, "rose", "redrose", "rrose", "redflower", "rflower", "poppy", "redpoppy");
         add(Material.BLUE_ORCHID, "cyanorchid", "lightblueorchid", "lblueorchid", "orchid", "cyanflower", "lightblueflower", "lblueflower");
@@ -109,6 +113,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.ORANGE_TULIP, "tuliporange", "otulip", "tulipo");
         add(Material.OXEYE_DAISY, "oxeye", "daisy", "daisyoxeye", "moondaisy", "daisymoon", "lightgrayoxeye", "lgrayoxeye", "lightgreyoxeye", "lgreyoxeye");
         add(Material.CACTUS, "cactuses", "cacti");
+        add(Material.CACTUS_FLOWER, "cactiflower", "cflower", "flowercactus", "flowercacti", "flowerc");
         add(Material.VINE, "vines", "greenvines", "greenvine", "gardenvines", "gardenvine", "vinesgreen", "vinegreen", "vinesgarden", "vinegarden", "vinesg", "vineg", "gvines", "gvine");
         add(Material.COCOA_BEANS, "cocoaplant", "cocoplant", "cplant", "cocoafruit", "cocofruit", "cfruit", "cocoapod", "cocopod", "cpod");
         add(Material.NETHER_SPROUTS, "nsprouts", "nethsprouts", "nsprout", "nethsprout", "nethersprout", "netherweed");
@@ -126,6 +131,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.CLOSED_EYEBLOSSOM, "ceyeblossom", "closeblossom", "closebloss", "ceyeflower", "ceyebloss");
         add(Material.PALE_MOSS_BLOCK, "pmossblock", "pmblock");
         add(Material.PALE_MOSS_CARPET, "pmosscarpet", "palemossfloor", "pmossfloor");
+        add(Material.WILDFLOWERS, "wildflower", "wflowers", "wflower");
+        add(Material.LEAF_LITTER, "litter", "llitter", "leaflit", "spottedleaf");
         // == Minerals ==
         add(Material.RESIN_CLUMP, "resclump", "rclump");
         // == Tools and Combat ==
