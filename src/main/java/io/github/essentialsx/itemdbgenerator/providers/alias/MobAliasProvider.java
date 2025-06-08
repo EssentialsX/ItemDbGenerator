@@ -81,6 +81,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         ZOMBIE_PIGMAN(ZOMBIFIED_PIGLIN),
         ZOMBIE("z", "zomb"),
         SLIME,
+        HAPPY_GHAST("happyghast", "ghastling", "hghast", "happyg"),
         GHAST,
         ENDERMAN,
         SILVERFISH("sfish"),
