@@ -86,6 +86,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BIG_DRIPLEAF, "bigdrip", "talldripleaf", "talldrip", "dripleafbig", "dripleaftall", "yoooooooominecraftsgotbigdrip");
         add(Material.SMALL_DRIPLEAF, "smalldrip", "dripleafsmall", "yoooooooominecraftsgotdrip");
         add(Material.POWDER_SNOW_BUCKET, "snowbucket", "snowpail");
+        add(Material.DRIED_GHAST, "dryghast", "driedg", "ghastblock", "ghastb");
         // "CUT_SANDSTONE" used to be called "SMOOTH_SANDSTONE"
         // "SMOOTH_SANDSTONE" is now a double slab
         add(Material.COBWEB, "spiderweb", "sweb", "cweb", "web");
