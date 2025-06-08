@@ -81,6 +81,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         CREATOR("MUSIC_DISC_CREATOR", "creator"),
         CREATOR_MUSIC_BOX("MUSIC_DISC_CREATOR_MUSIC_BOX", "creatormusicbox", "creatormusicb", "creatormbox", "creatormb"),
         PRECIPICE("MUSIC_DISC_PRECIPICE", "precipice"),
+        TEARS("MUSIC_DISC_TEARS", "tears", "ghast"),
         ;
 
         private final Pattern regex;
