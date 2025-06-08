@@ -90,6 +90,7 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         CONCRETE_POWDER(null, "%sconcretepowder", "%sconcretesand", "%scpowder", "%scdust", "%scp"),
         DYE(null, "%sdye"),
         GLAZED_TERRACOTTA(null, "%sglazedtcota", "%sglazedterra", "%sglazedterracotta", "%sglazedterracota", "%sgtcotta", "%sgterra"),
+        HARNESS(null, "%sharness"),
         SHULKER_BOX(null, "%sshulkerbox", "%ssbox"),
         STAINED_GLASS("[A-Z_]+_STAINED_GLASS(?!_PANE)", "%sglass", "%ssglass", "%sstainedglass"),
         STAINED_GLASS_PANE(null, "%sglasspane", "%ssglasspane", "%sstainedglasspane", "%sgpane"),
