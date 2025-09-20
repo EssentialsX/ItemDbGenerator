@@ -140,6 +140,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         BOGGED,
         BREEZE,
         CREAKING("creak"),
+        COPPER_GOLEM("coppergolem", "cgolem", "chestslave"),
         PLAYER("steve"),
         ;
 
