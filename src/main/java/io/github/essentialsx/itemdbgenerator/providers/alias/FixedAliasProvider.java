@@ -90,7 +90,7 @@ public class FixedAliasProvider implements AliasProvider {
         // "CUT_SANDSTONE" used to be called "SMOOTH_SANDSTONE"
         // "SMOOTH_SANDSTONE" is now a double slab
         add(Material.COBWEB, "spiderweb", "sweb", "cweb", "web");
-        add(Material.IRON_BARS, "ironbarsb", "ironbarsblock", "ironfence", "metalbars", "metalbarsb", "metalbarsblock", "metalfence", "jailbars", "jailbarsb", "jailbarsblock", "jailfence", "mbars", "mbarsb", "mbarsblock", "mfence", "jbars", "jbarsb", "jbarsblock", "ibars", "ibarsb", "ibarsblock", "ifence");
+        add(Material.IRON_BARS, "metalbars", "metalbarsb", "metalbarsblock", "metalfence", "jailbars", "jailbarsb", "jailbarsblock", "jailfence", "mbars", "mbarsb", "mbarsblock", "mfence", "jbars", "jbarsb", "jbarsblock");
         add(Material.ICE, "frozenwater", "waterfrozen", "freezewater", "waterfreeze");
         add(Material.HAY_BLOCK, "hay", "haybale", "baleofhay", "hayofbale");
         add(Material.RESIN_BRICK, "resbrick", "rbrick");

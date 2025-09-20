@@ -91,6 +91,8 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum MineableItemType implements CompoundType {
+        // The Copper Age
+        NUGGET(null, "%snugget", "%snug"),
         // Caves and Cliffs
         RAW_ORE_BLOCK("RAW_[A-Z]+_BLOCK", "raw%soreblock", "%sorechunkblock", "r%soreblock", "raw%sorebl", "%sorechunkbl", "r%sorebl"),
         RAW_ORE("RAW_[A-Z]+_ORE", "raw%sore", "%sorechunk", "r%sore"),
