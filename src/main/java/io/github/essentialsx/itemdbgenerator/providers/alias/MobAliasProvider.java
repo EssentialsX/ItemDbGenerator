@@ -141,6 +141,10 @@ public class MobAliasProvider extends CompoundAliasProvider {
         BREEZE,
         CREAKING("creak"),
         COPPER_GOLEM("coppergolem", "cgolem", "sorter"),
+        CAMEL_HUSK("deadcamel", "dcamel", "camelhusk", "chusk"),
+        NAUTILUS("nautilus", "naut"),
+        ZOMBIE_NAUTILUS("zombienautilus", "zombnautilus", "znautilus", "znaut", "zombnaut"),
+        PARCHED("parched", "parch"),
         PLAYER("steve"),
         ;
 
