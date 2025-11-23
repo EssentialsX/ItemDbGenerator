@@ -21,8 +21,8 @@
     <dependency>
       <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
-      <version>1.21.9-rc1-R0.1-SNAPSHOT</version>
-      <scope>provided</scope>
+      <version>1.21.11-pre1-R0.1-SNAPSHOT</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -31,10 +31,24 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.10.1</version>
+    </dependency>
+    <dependency>
       <groupId>org.ow2.asm</groupId>
       <artifactId>asm</artifactId>
-      <version>9.5</version>
-      <scope>provided</scope>
+      <version>9.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-commons</artifactId>
+      <version>9.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.ow2.asm</groupId>
+      <artifactId>asm-tree</artifactId>
+      <version>9.6</version>
     </dependency>
   </dependencies>
 
@@ -176,6 +190,10 @@
     <repository>
       <id>paper-repo</id>
       <url>https://repo.papermc.io/repository/maven-public/</url>
+    </repository>
+    <repository>
+      <id>paper-pr</id>
+      <url>https://maven-prs.papermc.io/Paper/pr13194/</url>
     </repository>
   </repositories>
 </project>

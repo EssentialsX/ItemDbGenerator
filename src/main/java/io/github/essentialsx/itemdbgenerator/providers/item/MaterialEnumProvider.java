@@ -15,7 +15,13 @@ public class MaterialEnumProvider implements ItemProvider {
         return Arrays.stream(Material.values())
                 .filter(mat -> !mat.name().contains("LEGACY"))
                 .filter(mat -> !Main.EXPERIMENTAL_MATERIALS.contains(mat))
-                .filter(Material::isItem)
+                .filter(mat -> {
+                    if (Main.VALID_ITEMS != null) {
+                        String id = mat.name().toLowerCase();
+                        return Main.VALID_ITEMS.contains(id) || Main.VALID_ITEMS.contains("minecraft:" + id);
+                    }
+                    return mat.isItem();
+                })
                 .map(MaterialEnumItem::new);
     }
 
