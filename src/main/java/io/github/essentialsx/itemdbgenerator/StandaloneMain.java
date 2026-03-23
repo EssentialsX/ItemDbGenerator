@@ -76,13 +76,13 @@ public class StandaloneMain {
                 .start()
                 .waitFor();
 
-            File reportFile = new File(cacheDir, "generated/reports/items.json");
+            File reportFile = new File(cacheDir, "generated/reports/registries.json");
             if (!reportFile.exists()) {
                  throw new RuntimeException("Data generator failed to produce " + reportFile);
             }
 
-            System.out.println("Parsing generated report...");
-            Set<String> items = parseItemsReport(reportFile);
+            System.out.println("Parsing item registry from registries.json...");
+            Set<String> items = parseItemRegistry(reportFile);
             System.out.println("Found " + items.size() + " valid items.");
             Main.VALID_ITEMS = items;
 
@@ -172,11 +172,19 @@ public class StandaloneMain {
         return cp.toString();
     }
 
-    private static Set<String> parseItemsReport(File reportFile) throws IOException {
-        try (Reader reader = new java.io.FileReader(reportFile)) {
+    private static Set<String> parseItemRegistry(File registriesFile) throws IOException {
+        try (Reader reader = new java.io.FileReader(registriesFile)) {
             JsonObject json = GSON.fromJson(reader, JsonObject.class);
+            JsonObject itemRegistry = json.getAsJsonObject("minecraft:item");
+            if (itemRegistry == null) {
+                throw new RuntimeException("No minecraft:item registry found in " + registriesFile);
+            }
+            JsonObject entries = itemRegistry.getAsJsonObject("entries");
+            if (entries == null) {
+                throw new RuntimeException("No entries found in minecraft:item registry");
+            }
             Set<String> items = new HashSet<>();
-            for (String key : json.keySet()) {
+            for (String key : entries.keySet()) {
                 if (key.startsWith("minecraft:")) {
                     items.add(key.substring(10));
                 } else {
