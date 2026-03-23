@@ -24,6 +24,7 @@ import io.github.essentialsx.itemdbgenerator.providers.alias.WoodAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.ItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.MaterialEnumProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.PotionProvider;
+import io.github.essentialsx.itemdbgenerator.providers.item.RegistryItemProvider;
 import io.github.essentialsx.itemdbgenerator.providers.item.SpawnerProvider;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -48,6 +49,7 @@ public class Main extends JavaPlugin {
 
     protected static final List<ItemProvider> itemProviders = Arrays.asList(
             new MaterialEnumProvider(),
+            new RegistryItemProvider(),
             new SpawnerProvider(),
             new PotionProvider()
     );
@@ -147,6 +149,12 @@ public class Main extends JavaPlugin {
     }
 
     static SortedSet<String> getAliases(ItemProvider.Item item) {
+        if (item.getMaterial() == null) {
+            TreeSet<String> aliases = new TreeSet<>();
+            aliases.add("minecraft:" + item.getName());
+            aliases.add(item.getName().replaceAll("_", ""));
+            return aliases;
+        }
         return aliasProviders.stream()
                 .flatMap(provider -> provider.get(item))
                 .collect(Collectors.toCollection(TreeSet::new));
