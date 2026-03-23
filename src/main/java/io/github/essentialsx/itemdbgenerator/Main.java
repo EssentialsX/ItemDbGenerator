@@ -75,6 +75,7 @@ public class Main extends JavaPlugin {
 
     public static Set<Material> EXPERIMENTAL_MATERIALS = null;
     public static Set<PotionType> EXPERIMENTAL_POTIONS = null;
+    public static Set<String> VALID_ITEMS = null;
 
     @Override
     public void onEnable() {

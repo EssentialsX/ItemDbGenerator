@@ -69,6 +69,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BOOKSHELF, "bshelf", "bookcase", "casebook", "shelfbook", "bookblock", "blockbook");
         add(Material.CHISELED_BOOKSHELF, "cbshelf", "cbookcase", "cshelfbook", "cbookblock", "cblockbook", "chiseledshelf", "chiseledb");
         add(Material.TORCH, "burningstick", "burnstick");
+        add(Material.COPPER_TORCH, "copperburningstick", "copperburnstick");
         add(Material.GLOWSTONE, "glowingstoneblock", "lightstoneblock", "glowstoneblock", "blockglowingstone", "blocklightstone", "blockglowstone", "glowingstone", "lightstone", "glowingblock", "lightblock", "glowblock", "lstone");
         add(Material.LILY_PAD, "waterlily", "lily", "swamppad", "lpad", "wlily");
         add(Material.ANCIENT_DEBRIS, "debris");
@@ -214,6 +215,8 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.TURTLE_SCUTE, "scute", "minecraft:scute");
         add(EntityType.MOOSHROOM, "mushroom_cow_spawner");
         add(EntityType.SNOW_GOLEM, "snowman_spawner");
+        // == 1.21.9 Enum Renaming Manual Fixes
+        add(Material.IRON_CHAIN, "chain", "minecraft:chain");
     }
 
     @Override

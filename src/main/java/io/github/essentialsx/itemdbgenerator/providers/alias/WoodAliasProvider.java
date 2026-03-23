@@ -89,6 +89,7 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         PROPAGULE(null, "propagule%s", "%sprop", "%ssapling", "%streesapling", "%slogsapling", "%strunksapling", "%swoodsapling"),
         MUDDY_ROOTS("^MUDDY_[A-Z_]+_ROOTS", "mud%sroots", "mud%sroot"),
         ROOTS("^(?!MUDDY_)[A-Z_]+_ROOTS", "%sroots", "%sroot"),
+        SHELF(null, "%sshelf", "%srack", "%sledge", "%smantel")
         ;
 
         private final Pattern regex;

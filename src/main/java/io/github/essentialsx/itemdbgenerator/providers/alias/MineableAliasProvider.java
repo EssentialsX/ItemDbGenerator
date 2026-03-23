@@ -91,6 +91,8 @@ public class MineableAliasProvider extends CompoundAliasProvider {
      */
     @SuppressWarnings("unused")
     private enum MineableItemType implements CompoundType {
+        // The Copper Age
+        NUGGET(null, "%snugget", "%snug"),
         // Caves and Cliffs
         RAW_ORE_BLOCK("RAW_[A-Z]+_BLOCK", "raw%soreblock", "%sorechunkblock", "r%soreblock", "raw%sorebl", "%sorechunkbl", "r%sorebl"),
         RAW_ORE("RAW_[A-Z]+_ORE", "raw%sore", "%sorechunk", "r%sore"),
@@ -104,6 +106,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         SCRAP(null, "%sscrap"),
         // Tools
         SWORD(null, "%ssword"),
+        SPEAR(null, "%sspear"),
         SHOVEL(null, "%sshovel", "%sspade"),
         PICKAXE(null, "%spickaxe", "%spick"),
         AXE("[A-Z_]+_(?<!PICK)AXE", "%saxe"),
@@ -114,6 +117,7 @@ public class MineableAliasProvider extends CompoundAliasProvider {
         LEGGINGS(null, "%sleggings", "%slegs", "%spants"),
         BOOTS(null, "%sboots", "%sshoes"),
         HORSE_ARMOR(null, "%shorsearmor", "%sharmor", "%sarmor"),
+        NAUTILUS_ARMOR(null, "%snautilusarmor", "%snautarmor", "%snarmor"),
         // Doors
         DOOR("[A-Z_]+_(?<!TRAP)DOOR", "%sdoor", "door%s"),
         TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap");

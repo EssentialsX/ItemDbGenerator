@@ -26,7 +26,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
     private enum DiscType implements CompoundType {
         // this is scuffed beyond belief
         DISC_FRAGMENT("^DISC_FRAGMENT_5", "discfrag", "fragment"),
-        MUSIC_DISC("^MUSIC_DISC_[A-Z0-9]+", generateFormatsFromNames(MUSIC_DISC_NAMES))
+        MUSIC_DISC("^MUSIC_DISC_[A-Z0-9_]+", generateFormatsFromNames(MUSIC_DISC_NAMES))
         ;
 
         private final Pattern regex;
@@ -82,6 +82,7 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         CREATOR_MUSIC_BOX("MUSIC_DISC_CREATOR_MUSIC_BOX", "creatormusicbox", "creatormusicb", "creatormbox", "creatormb"),
         PRECIPICE("MUSIC_DISC_PRECIPICE", "precipice"),
         TEARS("MUSIC_DISC_TEARS", "tears", "ghast"),
+        LAVA_CHICKEN("MUSIC_DISC_LAVA_CHICKEN", "lavachicken", "lava", "chicken", "lchicken", "lchick")
         ;
 
         private final Pattern regex;

@@ -63,6 +63,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         PIGLIN_BRUTE("pigbrute", "pigbr", "meaniepiglin", "piglinbr"),
         PIGLIN("pigman", "pigmen", "pman", "pigm", "piglin"),
         STRAY,
+        CAMEL_HUSK("deadcamel", "dcamel", "camelhusk", "chusk"),
         HUSK,
         ZOMBIE_VILLAGER("zvillager", "deadvillager", "dvillager", "zvill", "dvill"),
         SKELETON_HORSE("skhorse", "shorse", "bonehorse"),
@@ -140,6 +141,10 @@ public class MobAliasProvider extends CompoundAliasProvider {
         BOGGED,
         BREEZE,
         CREAKING("creak"),
+        COPPER_GOLEM("coppergolem", "cgolem", "sorter"),
+        NAUTILUS("nautilus", "naut"),
+        ZOMBIE_NAUTILUS("zombienautilus", "zombnautilus", "znautilus", "znaut", "zombnaut"),
+        PARCHED("parched", "parch"),
         PLAYER("steve"),
         ;
 

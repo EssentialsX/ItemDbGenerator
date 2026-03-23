@@ -106,7 +106,13 @@ public class CopperBuildingBlockAliasProvider extends CompoundAliasProvider {
         TRAPDOOR(null, "%strapdoor", "%sdoortrap", "%shatch", "%stdoor", "%sdoort", "%strapd", "%sdtrap"),
         BULB(null, "%sbulb"),
         GRATE(null, "%sgrate"),
-        BLOCK("^[A-Z]+_(SLAB|STAIRS)", true, "%scopperblock", "%scopblock", "%scoblock"),
+        GOLEM_STATUE(null, "%sgolemstatue", "%sstatue", "%sgolem"),
+        LANTERN(null, "%slantern", "%slantern", "%slight"),
+        LIGHTNING_ROD(null, "%srod", "%slrod", "%slightrod"),
+        BARS(null, "%sbars", "%sbar", "%sbarsb", "%sbarsblock", "%sfence"),
+        CHAIN(null, "%schain", "%slink", "%schains", "%slinks"),
+        CHEST(null, "%schest", "%scontainer", "%sdrawer"),
+        BLOCK("^[A-Z_]+_(SLAB|STAIRS)", true, "%scopperblock", "%scopblock", "%scoblock"),
         ;
 
         private final Pattern regex;

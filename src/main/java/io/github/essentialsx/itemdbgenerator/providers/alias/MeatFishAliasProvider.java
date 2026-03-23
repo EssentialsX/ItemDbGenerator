@@ -72,7 +72,7 @@ public class MeatFishAliasProvider extends CompoundAliasProvider {
         COOKED("COOKED_[A-Z_]+", "%scooked", "%scook", "%sc", "%sgrilled", "%sgrill", "%sg", "%sroasted", "%sroast", "%sro", "%sbbq", "%stoasted", "cooked%s", "cook%s", "c%s", "grilled%s", "grill%s", "g%s", "roasted%s", "roast%s", "ro%s", "bbq%s", "toasted%s"),
         HIDE("[A-Z_]+_HIDE", "%shide", "%sskin", "%scoat", "%sfur"),
         STEW("[A-Z_]+_STEW", "%sstew", "%ssoup"),
-        RAW("^(?!COOKED_)[A-Z_]+(?!_STEW)$", "raw%s", "ra%s", "uncooked%s", "plain%s", "%s"),
+        RAW("^(?!COOKED_|MUSIC_DISC_)[A-Z_]+(?!_STEW)$", "raw%s", "ra%s", "uncooked%s", "plain%s", "%s"),
         ;
 
         private final Pattern regex;

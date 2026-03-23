@@ -33,6 +33,8 @@ public class MaterialFallbacks {
         add(Material.DIRT_PATH, "GRASS_PATH");
         /* 1.20.3: Grass was renamed to short grass */
         add(Material.SHORT_GRASS, "GRASS");
+        /* 1.21.9: Chain was renamed to iron chain */
+        add(Material.IRON_CHAIN, "CHAIN");
     }
 
     private MaterialFallbacks() {
