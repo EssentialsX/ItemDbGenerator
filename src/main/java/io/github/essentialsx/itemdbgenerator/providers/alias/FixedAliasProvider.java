@@ -32,6 +32,7 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.BEACON, "beaconblock");
         add(Material.CHIPPED_ANVIL, "slightlydamagedanvil", "slightdamageanvil");
         add(Material.DAMAGED_ANVIL, "verydamagedanvil");
+        add(Material.STRAW_BED, "haybed", "haybalebed");
         // == Dirt ==
         add(Material.GRASS_BLOCK, "greendirt", "greenearth", "greenland");
         add(Material.DIRT_PATH, "path", "gpath", "grasspath", "grass_path", "minecraft:grass_path", "dpath");
@@ -135,6 +136,10 @@ public class FixedAliasProvider implements AliasProvider {
         add(Material.PALE_MOSS_CARPET, "pmosscarpet", "palemossfloor", "pmossfloor");
         add(Material.WILDFLOWERS, "wildflower", "wflowers", "wflower");
         add(Material.LEAF_LITTER, "litter", "llitter", "leaflit", "spottedleaf");
+        add(Material.GOLDEN_DANDELION, "goldenflower", "goldflower", "gflower", "gdandelion");
+        add(Material.POTTED_GOLDEN_DANDELION, "pottedgoldenflower", "pottedgoldflower", "potgflower", "pottedgdandelion");
+        add(Material.RED_SHRUB, "rshrub");
+        add(Material.SHELF_MUSHROOM, "shelfshroom");
         // == Minerals ==
         add(Material.RESIN_CLUMP, "resclump", "rclump");
         // == Tools and Combat ==
