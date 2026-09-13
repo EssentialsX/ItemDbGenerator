@@ -34,6 +34,10 @@ public class WoodAliasProvider extends CompoundAliasProvider {
         MANGROVE("man", "m"),
         CHERRY("cherry", "cher", "c"),
         BAMBOO("bamboo", "bam", "bamb"),
+        ORANGE_POPLAR("orangepoplar", "op", "orangepop", "opop"),
+        RED_POPLAR("redpoplar", "rp", "redpop", "rpop"),
+        YELLOW_POPLAR("yellowpoplar", "yp", "yellowpop", "ypop"),
+        POPLAR("poplar", "pop", "larp"),
         ;
 
         private final String[] names;
