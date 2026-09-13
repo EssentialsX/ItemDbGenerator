@@ -14,7 +14,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         "[A-Z_]*COPPER[A-Z_]*",
         "RESIN_BRICK",
         "RESIN_BRICKS",
-        "CHISELED_RESIN_BRICKS"
+        "CHISELED_RESIN_BRICKS",
+        "[A-Z_]*SULFUR_CUBE[A-Z_]*"
     );
 
     @Override
@@ -75,6 +76,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         CHISELED_STONE(null, "{CHISELED}st", "{CHISELED}stone"),
         CHISELED_TUFF_BRICKS(null, "{CHISELED}tuffbricks", "{CHISELED}tuffbr"),
         CHISELED_TUFF(null, "{CHISELED}tuff", "{CHISELED}tuf"),
+        CHISELED_SULFUR(null, "{CHISELED}sulfur", "{CHISELED}sulf"),
+        CHISELED_CINNABAR(null, "{CHISELED}cinnabar", "{CHISELED}cinn", "{CHISELED}cinnab", "{CHISELED}cbar"),
         CRACKED_NETHER_BRICK(null, "{CRACKED}nbr", "{CRACKED}nbrick", "{CRACKED}nethbr", "{CRACKED}nethbrick", "{CRACKED}netherbr", "{CRACKED}netherbrick"),
         CRACKED_POLISHED_BLACKSTONE(null, "{CRACKED}{POLISHED}blstone", "{CRACKED}{POLISHED}blst", "{CRACKED}{POLISHED}blackstone", "{POLISHED}{CRACKED}blstone", "{POLISHED}{CRACKED}blst", "{POLISHED}{CRACKED}blackstone"),
         CRACKED_DEEPSLATE_BRICKS(null, "{CRACKED}deepslatebricks", "{CRACKED}dslatebricks", "{CRACKED}slatebricks", "{CRACKED}deepslatebr", "{CRACKED}dslatebr", "{CRACKED}slatebr"),
@@ -100,6 +103,8 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         POLISHED_DEEPSLATE(null, "{POLISHED}deepslate", "{POLISHED}dslate", "{POLISHED}slate"),
         PACKED_MUD(null, "{PACKED}mud"),
         POLISHED_TUFF(null, "{POLISHED}tuff", "{POLISHED}tuf"),
+        POLISHED_SULFUR(null, "{POLISHED}sulfur", "{POLISHED}sulf"),
+        POLISHED_CINNABAR(null, "{POLISHED}cinnabar", "{POLISHED}cinn", "{POLISHED}cinnab", "{POLISHED}cbar"),
         DRIPSTONE(null, "dripstone", "drip"),
         COBBLESTONE(null, "cobble", "cstone", "cs", "cst"),
         ANDESITE(null, "astone", "andstone", "and"),
@@ -125,7 +130,13 @@ public class MineralAliasProvider extends CompoundAliasProvider {
         MUD("^MUD(?!DY)", "mud"),
         TUFF_BRICKS(null, "tuffbricks", "tuffbr"),
         RESIN_BRICK(null, "resbrick", "resbr", "resinbr"),
-        TUFF("^TUFF(?!_BRICK)", "tuff", "tuf")
+        TUFF("^TUFF(?!_BRICK)", "tuff", "tuf"),
+        SULFUR_BRICK(null, "sulfurbricks", "sulfurbr", "sulfbricks", "sulfbr"),
+        CINNABAR_BRICK(null, "cinnabarbricks", "cinnabarbr", "cinnbricks", "cinnbr", "cinnabbricks", "cinnabbr", "cbarbricks", "cbarbr"),
+        SULFUR_SPIKE(null, "sulfurspike", "sulfspike", "spike"),
+        POTENT_SULFUR(null, "potentsulfur", "potentsulf"),
+        SULFUR(null, "sulfur", "sulf"),
+        CINNABAR(null, "cinnabar", "cinn", "cinnab", "cbar"),
         ;
 
         private final Pattern regex;

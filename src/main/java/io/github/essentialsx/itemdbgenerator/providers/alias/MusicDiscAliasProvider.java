@@ -82,7 +82,8 @@ public class MusicDiscAliasProvider extends CompoundAliasProvider {
         CREATOR_MUSIC_BOX("MUSIC_DISC_CREATOR_MUSIC_BOX", "creatormusicbox", "creatormusicb", "creatormbox", "creatormb"),
         PRECIPICE("MUSIC_DISC_PRECIPICE", "precipice"),
         TEARS("MUSIC_DISC_TEARS", "tears", "ghast"),
-        LAVA_CHICKEN("MUSIC_DISC_LAVA_CHICKEN", "lavachicken", "lava", "chicken", "lchicken", "lchick")
+        LAVA_CHICKEN("MUSIC_DISC_LAVA_CHICKEN", "lavachicken", "lava", "chicken", "lchicken", "lchick"),
+        BOUNCE("MUSIC_DISC_BOUNCE", "bounce", "bouncy"),
         ;
 
         private final Pattern regex;

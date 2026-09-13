@@ -9,6 +9,7 @@ import io.github.essentialsx.itemdbgenerator.providers.alias.ColourAliasProvider
 import io.github.essentialsx.itemdbgenerator.providers.alias.CopperBuildingBlockAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.CrystalAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.DeepFungiAliasProvider;
+import io.github.essentialsx.itemdbgenerator.providers.alias.ExplorerMapAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.FixedAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.MeatFishAliasProvider;
 import io.github.essentialsx.itemdbgenerator.providers.alias.MineableAliasProvider;
@@ -66,6 +67,7 @@ public class Main extends JavaPlugin {
             new CrystalAliasProvider(),
             new RailAliasProvider(),
             new MinecartAliasProvider(),
+            new ExplorerMapAliasProvider(),
             new PistonAliasProvider(),
             new DeepFungiAliasProvider(),
             new CopperBuildingBlockAliasProvider(),

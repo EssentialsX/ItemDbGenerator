@@ -145,6 +145,7 @@ public class MobAliasProvider extends CompoundAliasProvider {
         NAUTILUS("nautilus", "naut"),
         ZOMBIE_NAUTILUS("zombienautilus", "zombnautilus", "znautilus", "znaut", "zombnaut"),
         PARCHED("parched", "parch"),
+        SULFUR_CUBE("sulfurcube", "sulfur", "sulfurc"),
         PLAYER("steve"),
         ;
 

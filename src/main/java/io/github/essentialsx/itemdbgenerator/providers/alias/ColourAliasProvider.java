@@ -86,8 +86,11 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         BUNDLE(null, "%sbundle"),
         CANDLE(null, "%scandle"),
         CARPET(null, "%scarpet", "%sfloor"),
-        CONCRETE("[A-Z_]+_CONCRETE(?!_POWDER)", "%sconcrete"),
+        CONCRETE("[A-Z_]+_CONCRETE(?!_POWDER|_SLAB|_STAIRS)", "%sconcrete"),
         CONCRETE_POWDER(null, "%sconcretepowder", "%sconcretesand", "%scpowder", "%scdust", "%scp"),
+        CONCRETE_SLAB(null, "%sconcreteslab", "%scslab"),
+        CONCRETE_STAIRS(null, "%sconcretestairs", "%scstairs"),
+        CUSHION(null, "%scushion", "%spillow", "%sseat"),
         DYE(null, "%sdye"),
         GLAZED_TERRACOTTA(null, "%sglazedtcota", "%sglazedterra", "%sglazedterracotta", "%sglazedterracota", "%sgtcotta", "%sgterra"),
         HARNESS(null, "%sharness"),
@@ -95,7 +98,9 @@ public class ColourAliasProvider extends CompoundAliasProvider {
         STAINED_GLASS("[A-Z_]+_STAINED_GLASS(?!_PANE)", "%sglass", "%ssglass", "%sstainedglass"),
         STAINED_GLASS_PANE(null, "%sglasspane", "%ssglasspane", "%sstainedglasspane", "%sgpane"),
         TERRACOTTA(null, "%sclay", "%ssclay", "%sstainedclay", "%sterra", "%stcota", "%sterracota", "%sterracotta"),
-        WOOL(null, "%swool", "%scloth", "%scotton");
+        WOOL("[A-Z_]+_WOOL(?!_SLAB|_STAIRS)", "%swool", "%scloth", "%scotton"),
+        WOOL_SLAB(null, "%swoolslab", "%sslab"),
+        WOOL_STAIRS(null, "%swoolstairs", "%sstairs");
 
         private final Pattern regex;
         private final String[] formats;
